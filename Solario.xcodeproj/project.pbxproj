@@ -3,22 +3,62 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A128AA0B1F31E42700505390 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* Extensions.swift */; };
+		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
+		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
+		A128AA111F32449100505390 /* RawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA101F32449100505390 /* RawViewController.swift */; };
+		A128AA131F3253E300505390 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
+		A128AA151F32541200505390 /* LastMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA141F32541200505390 /* LastMonthReport.swift */; };
+		A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA161F32542200505390 /* CurrentMonthReport.swift */; };
+		A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA181F32543500505390 /* ThreeDayForecastReport.swift */; };
+		A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */; };
+		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
+		A128AA1F1F3255F900505390 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1E1F3255F900505390 /* Tester.swift */; };
+		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
+		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
+		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
+		A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16D1EEFD4BD007A730B /* ParserError.swift */; };
+		A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */; };
+		A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* DataFileParser.swift */; };
+		A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */; };
+		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
+		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
+		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
-		A1E594C71E6C1891008745B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ViewController.swift */; };
-		A1E594CA1E6C1891008745B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E594C81E6C1891008745B1 /* Main.storyboard */; };
+		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
 		A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A128AA0A1F31E42700505390 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A128AA101F32449100505390 /* RawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = RawViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A128AA121F3253E300505390 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		A128AA141F32541200505390 /* LastMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMonthReport.swift; sourceTree = "<group>"; };
+		A128AA161F32542200505390 /* CurrentMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMonthReport.swift; sourceTree = "<group>"; };
+		A128AA181F32543500505390 /* ThreeDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastReport.swift; sourceTree = "<group>"; };
+		A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastReport.swift; sourceTree = "<group>"; };
+		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
+		A128AA1E1F3255F900505390 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
+		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
+		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
+		A13AB16D1EEFD4BD007A730B /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
+		A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetreiver.swift; sourceTree = "<group>"; };
+		A13AB1711EEFD4F2007A730B /* DataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileParser.swift; sourceTree = "<group>"; };
+		A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAADataFileParser.swift; sourceTree = "<group>"; };
+		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
+		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
+		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1E594C61E6C1891008745B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1E594C91E6C1891008745B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A1E594C61E6C1891008745B1 /* ReportListViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A1E594CB1E6C1891008745B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E594CE1E6C1891008745B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E594D01E6C1891008745B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +75,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A13AB1801EEFD819007A730B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
+				A13AB16D1EEFD4BD007A730B /* ParserError.swift */,
+				A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */,
+				A17427AC1F155671009852DD /* DataFileParser */,
+				A13AB1811EEFD895007A730B /* DataItem */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A13AB1811EEFD895007A730B /* DataItem */ = {
+			isa = PBXGroup;
+			children = (
+				A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */,
+				A13AB1691EEFD47F007A730B /* DataItem.swift */,
+			);
+			path = DataItem;
+			sourceTree = "<group>";
+		};
+		A17427AC1F155671009852DD /* DataFileParser */ = {
+			isa = PBXGroup;
+			children = (
+				A13AB1711EEFD4F2007A730B /* DataFileParser.swift */,
+				A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */,
+				A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */,
+				A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */,
+				A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */,
+			);
+			path = DataFileParser;
+			sourceTree = "<group>";
+		};
 		A1E594B81E6C1891008745B1 = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +128,22 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
-				A1E594C61E6C1891008745B1 /* ViewController.swift */,
-				A1E594C81E6C1891008745B1 /* Main.storyboard */,
+				A128AA1E1F3255F900505390 /* Tester.swift */,
+				A128AA121F3253E300505390 /* Report.swift */,
+				A128AA141F32541200505390 /* LastMonthReport.swift */,
+				A128AA161F32542200505390 /* CurrentMonthReport.swift */,
+				A128AA181F32543500505390 /* ThreeDayForecastReport.swift */,
+				A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */,
+				A13AB1801EEFD819007A730B /* Data */,
+				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
+				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
+				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
+				A128AA101F32449100505390 /* RawViewController.swift */,
+				A128AA0A1F31E42700505390 /* Extensions.swift */,
 				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
 				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
 				A1E594D01E6C1891008745B1 /* Info.plist */,
+				A128AA0C1F31E4F100505390 /* Localizable.strings */,
 			);
 			path = Solario;
 			sourceTree = "<group>";
@@ -92,17 +176,16 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = azfalt;
+				ORGANIZATIONNAME = "Herman Wagenleitner";
 				TargetAttributes = {
 					A1E594C01E6C1891008745B1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = HHKU5A364G;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = A1E594BC1E6C1891008745B1 /* Build configuration list for PBXProject "Solario" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -125,8 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */,
+				A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */,
 				A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */,
-				A1E594CA1E6C1891008745B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +220,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1E594C71E6C1891008745B1 /* ViewController.swift in Sources */,
+				A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */,
+				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
+				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
+				A128AA131F3253E300505390 /* Report.swift in Sources */,
+				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
+				A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */,
+				A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */,
+				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
+				A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */,
+				A128AA111F32449100505390 /* RawViewController.swift in Sources */,
+				A128AA151F32541200505390 /* LastMonthReport.swift in Sources */,
+				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
+				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
+				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
+				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
+				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
+				A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */,
+				A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */,
+				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
+				A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */,
+				A128AA1F1F3255F900505390 /* Tester.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,14 +248,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1E594C81E6C1891008745B1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1E594C91E6C1891008745B1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -260,11 +355,11 @@
 		A1E594D41E6C1891008745B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.Solario;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -273,11 +368,11 @@
 		A1E594D51E6C1891008745B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.Solario;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -302,6 +397,7 @@
 				A1E594D51E6C1891008745B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

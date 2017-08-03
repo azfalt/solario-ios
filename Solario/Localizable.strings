@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Solario
+
+  Created by Herman Wagenleitner on 02/08/2017.
+  Copyright © 2017 Herman Wagenleitner. All rights reserved.
+*/
+
+_current_section_title = "Current Value, Kp index";
+_reports_section_title = "Reports";
+
+_report_title_last_month_fact = "Last Month";
+_report_title_current_month_fact = "Current Month";
+_report_title_three_day_forecast = "3-Day Forecast";
+_report_title_twenty_seven_day_forecast = "27-Day Forecast";
+
+_issued_with_placeholder = "Issued %@";
+
+_action_open = "Open";
