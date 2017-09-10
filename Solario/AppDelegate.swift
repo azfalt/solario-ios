@@ -13,18 +13,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  let reportsInteractor = ReportsInteractor()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    let nc = UINavigationController(rootViewController: ReportListViewController())
+    let reportListVC = ReportListViewController()
+    reportListVC.reportsInteractor = reportsInteractor
+    let nc = UINavigationController(rootViewController: reportListVC)
     window?.rootViewController = nc
     window?.makeKeyAndVisible()
 
     window?.tintColor = UIColor(red:0.99, green:0.38, blue:0.25, alpha:1.00)
 
+    UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+
     return true
+  }
+
+  func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    reportsInteractor.loadReports(completion: {
+      completionHandler(.newData)
+    })
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

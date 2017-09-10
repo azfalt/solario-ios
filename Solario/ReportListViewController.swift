@@ -14,31 +14,17 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
     case current, reports
   }
 
+  public var reportsInteractor: ReportsInteractor!
+
   private let sections: [SectionType] = [.current, .reports]
 
   private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   private var refreshControl = UIRefreshControl()
 
-  private let lastMonthReport = LastMonthReport()
-
-  private let currentMonthReport = CurrentMonthReport()
-
-  private let threeDayForecastReport = ThreeDayForecastReport()
-
-  private let twentySevenDayForecastReport = TwentySevenDayForecastReport()
-
-  private lazy var reports: [Report] = [
-    self.lastMonthReport,
-    self.currentMonthReport,
-    self.threeDayForecastReport,
-    self.twentySevenDayForecastReport
-  ]
-
   override func viewDidLoad() {
     super.viewDidLoad()
     configure()
-    loadReports()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -50,29 +36,32 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
     title = "Solario"
     configureTableView()
     configureRefreshControl()
+    subsribeToReportsNotifications()
   }
 
-  @objc private func loadReports() {
+  private func subsribeToReportsNotifications() {
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(updateLoadingState),
+                                           name: ReportsInteractor.ReportsNotification.ReportWillStartLoading,
+                                           object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(updateLoadingState),
+                                           name: ReportsInteractor.ReportsNotification.ReportDidFinishLoading,
+                                           object: nil)
+  }
+
+  dynamic private func loadReports() {
     refreshControl.beginRefreshing()
-    for report in reports {
-      report.load(completion: { [weak self] in
-        DispatchQueue.main.async {
-          self?.tableView.reloadData()
-          if self?.isAnyReportLoading == false {
-            self?.refreshControl.endRefreshing()
-          }
-        }
-      })
-    }
+    reportsInteractor.loadReports()
   }
 
-  private var isAnyReportLoading: Bool {
-    for report in reports {
-      if report.isLoading {
-        return true
+  dynamic func updateLoadingState() {
+    DispatchQueue.main.async {
+      self.tableView.reloadData()
+      if self.reportsInteractor.isAnyReportLoading == false && self.refreshControl.isRefreshing {
+        self.refreshControl.endRefreshing()
       }
     }
-    return false
   }
 
   private func configureTableView() {
@@ -102,7 +91,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
     case .current:
       return 1
     case .reports:
-      return reports.count
+      return reportsInteractor.reports.count
     }
   }
 
@@ -117,23 +106,29 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
 
   private func cellForCurrentValue() -> UITableViewCell {
     let cell = ReportItemTableViewCell()
-    cell.configure(item: currentMonthReport.items?.last)
+    cell.configure(item: reportsInteractor.currentMonthReport.items?.last)
     return cell
   }
 
   private func cellForReport(row: Int) -> UITableViewCell {
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReportCell")
-    let report = reports[row]
+    let report = reportsInteractor.reports[row]
     cell.textLabel?.text = report.title
-    if let loadDate = report.loadDate {
-      let dateString = loadDateFormatter.string(from: loadDate)
-      cell.detailTextLabel?.text = dateString
-      cell.detailTextLabel?.textColor = UIColor.lightGray
-    } else {
-      cell.detailTextLabel?.text = nil
-    }
+    cell.detailTextLabel?.textColor = UIColor.lightGray
+    cell.detailTextLabel?.text = statusString(forReport: report)
     cell.accessoryType = .disclosureIndicator
     return cell
+  }
+
+  private func statusString(forReport report: Report) -> String? {
+    var string: String?
+    if let loadDate = report.loadDate {
+      string = loadDateFormatter.string(from: loadDate)
+    }
+    if report.isLoading {
+      string = (string ?? "") + " " + "_report_status_loading".localized
+    }
+    return string?.trimmingCharacters(in: .whitespaces)
   }
 
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -157,7 +152,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch sections[indexPath.section] {
     case .reports:
-      let report = reports[indexPath.row]
+      let report = reportsInteractor.reports[indexPath.row]
       showReport(report)
     default:
       break

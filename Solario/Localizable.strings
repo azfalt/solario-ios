@@ -17,3 +17,5 @@ _report_title_twenty_seven_day_forecast = "27-Day Forecast";
 _issued_with_placeholder = "Issued %@";
 
 _action_open = "Open";
+
+_report_status_loading = "Loading...";

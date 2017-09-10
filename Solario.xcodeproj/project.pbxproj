@@ -18,6 +18,7 @@
 		A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */; };
 		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
 		A128AA1F1F3255F900505390 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1E1F3255F900505390 /* Tester.swift */; };
+		A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* ReportsInteractor.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
 		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
@@ -46,6 +47,7 @@
 		A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastReport.swift; sourceTree = "<group>"; };
 		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
 		A128AA1E1F3255F900505390 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
+		A13479B81F654BA500435648 /* ReportsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				A128AA161F32542200505390 /* CurrentMonthReport.swift */,
 				A128AA181F32543500505390 /* ThreeDayForecastReport.swift */,
 				A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */,
+				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
 				A13AB1801EEFD819007A730B /* Data */,
 				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
 				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
@@ -181,6 +184,11 @@
 					A1E594C01E6C1891008745B1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -225,6 +233,7 @@
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
+				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
 				A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */,
 				A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */,
 				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
