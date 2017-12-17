@@ -44,7 +44,7 @@ extension ReportItemTableViewCell {
 
     private var dateFormatter: DateFormatter {
         let df = DateFormatter()
-        df.dateStyle = .short
+        df.dateStyle = .none
         df.timeStyle = .short
         return df
     }
