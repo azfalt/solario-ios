@@ -42,11 +42,11 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
   private func subsribeToReportsNotifications() {
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(updateLoadingState),
-                                           name: ReportsInteractor.ReportsNotification.ReportWillStartLoading,
+                                           name: ReportsInteractor.Notifications.ReportWillStartLoading,
                                            object: nil)
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(updateLoadingState),
-                                           name: ReportsInteractor.ReportsNotification.ReportDidFinishLoading,
+                                           name: ReportsInteractor.Notifications.ReportDidFinishLoading,
                                            object: nil)
   }
 

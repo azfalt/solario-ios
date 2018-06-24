@@ -10,7 +10,7 @@ import Foundation
 
 class ReportsInteractor {
 
-  struct ReportsNotification {
+  struct Notifications {
 
     static let ReportWillStartLoading = Notification.Name("ReportsNotification.ReportWillStartLoading")
 
@@ -58,9 +58,9 @@ class ReportsInteractor {
 
   public func loadReports(completion: (() -> Void)? = nil) {
     for report in reports {
-      NotificationCenter.default.post(name: ReportsNotification.ReportWillStartLoading, object: report)
+      NotificationCenter.default.post(name: Notifications.ReportWillStartLoading, object: report)
       report.load(completion: { [weak self] in
-        NotificationCenter.default.post(name: ReportsNotification.ReportDidFinishLoading, object: report)
+        NotificationCenter.default.post(name: Notifications.ReportDidFinishLoading, object: report)
         if self?.isAnyReportLoading == false {
           completion?()
         }
