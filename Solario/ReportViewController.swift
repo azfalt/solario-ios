@@ -24,21 +24,26 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     super.viewDidLoad()
     configure()
     groupItems()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     scrollToNearestDate()
   }
 
   private func scrollToNearestDate() {
     if let indexPath = nearestIndexPath {
-      tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+      tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
   }
 
-  @objc private func loadReport() {
+  @objc private func loadReport(completion: (() -> Void)?) {
     report.load(completion: { [weak self] in
       DispatchQueue.main.async {
         self?.groupItems()
         self?.tableView.reloadData()
         self?.refreshControl.endRefreshing()
+        completion?()
       }
     })
   }
