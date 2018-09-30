@@ -42,13 +42,12 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     }
   }
 
-  @objc private func loadReport(completion: (() -> Void)?) {
+  @objc private func loadReport() {
     report.load(completion: { [weak self] in
       DispatchQueue.main.async {
         self?.groupItems()
         self?.tableView.reloadData()
         self?.refreshControl.endRefreshing()
-        completion?()
       }
     })
   }
