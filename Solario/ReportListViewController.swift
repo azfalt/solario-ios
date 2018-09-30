@@ -113,8 +113,9 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
   private func cellForReport(row: Int) -> UITableViewCell {
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReportCell")
     let report = reportsInteractor.reports[row]
+    cell.textLabel?.textColor = Appearance.textColor
     cell.textLabel?.text = report.title
-    cell.detailTextLabel?.textColor = UIColor.lightGray
+    cell.detailTextLabel?.textColor = Appearance.secondaryTextColor
     cell.detailTextLabel?.text = statusString(forReport: report)
     cell.accessoryType = .disclosureIndicator
     return cell

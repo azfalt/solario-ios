@@ -12,16 +12,21 @@ class ReportItemTableViewCell: UITableViewCell {
 
     init() {
         super.init(style: UITableViewCellStyle.value1, reuseIdentifier: String(describing: ReportItemTableViewCell.self))
-        selectionStyle = .none
+        configure()
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.value1, reuseIdentifier: reuseIdentifier)
-        selectionStyle = .none
+        configure()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func configure() {
+        selectionStyle = .none
+        textLabel?.textColor = Appearance.textColor
     }
 }
 

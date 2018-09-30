@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   let reportsInteractor = ReportsInteractor()
 
+  // MARK: - UIApplicationDelegate
+
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
 
@@ -25,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = nc
     window?.makeKeyAndVisible()
 
-    window?.tintColor = UIColor(red:0.99, green:0.38, blue:0.25, alpha:1.00)
+    configureAppearance()
 
     UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 
@@ -58,5 +60,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+  }
+
+  // MARK: - Helpers
+
+  private func configureAppearance() {
+
+    // UIWindow
+    window?.tintColor = Appearance.tintColor
+
+    // UINavigationBar
+    UINavigationBar.appearance().titleTextAttributes = [
+      NSForegroundColorAttributeName: Appearance.textColor
+    ]
+    UINavigationBar.appearance().barTintColor = Appearance.navBarBgColor
+    UINavigationBar.appearance().isTranslucent = true
+    UINavigationBar.appearance().barStyle = Appearance.navBarStyle
+
+    // UITableView
+    UITableView.appearance().backgroundColor = Appearance.secondaryBgColor
+    UITableView.appearance().separatorColor = Appearance.separatorColor
+
+    // UITableViewCell
+    UITableViewCell.appearance().backgroundColor = Appearance.bgColor
+    let selectedBackgroundView = UIView()
+    selectedBackgroundView.backgroundColor = Appearance.selectionColor
+    UITableViewCell.appearance().selectedBackgroundView = selectedBackgroundView
+    UITableViewCell.appearance().textLabel?.textColor = Appearance.textColor
   }
 }

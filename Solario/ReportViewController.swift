@@ -12,7 +12,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
 
   public var report: Report!
 
-  private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
+  private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
   private var refreshControl = UIRefreshControl()
 
@@ -26,14 +26,19 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     groupItems()
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    scrollToNearestDate()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    scrollToNearestDate(animated: false)
   }
 
-  private func scrollToNearestDate() {
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    scrollToNearestDate(animated: true)
+  }
+
+  private func scrollToNearestDate(animated: Bool) {
     if let indexPath = nearestIndexPath {
-      tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+      tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
     }
   }
 

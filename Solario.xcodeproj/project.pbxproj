@@ -29,6 +29,7 @@
 		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
 		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
 		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
+		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
 		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
 		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
 		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
+		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A1E594C61E6C1891008745B1 /* ReportListViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
+				A1789DFB216161460068AA02 /* Appearance.swift */,
 				A128AA1E1F3255F900505390 /* Tester.swift */,
 				A128AA121F3253E300505390 /* Report.swift */,
 				A128AA141F32541200505390 /* LastMonthReport.swift */,
@@ -247,6 +250,7 @@
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
 				A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */,
 				A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */,
+				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
 				A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */,
 				A128AA1F1F3255F900505390 /* Tester.swift in Sources */,
