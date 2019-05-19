@@ -10,62 +10,62 @@ import Foundation
 import UIKit
 
 class ReportsInteractor {
-
-  struct Notifications {
-
-    static let ReportWillStartLoading = Notification.Name("ReportsNotification.ReportWillStartLoading")
-
-    static let ReportDidFinishLoading = Notification.Name("ReportsNotification.ReportDidFinishLoading")
-  }
-
-  public let lastMonthReport = LastMonthReport()
-
-  public let currentMonthReport = CurrentMonthReport()
-
-  public let threeDayForecastReport = ThreeDayForecastReport()
-
-  public let twentySevenDayForecastReport = TwentySevenDayForecastReport()
-
-  public lazy var reports: [Report] = [
-    self.lastMonthReport,
-    self.currentMonthReport,
-    self.threeDayForecastReport,
-    self.twentySevenDayForecastReport
-  ]
-
-  public var isAnyReportLoading: Bool {
-    for report in reports {
-      if report.isLoading {
-        return true
-      }
+    
+    struct Notifications {
+        
+        static let ReportWillStartLoading = Notification.Name("ReportsNotification.ReportWillStartLoading")
+        
+        static let ReportDidFinishLoading = Notification.Name("ReportsNotification.ReportDidFinishLoading")
     }
-    return false
-  }
-
-  init() {
-    subsribeToAppNotifications()
-  }
-
-  private func subsribeToAppNotifications() {
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(loadReports),
-                                           name: UIApplication.didBecomeActiveNotification,
-                                           object: nil)
-  }
-
-  @objc private func loadReports() {
-    loadReports(completion: nil)
-  }
-
-  public func loadReports(completion: (() -> Void)? = nil) {
-    for report in reports {
-      NotificationCenter.default.post(name: Notifications.ReportWillStartLoading, object: report)
-      report.load(completion: { [weak self] in
-        NotificationCenter.default.post(name: Notifications.ReportDidFinishLoading, object: report)
-        if self?.isAnyReportLoading == false {
-          completion?()
+    
+    public let lastMonthReport = LastMonthReport()
+    
+    public let currentMonthReport = CurrentMonthReport()
+    
+    public let threeDayForecastReport = ThreeDayForecastReport()
+    
+    public let twentySevenDayForecastReport = TwentySevenDayForecastReport()
+    
+    public lazy var reports: [Report] = [
+        self.lastMonthReport,
+        self.currentMonthReport,
+        self.threeDayForecastReport,
+        self.twentySevenDayForecastReport
+    ]
+    
+    public var isAnyReportLoading: Bool {
+        for report in reports {
+            if report.isLoading {
+                return true
+            }
         }
-      })
+        return false
     }
-  }
+    
+    init() {
+        subsribeToAppNotifications()
+    }
+    
+    private func subsribeToAppNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(loadReports),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
+    }
+    
+    @objc private func loadReports() {
+        loadReports(completion: nil)
+    }
+    
+    public func loadReports(completion: (() -> Void)? = nil) {
+        for report in reports {
+            NotificationCenter.default.post(name: Notifications.ReportWillStartLoading, object: report)
+            report.load(completion: { [weak self] in
+                NotificationCenter.default.post(name: Notifications.ReportDidFinishLoading, object: report)
+                if self?.isAnyReportLoading == false {
+                    completion?()
+                }
+            })
+        }
+    }
 }

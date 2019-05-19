@@ -10,91 +10,91 @@ import Foundation
 
 class MonthFactParser: DataFileParser {
 
-  var rawDataFile: RawDataFile
+    var rawDataFile: RawDataFile
 
-  var issueDate: Date?
+    var issueDate: Date?
 
-  init(rawDataFile: RawDataFile) {
-    self.rawDataFile = rawDataFile
-  }
+    init(rawDataFile: RawDataFile) {
+        self.rawDataFile = rawDataFile
+    }
 
-  func items() throws -> [DataItem] {
+    func items() throws -> [DataItem] {
 
-    var items: [DataItem] = []
+        var items: [DataItem] = []
 
-    for line in rawDataFile.lines {
+        for line in rawDataFile.lines {
 
-      var preparedLine = removeLongWhitespaces(fromText: line)
+            var preparedLine = removeLongWhitespaces(fromText: line)
 
-      preparedLine = preparedLine.trimmingCharacters(in: .whitespaces)
+            preparedLine = preparedLine.trimmingCharacters(in: .whitespaces)
 
-//      let lineComps = preparedLine.split(separator: " ") // swift 4
-      let lineComps = preparedLine.components(separatedBy: " ") // swift 3
+//            let lineComps = preparedLine.split(separator: " ") // swift 4
+            let lineComps = preparedLine.components(separatedBy: " ") // swift 3
 
-      guard lineComps.count > 1 else {
-        continue
-      }
+            guard lineComps.count > 1 else {
+                continue
+            }
 
-      let dateString = lineComps.first!
+            let dateString = lineComps.first!
 
-      guard let date = dateFormatter.date(from: dateString) else {
-        continue
-      }
+            guard let date = dateFormatter.date(from: dateString) else {
+                continue
+            }
 
-      let eightsCount = min(9, lineComps.count) - 1
+            let eightsCount = min(9, lineComps.count) - 1
 
-      for eighth in 1...eightsCount {
+            for eighth in 1...eightsCount {
 
-        let rawValue = lineComps[eighth]
+                let rawValue = lineComps[eighth]
 
-        guard let value = value(fromRaw: rawValue) else {
-          throw ParserError.unrecognizedFormat
+                guard let value = value(fromRaw: rawValue) else {
+                    throw ParserError.unrecognizedFormat
+                }
+
+                let dateComponents = self.dateComponents(from: date, eighth: eighth)
+                let item = DataItem(value: value, dateComponents: dateComponents, isForecast: false)
+                items.append(item)
+            }
         }
 
-        let dateComponents = self.dateComponents(from: date, eighth: eighth)
-        let item = DataItem(value: value, dateComponents: dateComponents, isForecast: false)
-        items.append(item)
-      }
+        return items
     }
 
-    return items
-  }
+    private let longWhitespacesRegex = try! NSRegularExpression(pattern: "[ ]+", options: [])
 
-  private let longWhitespacesRegex = try! NSRegularExpression(pattern: "[ ]+", options: [])
-
-  private func removeLongWhitespaces(fromText text: String) -> String {
-    let range = NSMakeRange(0, text.characters.count)
-    return longWhitespacesRegex.stringByReplacingMatches(in: text,
-                                                         options: [],
-                                                         range: range,
-                                                         withTemplate: " ")
-  }
-
-  private let dateFormat = "yyMMdd"
-
-  private func dateFormatter(format: String) -> DateFormatter {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = format
-    return dateFormatter
-  }
-
-  private lazy var dateFormatter: DateFormatter = self.dateFormatter(format: self.dateFormat)
-
-  private let valueStep: Float = 1 / 3
-
-  private func value(fromRaw raw: String) -> Float? {
-    guard
-      raw.characters.count == 2,
-      let integerValue = Int(String(raw.characters.first!)) else {
-        return nil
+    private func removeLongWhitespaces(fromText text: String) -> String {
+        let range = NSMakeRange(0, text.characters.count)
+        return longWhitespacesRegex.stringByReplacingMatches(in: text,
+                                                             options: [],
+                                                             range: range,
+                                                             withTemplate: " ")
     }
-    var value = Float(integerValue)
-    let half = raw.characters.last!
-    if half == "+" {
-      value += valueStep
-    } else if half == "-" {
-      value -= valueStep
+
+    private let dateFormat = "yyMMdd"
+
+    private func dateFormatter(format: String) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter
     }
-    return value
-  }
+
+    private lazy var dateFormatter: DateFormatter = self.dateFormatter(format: self.dateFormat)
+
+    private let valueStep: Float = 1 / 3
+
+    private func value(fromRaw raw: String) -> Float? {
+        guard
+            raw.characters.count == 2,
+            let integerValue = Int(String(raw.characters.first!)) else {
+                return nil
+        }
+        var value = Float(integerValue)
+        let half = raw.characters.last!
+        if half == "+" {
+            value += valueStep
+        } else if half == "-" {
+            value -= valueStep
+        }
+        return value
+    }
 }

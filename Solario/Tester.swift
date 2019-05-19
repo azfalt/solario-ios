@@ -9,16 +9,15 @@
 import Foundation
 
 class Tester {
-
+    
     func test() {
-
+        
         print("start test...")
-
+        
         let retreiver = RawDataRetreiver()
-
+        
         retreiver.retreiveLastMonthFactRawDataFile(completion: { rawDataFile in
             print("LAST MONTH FACT -----------------------------")
-            //      print("\(rawDataFile?.lines)")
             guard let rawDataFile = rawDataFile else {
                 return
             }
@@ -29,10 +28,9 @@ class Tester {
             }
             print("items = \(items)")
         })
-
+        
         retreiver.retreiveCurrentMonthFactRawDataFile(completion: { rawDataFile in
             print("CURRENT MONTH FACT -----------------------------")
-            //      print("\(rawDataFile?.lines)")
             guard let rawDataFile = rawDataFile else {
                 return
             }
@@ -42,11 +40,9 @@ class Tester {
             }
             print("items = \(items)")
         })
-
-
+        
         retreiver.retreiveThreeDayForecastRawDataFile(completion: { rawDataFile in
             print("03DFC -----------------------------")
-            //      print("\(rawDataFile?.lines)")
             guard let rawDataFile = rawDataFile else {
                 return
             }
@@ -58,10 +54,9 @@ class Tester {
             }
             print("items = \(items)")
         })
-
+        
         retreiver.retreiveTwentySevenDayForecastRawDataFile(completion: { rawDataFile in
             print("27DFC -----------------------------")
-            //      print("\(rawDataFile?.lines)")
             guard let rawDataFile = rawDataFile else {
                 return
             }

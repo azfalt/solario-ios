@@ -10,9 +10,9 @@ import Foundation
 
 struct DataItem {
 
-  let value: Float
+    let value: Float
 
-  let dateComponents: DataItemDateComponents
+    let dateComponents: DataItemDateComponents
 
-  let isForecast: Bool
+    let isForecast: Bool
 }

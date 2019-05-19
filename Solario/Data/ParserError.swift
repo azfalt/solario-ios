@@ -10,9 +10,9 @@ import Foundation
 
 public enum ParserError: Error {
 
-  case unrecognizedFormat
+    case unrecognizedFormat
 
-  case keyNotFound(String)
+    case keyNotFound(String)
 
-  case unknownDateFormat(String)
+    case unknownDateFormat(String)
 }

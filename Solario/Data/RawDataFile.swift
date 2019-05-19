@@ -8,31 +8,11 @@
 
 import Foundation
 
-//protocol RawDataFileProtocol {
-//
-//  //  init(text: String)//tmp
-//
-//  static var url: URL { get }
-//
-////  var url: URL { get }
-//
-//  var text: String { get }
-//
-//  var lines: [String] { get }
-//}
-//
-//extension RawDataFileProtocol {
-//
-//  var lines: [String] {
-//    return text.components(separatedBy: .newlines)
-//  }
-//}
-
 struct RawDataFile {
 
-  let text: String
+    let text: String
 
-  var lines: [String] {
-    return text.components(separatedBy: .newlines)
-  }
+    var lines: [String] {
+        return text.components(separatedBy: .newlines)
+    }
 }
