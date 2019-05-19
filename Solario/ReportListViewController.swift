@@ -2,8 +2,8 @@
 //  ReportListViewController.swift
 //  Solario
 //
-//  Created by Herman Wagenleitner on 05/03/2017.
-//  Copyright © 2017 Herman Wagenleitner. All rights reserved.
+//  Created by Hermann Wagenleitner on 05/03/2017.
+//  Copyright © 2017 Hermann Wagenleitner. All rights reserved.
 //
 
 import UIKit

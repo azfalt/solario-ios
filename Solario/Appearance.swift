@@ -2,8 +2,8 @@
 //  Appearance.swift
 //  Solario
 //
-//  Created by Hermann W. on 30.09.18.
-//  Copyright © 2018 Herman Wagenleitner. All rights reserved.
+//  Created by Hermann Wagenleitner on 30.09.18.
+//  Copyright © 2018 Hermann Wagenleitner. All rights reserved.
 //
 
 import UIKit
