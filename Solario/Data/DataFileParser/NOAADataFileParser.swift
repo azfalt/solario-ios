@@ -34,8 +34,8 @@ extension NOAADataFileParser {
     }
 
     func issueDateFromLine(_ line: String) -> Date? {
-        let index = line.index(issuedKey.endIndex, offsetBy: 2)
-        let dateString = line.substring(from: index)
+        let index = line.index(issuedKey.endIndex, offsetBy: 1)
+        let dateString = String(line[index...])
         let dateFormatter = self.dateFormatter(format: issueDateForamt)
         let date = dateFormatter.date(from: dateString)
         return date

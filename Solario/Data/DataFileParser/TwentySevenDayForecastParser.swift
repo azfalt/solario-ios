@@ -37,7 +37,7 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
 
             let line = rawDataFile.lines[lineIndex]
 
-            guard line.characters.count > 10 else {
+            guard line.count > 10 else {
                 continue
             }
 
@@ -52,7 +52,10 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
     private func dataItem(line: String) throws -> DataItem {
 
         let dateEndIndex = line.index(line.startIndex, offsetBy: 11)
-        let dateString = line.substring(to: dateEndIndex)
+//        let dateString1 = line.substring(to: dateEndIndex)
+        let dateString = String(line[...dateEndIndex])
+
+//        print("---dateString1 = \(dateString1), dateString = \(dateString)")
 
         guard let date = tableDateFormatter.date(from: dateString) else {
             throw ParserError.unknownDateFormat(dateString)

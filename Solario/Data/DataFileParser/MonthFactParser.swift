@@ -28,14 +28,13 @@ class MonthFactParser: DataFileParser {
 
             preparedLine = preparedLine.trimmingCharacters(in: .whitespaces)
 
-//            let lineComps = preparedLine.split(separator: " ") // swift 4
-            let lineComps = preparedLine.components(separatedBy: " ") // swift 3
+            let lineComps = preparedLine.split(separator: " ")
 
             guard lineComps.count > 1 else {
                 continue
             }
 
-            let dateString = lineComps.first!
+            let dateString = String(lineComps.first!)
 
             guard let date = dateFormatter.date(from: dateString) else {
                 continue
@@ -45,7 +44,7 @@ class MonthFactParser: DataFileParser {
 
             for eighth in 1...eightsCount {
 
-                let rawValue = lineComps[eighth]
+                let rawValue = String(lineComps[eighth])
 
                 guard let value = value(fromRaw: rawValue) else {
                     throw ParserError.unrecognizedFormat
@@ -63,7 +62,7 @@ class MonthFactParser: DataFileParser {
     private let longWhitespacesRegex = try! NSRegularExpression(pattern: "[ ]+", options: [])
 
     private func removeLongWhitespaces(fromText text: String) -> String {
-        let range = NSMakeRange(0, text.characters.count)
+        let range = NSMakeRange(0, text.count)
         return longWhitespacesRegex.stringByReplacingMatches(in: text,
                                                              options: [],
                                                              range: range,
@@ -84,12 +83,12 @@ class MonthFactParser: DataFileParser {
 
     private func value(fromRaw raw: String) -> Float? {
         guard
-            raw.characters.count == 2,
-            let integerValue = Int(String(raw.characters.first!)) else {
+            raw.count == 2,
+            let integerValue = Int(String(raw.first!)) else {
                 return nil
         }
         var value = Float(integerValue)
-        let half = raw.characters.last!
+        let half = raw.last!
         if half == "+" {
             value += valueStep
         } else if half == "-" {

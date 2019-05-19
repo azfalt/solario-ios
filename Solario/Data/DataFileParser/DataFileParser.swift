@@ -33,7 +33,7 @@ extension DataFileParser {
     }
     
     internal func firstLineIndexBegins(with prefix: String) -> Int? {
-        return rawDataFile.lines.index(where: {
+        return rawDataFile.lines.firstIndex(where: {
             return $0.hasPrefix(prefix)
         })
     }
@@ -43,14 +43,5 @@ extension DataFileParser {
             return rawDataFile.lines[index]
         }
         return nil
-    }
-
-    // unused
-    internal func firstPostfix(after key: String, offset: Int = 0) throws -> String {
-        guard let line = firstLineBegins(with: key) else {
-            throw ParserError.keyNotFound(key)
-        }
-        let index = line.index(key.endIndex, offsetBy: offset)
-        return line.substring(from: index)
     }
 }

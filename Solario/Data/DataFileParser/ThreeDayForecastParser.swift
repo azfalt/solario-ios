@@ -28,8 +28,9 @@ class ThreeDayForecastParser: DataFileParser, NOAADataFileParser {
             throw ParserError.keyNotFound(titleKey)
         }
 
-        let index = titleLine.index(titleKey.endIndex, offsetBy: 2)
-        let datesString = titleLine.substring(from: index)
+        let index = titleLine.index(titleKey.endIndex, offsetBy: 1)
+        let datesString = String(titleLine[index...])
+
         let dateStrings = datesString.components(separatedBy: "-")
 
         guard dateStrings.count == 2 else {

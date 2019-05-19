@@ -102,7 +102,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     private var nearestIndexPath: IndexPath? {
         var nearestSection: Int?
         if let nearestGroup = nearestGroup {
-            nearestSection = groups.index(of: nearestGroup)
+            nearestSection = groups.firstIndex(of: nearestGroup)
         }
         if let section = nearestSection {
             return IndexPath(row: 0, section: section)
