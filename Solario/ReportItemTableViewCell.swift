@@ -11,12 +11,12 @@ import UIKit
 class ReportItemTableViewCell: UITableViewCell {
 
     init() {
-        super.init(style: UITableViewCellStyle.value1, reuseIdentifier: String(describing: ReportItemTableViewCell.self))
+        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: String(describing: ReportItemTableViewCell.self))
         configure()
     }
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: UITableViewCellStyle.value1, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
         configure()
     }
 

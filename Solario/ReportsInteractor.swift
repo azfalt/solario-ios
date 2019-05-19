@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ReportsInteractor {
 
@@ -48,11 +49,11 @@ class ReportsInteractor {
   private func subsribeToAppNotifications() {
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(loadReports),
-                                           name: Notification.Name.UIApplicationDidBecomeActive,
+                                           name: UIApplication.didBecomeActiveNotification,
                                            object: nil)
   }
 
-  dynamic private func loadReports() {
+  @objc private func loadReports() {
     loadReports(completion: nil)
   }
 

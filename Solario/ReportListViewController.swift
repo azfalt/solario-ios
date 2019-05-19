@@ -50,12 +50,12 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
                                            object: nil)
   }
 
-  dynamic private func loadReports() {
+  @objc dynamic private func loadReports() {
     refreshControl.beginRefreshing()
     reportsInteractor.loadReports()
   }
 
-  dynamic func updateLoadingState() {
+  @objc dynamic func updateLoadingState() {
     DispatchQueue.main.async {
       self.tableView.reloadData()
       if self.reportsInteractor.isAnyReportLoading == false && self.refreshControl.isRefreshing {
@@ -148,7 +148,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
     return df
   }()
 
-  // MARK - UITableViewDelegate
+  // MARK: - UITableViewDelegate
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch sections[indexPath.section] {
