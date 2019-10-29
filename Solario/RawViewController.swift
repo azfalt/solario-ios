@@ -47,8 +47,6 @@ class RawViewController: UIViewController {
         textView.text = report.rawDataFile?.text
         let fontSize = UIFont.preferredFont(forTextStyle: .footnote).pointSize
         textView.font = UIFont(name: "Menlo-Regular", size: fontSize)
-        textView.textColor = Appearance.textColor
-        textView.backgroundColor = Appearance.bgColor
     }
 
     @objc private func openInSafari() {

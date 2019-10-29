@@ -26,7 +26,6 @@ class ReportItemTableViewCell: UITableViewCell {
 
     private func configure() {
         selectionStyle = .none
-        textLabel?.textColor = Appearance.textColor
     }
 }
 

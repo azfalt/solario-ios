@@ -41,27 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Helpers
     
     private func configureAppearance() {
-        
-        // UIWindow
         window?.tintColor = Appearance.tintColor
-        
-        // UINavigationBar
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: Appearance.textColor
-        ]
-        UINavigationBar.appearance().barTintColor = Appearance.navBarBgColor
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().barStyle = Appearance.navBarStyle
-        
-        // UITableView
-        UITableView.appearance().backgroundColor = Appearance.secondaryBgColor
-        UITableView.appearance().separatorColor = Appearance.separatorColor
-        
-        // UITableViewCell
-        UITableViewCell.appearance().backgroundColor = Appearance.bgColor
-        let selectedBackgroundView = UIView()
-        selectedBackgroundView.backgroundColor = Appearance.selectionColor
-        UITableViewCell.appearance().selectedBackgroundView = selectedBackgroundView
-        UITableViewCell.appearance().textLabel?.textColor = Appearance.textColor
     }
 }
