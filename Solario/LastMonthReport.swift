@@ -14,6 +14,7 @@ class LastMonthReport: Report {
         super.configure()
         title = "_report_title_last_month_fact".localized
         fileURL = URL(string: "http://www-app3.gfz-potsdam.de/kp_index/pqlyymm.tab")!
+        priority = .high
     }
 
     override func createParser(rawDataFile: RawDataFile) -> DataFileParser? {

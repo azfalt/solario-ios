@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let reportListVC = ReportListViewController()
-        reportListVC.reportsInteractor = reportsInteractor
-        let nc = UINavigationController(rootViewController: reportListVC)
+        let rootVC = CalendarViewController()
+        rootVC.reportsInteractor = reportsInteractor
+        let nc = UINavigationController(rootViewController: rootVC)
         window?.rootViewController = nc
         window?.makeKeyAndVisible()
         

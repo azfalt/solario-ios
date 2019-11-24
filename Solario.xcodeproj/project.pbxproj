@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
 		A128AA1F1F3255F900505390 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1E1F3255F900505390 /* Tester.swift */; };
 		A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* ReportsInteractor.swift */; };
+		A13806AA236EE7B400024972 /* MonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13806A9236EE7B400024972 /* MonthHeaderView.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
 		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
@@ -29,6 +30,9 @@
 		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
 		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
 		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
+		A1736147236C7C130047B314 /* JTAppleCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A1736146236C7C130047B314 /* JTAppleCalendar */; };
+		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
+		A173614B236C83780047B314 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173614A236C83780047B314 /* DayCell.swift */; };
 		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
 		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
@@ -49,6 +53,7 @@
 		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
 		A128AA1E1F3255F900505390 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		A13479B81F654BA500435648 /* ReportsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		A13806A9236EE7B400024972 /* MonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeaderView.swift; sourceTree = "<group>"; };
 		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
@@ -59,6 +64,8 @@
 		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
 		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
 		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
+		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A173614A236C83780047B314 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -73,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1736147236C7C130047B314 /* JTAppleCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +149,9 @@
 				A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */,
 				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
 				A13AB1801EEFD819007A730B /* Data */,
+				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
+				A173614A236C83780047B314 /* DayCell.swift */,
+				A13806A9236EE7B400024972 /* MonthHeaderView.swift */,
 				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
 				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
 				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
@@ -170,6 +181,9 @@
 			dependencies = (
 			);
 			name = Solario;
+			packageProductDependencies = (
+				A1736146236C7C130047B314 /* JTAppleCalendar */,
+			);
 			productName = Solario;
 			productReference = A1E594C11E6C1891008745B1 /* Solario.app */;
 			productType = "com.apple.product-type.application";
@@ -205,6 +219,9 @@
 				Base,
 			);
 			mainGroup = A1E594B81E6C1891008745B1;
+			packageReferences = (
+				A1736145236C7C130047B314 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */,
+			);
 			productRefGroup = A1E594C21E6C1891008745B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,7 +253,9 @@
 				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
+				A173614B236C83780047B314 /* DayCell.swift in Sources */,
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
+				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,
 				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
 				A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */,
 				A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */,
@@ -252,6 +271,7 @@
 				A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */,
 				A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
+				A13806AA236EE7B400024972 /* MonthHeaderView.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
 				A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */,
 				A128AA1F1F3255F900505390 /* Tester.swift in Sources */,
@@ -378,7 +398,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -388,10 +409,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -402,10 +427,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -434,6 +463,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1736145236C7C130047B314 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/patchthecode/JTAppleCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1736146236C7C130047B314 /* JTAppleCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1736145236C7C130047B314 /* XCRemoteSwiftPackageReference "JTAppleCalendar" */;
+			productName = JTAppleCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A1E594B91E6C1891008745B1 /* Project object */;
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ReportViewController: UIViewController, UITableViewDataSource {
 
-    public var report: Report!
+    var report: Report!
 
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
 
@@ -74,7 +74,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     }
 
     private func createGroup(fromItem item: DataItem) -> String? {
-        if let date = item.dateComponents.date {
+        if let date = item.dateComponents.beginUTCDate {
             return groupDateFormatter.string(from: date)
         }
         return nil
@@ -88,7 +88,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
         var smallestInterval: TimeInterval = TimeInterval.greatestFiniteMagnitude
         let now = Date()
         for item in items {
-            if let date = item.dateComponents.date {
+            if let date = item.dateComponents.beginUTCDate {
                 let interval = abs(now.timeIntervalSince(date))
                 if interval < smallestInterval {
                     smallestInterval = interval

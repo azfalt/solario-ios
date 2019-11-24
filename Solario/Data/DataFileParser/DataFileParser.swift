@@ -25,20 +25,20 @@ extension DataFileParser {
         return Calendar.current
     }
 
-    internal func dateComponents(from date: Date, eighth: Int?) -> DataItemDateComponents {
+    func dateComponents(from date: Date, eighth: Int?) -> DataItemDateComponents {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
         return DataItemDateComponents(year: year, month: month, day: day, eighth: eighth)
     }
     
-    internal func firstLineIndexBegins(with prefix: String) -> Int? {
+    func firstLineIndexBegins(with prefix: String) -> Int? {
         return rawDataFile.lines.firstIndex(where: {
             return $0.hasPrefix(prefix)
         })
     }
 
-    internal func firstLineBegins(with prefix: String) -> String? {
+    func firstLineBegins(with prefix: String) -> String? {
         if let index = firstLineIndexBegins(with: prefix) {
             return rawDataFile.lines[index]
         }

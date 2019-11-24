@@ -14,6 +14,7 @@ class ThreeDayForecastReport: Report {
         super.configure()
         title = "_report_title_three_day_forecast".localized
         fileURL = URL(string: "http://services.swpc.noaa.gov/text/3-day-forecast.txt")!
+        priority = .normal
     }
 
     override func createParser(rawDataFile: RawDataFile) -> DataFileParser? {

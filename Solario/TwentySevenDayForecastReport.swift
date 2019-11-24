@@ -14,6 +14,7 @@ class TwentySevenDayForecastReport: Report {
         super.configure()
         title = "_report_title_twenty_seven_day_forecast".localized
         fileURL = URL(string: "http://services.swpc.noaa.gov/text/27-day-outlook.txt")!
+        priority = .low
     }
 
     override func createParser(rawDataFile: RawDataFile) -> DataFileParser? {

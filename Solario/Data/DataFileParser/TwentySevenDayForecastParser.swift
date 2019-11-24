@@ -10,7 +10,7 @@ import Foundation
 
 class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
 
-    internal var rawDataFile: RawDataFile
+    var rawDataFile: RawDataFile
 
     init(rawDataFile: RawDataFile) {
         self.rawDataFile = rawDataFile
@@ -52,10 +52,8 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
     private func dataItem(line: String) throws -> DataItem {
 
         let dateEndIndex = line.index(line.startIndex, offsetBy: 11)
-//        let dateString1 = line.substring(to: dateEndIndex)
-        let dateString = String(line[...dateEndIndex])
 
-//        print("---dateString1 = \(dateString1), dateString = \(dateString)")
+        let dateString = String(line[...dateEndIndex])
 
         guard let date = tableDateFormatter.date(from: dateString) else {
             throw ParserError.unknownDateFormat(dateString)

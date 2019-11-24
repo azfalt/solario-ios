@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum ReportPriority: Int {
+
+    case low
+
+    case normal
+
+    case high
+}
+
+typealias DateBounds = (earliest: Date, latest: Date)
+
 class Report {
 
     var title: String?
@@ -24,15 +35,44 @@ class Report {
 
     var fileURL: URL?
 
+    var priority: ReportPriority = .normal
+
+    var itemsDateBounds: DateBounds? {
+        guard let items = items else {
+            return nil
+        }
+        var earliest, latest: Date?
+        for item in items {
+            if let beginDate = item.dateComponents.beginUTCDate {
+                if earliest == nil {
+                    earliest = beginDate
+                } else if beginDate < earliest! {
+                    earliest = beginDate
+                }
+            }
+            if let endDate = item.dateComponents.endUTCDate {
+                if latest == nil {
+                    latest = endDate
+                } else if endDate > latest! {
+                    latest = endDate
+                }
+            }
+        }
+        guard earliest != nil, latest != nil else {
+            return nil
+        }
+        return (earliest: earliest!, latest: latest!)
+    }
+
     private let retreiver = RawDataRetreiver()
 
     init() {
         configure()
     }
 
-    internal func configure() {}
+    func configure() {}
 
-    public func load(completion: (() -> Void)? = nil) {
+    func load(completion: (() -> Void)? = nil) {
         guard let fileURL = fileURL else {
             return
         }
@@ -53,7 +93,7 @@ class Report {
         })
     }
     
-    internal func createParser(rawDataFile: RawDataFile) -> DataFileParser? {
+    func createParser(rawDataFile: RawDataFile) -> DataFileParser? {
         return nil
     }
 }

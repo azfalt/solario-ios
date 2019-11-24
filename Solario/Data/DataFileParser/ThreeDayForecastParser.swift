@@ -10,7 +10,7 @@ import Foundation
 
 class ThreeDayForecastParser: DataFileParser, NOAADataFileParser {
 
-    internal var rawDataFile: RawDataFile
+    var rawDataFile: RawDataFile
 
     init(rawDataFile: RawDataFile) {
         self.rawDataFile = rawDataFile

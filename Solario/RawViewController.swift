@@ -10,7 +10,7 @@ import UIKit
 
 class RawViewController: UIViewController {
 
-    public var report: Report!
+    var report: Report!
 
     private let textView = UITextView()
 

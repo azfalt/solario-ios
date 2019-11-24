@@ -19,3 +19,7 @@ _issued_with_placeholder = "Issued %@";
 _action_open = "Open";
 
 _report_status_loading = "Loading...";
+
+_forecast = "Forecast";
+_current = "Current";
+_day_max = "Max.";

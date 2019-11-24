@@ -33,13 +33,26 @@ extension ReportItemTableViewCell {
 
     func configure(item: DataItem?) {
         if let item = item {
-            guard let date = item.dateComponents.date else {
-                return
+            guard let beginDate = item.dateComponents.beginUTCDate,
+                let endDate = item.dateComponents.endUTCDate else {
+                    return
             }
-            let dateString = dateFormatter.string(from: date)
-            textLabel?.text = dateString
+            let beginDateString = dateFormatter.string(from: beginDate)
+            let endDateString = dateFormatter.string(from: endDate)
+            var title = "\(beginDateString)..\(endDateString)"
+            
+            if item.isForecast {
+                title = "\(title), \("_forecast".localized)"
+            }
+            if item.dateComponents.isCurrent {
+                title = "\(title), \("_current".localized)"
+            }
+            if item.dateComponents.eighth == nil {
+                title = "\(title), \("_day_max".localized)"
+            }
+            textLabel?.text = title
             detailTextLabel?.text = valueFormatter.string(from: NSNumber(value: item.value))
-            detailTextLabel?.textColor = getColor(value: item.value)
+            detailTextLabel?.textColor = Appearance.color(value: item.value)
         } else {
             textLabel?.text = "—"
             detailTextLabel?.text = nil
@@ -48,7 +61,7 @@ extension ReportItemTableViewCell {
 
     private var dateFormatter: DateFormatter {
         let df = DateFormatter()
-        df.dateStyle = .long
+        df.dateStyle = .none
         df.timeStyle = .short
         return df
     }
@@ -59,29 +72,5 @@ extension ReportItemTableViewCell {
         vf.minimumFractionDigits = 1
         vf.maximumFractionDigits = 1
         return vf
-    }
-
-    private func getColor(value: Float) -> UIColor {
-        if value <= 1 {
-            return UIColor(red:0.16, green:0.78, blue:0.14, alpha:1.00)
-        } else if value <= 2 {
-            return UIColor(red:0.38, green:0.85, blue:0.15, alpha:1.00)
-        } else if value <= 3 {
-            return UIColor(red:0.70, green:0.85, blue:0.17, alpha:1.00)
-        } else if value <= 4 {
-            return UIColor(red:0.91, green:0.79, blue:0.18, alpha:1.00)
-        } else if value <= 5 {
-            return UIColor(red:0.94, green:0.44, blue:0.13, alpha:1.00)
-        } else if value <= 6 {
-            return UIColor(red:0.94, green:0.11, blue:0.10, alpha:1.00)
-        } else if value <= 7 {
-            return UIColor(red:0.88, green:0.04, blue:0.13, alpha:1.00)
-        } else if value <= 8 {
-            return UIColor(red:0.75, green:0.04, blue:0.30, alpha:1.00)
-        } else if value <= 9 {
-            return UIColor(red:0.67, green:0.05, blue:0.42, alpha:1.00)
-        } else {
-            return UIColor(red:0.59, green:0.07, blue:0.53, alpha:1.00)
-        }
     }
 }
