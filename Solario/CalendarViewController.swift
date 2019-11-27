@@ -75,8 +75,9 @@ class CalendarViewController: UIViewController {
         configureCalendarView()
         configureSelectedDayLabel()
         configureTableView()
+        configureReportsButton()
+        updateRefreshButtonState()
         subsribeToReportsNotifications()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "_reports".localized, style: .plain, target: self, action: #selector(showReports))
     }
 
     @objc private func showReports() {
@@ -130,11 +131,42 @@ class CalendarViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(ReportItemTableViewCell.self, forCellReuseIdentifier: String(describing: ReportItemTableViewCell.self))
     }
+
+    private func configureReportsButton() {
+        let image = UIImage(systemName: "list.dash")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showReports))
+    }
+
+    @objc private func updateRefreshButtonState() {
+        DispatchQueue.main.async {
+            if self.reportsInteractor.isAnyReportLoading {
+                let indicator = UIActivityIndicatorView(style: .medium)
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
+                indicator.startAnimating()
+            } else {
+                let image = UIImage(systemName: "arrow.clockwise")
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.reloadData))
+            }
+        }
+    }
+
     private func subsribeToReportsNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(refreshData),
                                                name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateRefreshButtonState),
+                                               name: ReportsInteractor.Notifications.ReportWillStartLoading,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateRefreshButtonState),
+                                               name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
+                                               object: nil)
+    }
+
+    @objc private func reloadData() {
+        reportsInteractor.loadReports()
     }
 
     @objc private func refreshData() {
