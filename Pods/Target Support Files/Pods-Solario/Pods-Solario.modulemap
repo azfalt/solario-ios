@@ -1,0 +1,6 @@
+framework module Pods_Solario {
+  umbrella header "Pods-Solario-umbrella.h"
+
+  export *
+  module * { export * }
+}

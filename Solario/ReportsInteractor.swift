@@ -56,13 +56,6 @@ class ReportsInteractor {
         return latest
     }
 
-    var earliestReportDate: Date? {
-        let prevMonth = calendar.date(byAdding: .month, value: -1, to: Date())!
-        let components = calendar.dateComponents([.year, .month], from: prevMonth)
-        let earliest = calendar.date(from: components)!
-        return earliest
-    }
-
     var reportsDateBounds: DateBounds? {
         var bounds: DateBounds?
         for report in reports {

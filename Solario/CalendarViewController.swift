@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
 
@@ -20,9 +19,15 @@ class CalendarViewController: UIViewController {
 
     var reportsInteractor: ReportsInteractor!
 
-    private lazy var calendarView: JTACMonthView = JTACMonthView()
+    private lazy var calendarView: FSCalendar = FSCalendar()
+
+    private var calendarViewHeightConstraint: NSLayoutConstraint!
+
+    private var scopeGesture: UIPanGestureRecognizer!
 
     private var calendarMode: CalendarMode = .month
+
+    private var selectedDate: Date?
 
     private lazy var selectedDayLabel: UILabel = UILabel()
 
@@ -32,18 +37,14 @@ class CalendarViewController: UIViewController {
 
     private let headerId = "monthHeaderView"
 
-    private var monthFormatter: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "MMMM YYYY"
-        return df
-    }
-
     private var selectedDayFormatter: DateFormatter {
         let df = DateFormatter()
         df.dateStyle = .full
         df.timeStyle = .none
         return df
     }
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +60,12 @@ class CalendarViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        calendarView.viewWillTransition(to: size, with: coordinator, anchorDate: nil)
-    }
+    // MARK: -
 
     private func selectCurrentDate() {
         let now = Date()
-        calendarView.selectDates([now])
-        calendarView.scrollToDate(now, animateScroll: false)
+        calendarView.select(now, scrollToDate: true)
+        showDetails(for: calendarView.selectedDate)
     }
 
     private func configure() {
@@ -78,6 +77,7 @@ class CalendarViewController: UIViewController {
         configureReportsButton()
         updateRefreshButtonState()
         subsribeToReportsNotifications()
+        configureScopeGesture()
     }
 
     @objc private func showReports() {
@@ -90,26 +90,21 @@ class CalendarViewController: UIViewController {
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        let heightMultiplier: CGFloat = calendarMode == .month ? 1 : 0.4
-        calendarView.heightAnchor.constraint(equalTo: calendarView.widthAnchor, multiplier: heightMultiplier).isActive = true
+        let height: CGFloat = view.bounds.size.width
+        calendarViewHeightConstraint = calendarView.heightAnchor.constraint(equalToConstant: height)
+        calendarViewHeightConstraint.isActive = true
         calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        calendarView.calendarDelegate = self
-        calendarView.calendarDataSource = self
-        calendarView.scrollDirection = .horizontal
-        calendarView.scrollingMode = .stopAtEachCalendarFrame
+        calendarView.scope = calendarMode == .month ? .month : .week
+        var calendar = Calendar.current
+        calendar.locale = Locale.autoupdatingCurrent
+        calendarView.firstWeekday = UInt(calendar.firstWeekday)
+        calendarView.delegate = self
+        calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
-        calendarView.showsHorizontalScrollIndicator = false
-        calendarView.showsVerticalScrollIndicator = false
-        calendarView.sectionInset.bottom = 10
-        calendarView.sectionInset.top = 10
-        calendarView.sectionInset.left = 10
-        calendarView.sectionInset.right = 10
-        calendarView.minimumLineSpacing = 0
-        calendarView.minimumInteritemSpacing = 0
-        calendarView.backgroundColor = UIColor.systemBackground
-        calendarView.register(DayCell.self, forCellWithReuseIdentifier: cellId)
-        calendarView.register(MonthHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: "cell")
+        calendarView.appearance.headerTitleColor = UIColor.label
+        calendarView.appearance.weekdayTextColor = UIColor.label
     }
 
     private func configureSelectedDayLabel() {
@@ -165,6 +160,16 @@ class CalendarViewController: UIViewController {
                                                object: nil)
     }
 
+    private func configureScopeGesture() {
+        let gesture = UIPanGestureRecognizer(target: calendarView, action: #selector(calendarView.handleScopeGesture(_:)))
+        gesture.minimumNumberOfTouches = 1
+        gesture.maximumNumberOfTouches = 2
+        gesture.delegate = self
+        scopeGesture = gesture
+        self.view.addGestureRecognizer(scopeGesture)
+        self.tableView.panGestureRecognizer.require(toFail: scopeGesture)
+    }
+
     @objc private func reloadData() {
         reportsInteractor.loadReports()
     }
@@ -175,70 +180,61 @@ class CalendarViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+
+    private func showDetails(for date: Date?) {
+        selectedDate = date
+        if let date = date {
+            selectedDayLabel.text = selectedDayFormatter.string(from: date)
+            tableView.reloadData()
+        }
+    }
 }
 
-extension CalendarViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
+extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
 
-    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        configure(cell: cell, state: cellState, date: date)
+    // MARK: - FSCalendarDataSource
+
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return reportsInteractor.defaultEarliestReportDate
     }
 
-    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: cellId, for: indexPath) as! DayCell
-        configure(cell: cell, state: cellState, date: date)
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return reportsInteractor.defaultLatestReportDate
+    }
+
+    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+        let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
         return cell
     }
 
-    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        if calendarMode == .month {
-            return ConfigurationParameters(startDate: reportsInteractor.defaultEarliestReportDate,
-                                           endDate: reportsInteractor.defaultLatestReportDate,
-                                           numberOfRows: 6,
-                                           generateInDates: .forAllMonths,
-                                           generateOutDates: .tillEndOfGrid,
-                                           hasStrictBoundaries: true)
-        } else {
-            return ConfigurationParameters(startDate: reportsInteractor.defaultEarliestReportDate,
-                                           endDate: reportsInteractor.defaultLatestReportDate,
-                                           numberOfRows: 1,
-                                           generateInDates: .forAllMonths,
-                                           generateOutDates: .tillEndOfRow,
-                                           hasStrictBoundaries: false)
-        }
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        self.configure(cell: cell, for: date, at: position)
     }
 
-    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        configure(cell: cell, state: cellState, date: date)
-        if (calendarMode == .month && cellState.dateBelongsTo != .thisMonth) {
-            calendarView.scrollToDate(date)
-        }
-        selectedDayLabel.text = selectedDayFormatter.string(from: date)
-        tableView.reloadData()
+    private func configure(cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
+        let dayCell = (cell as! CalendarDayCell)
+        dayCell.configure(position: position, value: reportsInteractor.maxValue(forDate: date))
     }
 
-    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        configure(cell: cell, state: cellState, date: date)
+    // MARK: - FSCalendarDelegate
+
+    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        calendarViewHeightConstraint.constant = bounds.height
+        self.view.layoutIfNeeded()
     }
 
-    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
-        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: headerId, for: indexPath) as! MonthHeaderView
-        header.monthLabel.text = monthFormatter.string(from: range.start)
-        return header
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        showDetails(for: date)
+        calendarView.select(date, scrollToDate: true)
     }
 
-    func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 70)
-    }
-
-    private func configure(cell: JTACDayCell?, state: CellState, date: Date) {
-        /// check the cell, because somtimes it fails unexpectedly
-        if let dayCell = cell as? DayCell {
-            dayCell.configure(state: state, value: reportsInteractor.maxValue(forDate: date))
-        }
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
     }
 }
 
 extension CalendarViewController: UITableViewDataSource {
+
+    // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let items = itemsForSelectedDay() {
@@ -257,9 +253,31 @@ extension CalendarViewController: UITableViewDataSource {
     }
 
     private func itemsForSelectedDay() -> [DataItem]? {
-        if let date = calendarView.selectedDates.last {
-            return reportsInteractor.mergedItems(forDate: date)
+        if let date = selectedDate {
+            let i = reportsInteractor.mergedItems(forDate: date)
+            return i
         }
         return nil
+    }
+}
+
+extension CalendarViewController: UIGestureRecognizerDelegate {
+
+    // MARK: - UIGestureRecognizerDelegate
+
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let shouldBegin = tableView.contentOffset.y <= -tableView.contentInset.top
+        if shouldBegin {
+            let velocity = scopeGesture.velocity(in: view)
+            switch calendarView.scope {
+            case .month:
+                return velocity.y < 0
+            case .week:
+                return velocity.y > 0
+            default:
+                return false
+            }
+        }
+        return shouldBegin
     }
 }
