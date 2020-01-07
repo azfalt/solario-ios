@@ -483,7 +483,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -503,7 +503,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
