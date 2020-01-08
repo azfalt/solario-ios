@@ -77,7 +77,7 @@ class Report {
             return
         }
         isLoading = true
-        retreiver.retreiveRawDataFile(url: fileURL, completion: { [weak self] rawDataFile in
+        retreiver.retrieveRawDataFile(url: fileURL, completion: { [weak self] rawDataFile in
             guard
                 let rawDataFile = rawDataFile,
                 let parser = self?.createParser(rawDataFile: rawDataFile),
