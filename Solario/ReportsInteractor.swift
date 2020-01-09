@@ -116,7 +116,7 @@ class ReportsInteractor {
     func loadReports(completion: (() -> Void)? = nil) {
         for report in reports {
             NotificationCenter.default.post(name: Notifications.ReportWillStartLoading, object: report)
-            report.load(completion: { [weak self] in
+            load(report: report, completion: { [weak self] in
                 NotificationCenter.default.post(name: Notifications.ReportDidFinishLoading, object: report)
                 if self?.isAnyReportLoading == false {
                     self?.calculateMaxValues()
@@ -127,7 +127,45 @@ class ReportsInteractor {
         }
     }
 
+    private func tryLoadStoredReports() {
+        var isLoaded = false
+        for report in reports {
+            tryLoadStored(report: report)
+            isLoaded = isLoaded || report.isLoaded
+        }
+        if isLoaded {
+            calculateMaxValues()
+        }
+    }
+
+    private lazy var rawDataRetriever = RawDataRetreiver()
+
+    func load(report: Report, completion: (() -> Void)? = nil) {
+        guard let url = report.fileURL else {
+            return
+        }
+        report.isLoading = true
+        rawDataRetriever.retrieveRawDataFile(url: url, completion: { [weak self] rawDataFile in
+            if let file = rawDataFile {
+                report.update(rawDataFile: file)
+                report.isLoading = false
+                self?.rawDataStorage.set(rawDataFile: file, url: url)
+                completion?()
+            }
+        })
+    }
+
+    private lazy var rawDataStorage = RawDataStorage()
+
+    private func tryLoadStored(report: Report) {
+        if let url = report.fileURL,
+            let file = rawDataStorage.rawDataFile(url: url) {
+            report.update(rawDataFile: file)
+        }
+    }
+
     init() {
+        tryLoadStoredReports()
         subsribeToAppNotifications()
     }
     

@@ -160,6 +160,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private func showReport(_ report: Report) {
         let vc = ReportViewController()
+        vc.reportsInteractor = reportsInteractor
         vc.report = report
         navigationController?.pushViewController(vc, animated: true)
     }

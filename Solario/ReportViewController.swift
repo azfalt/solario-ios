@@ -10,6 +10,8 @@ import UIKit
 
 class ReportViewController: UIViewController, UITableViewDataSource {
 
+    var reportsInteractor: ReportsInteractor!
+
     var report: Report!
 
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
@@ -43,7 +45,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     }
 
     @objc private func loadReport() {
-        report.load(completion: { [weak self] in
+        reportsInteractor.load(report: report, completion: { [weak self] in
             DispatchQueue.main.async {
                 self?.groupItems()
                 self?.tableView.reloadData()

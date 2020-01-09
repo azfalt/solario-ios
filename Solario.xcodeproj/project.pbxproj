@@ -33,6 +33,7 @@
 		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
 		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
 		A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */; };
+		A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
 		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStorage.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A1E594C61E6C1891008745B1 /* ReportListViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -103,6 +105,7 @@
 				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
 				A13AB16D1EEFD4BD007A730B /* ParserError.swift */,
 				A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */,
+				A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */,
 				A17427AC1F155671009852DD /* DataFileParser */,
 				A13AB1811EEFD895007A730B /* DataItem */,
 			);
@@ -328,6 +331,7 @@
 				A128AA151F32541200505390 /* LastMonthReport.swift in Sources */,
 				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
 				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
+				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
 				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
 				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,

@@ -64,35 +64,28 @@ class Report {
         return (earliest: earliest!, latest: latest!)
     }
 
-    private let retreiver = RawDataRetreiver()
-
     init() {
         configure()
     }
 
+    func update(rawDataFile: RawDataFile) {
+        guard
+            let parser = self.createParser(rawDataFile: rawDataFile),
+            let items = try? parser.items() else {
+                return
+        }
+        self.rawDataFile = rawDataFile
+        self.loadDate = Date()
+        self.items = items
+        self.issueDate = parser.issueDate
+    }
+
+    var isLoaded: Bool {
+        return rawDataFile != nil
+    }
+
     func configure() {}
 
-    func load(completion: (() -> Void)? = nil) {
-        guard let fileURL = fileURL else {
-            return
-        }
-        isLoading = true
-        retreiver.retrieveRawDataFile(url: fileURL, completion: { [weak self] rawDataFile in
-            guard
-                let rawDataFile = rawDataFile,
-                let parser = self?.createParser(rawDataFile: rawDataFile),
-                let items = try? parser.items() else {
-                    return
-            }
-            self?.rawDataFile = rawDataFile
-            self?.loadDate = Date()
-            self?.items = items
-            self?.issueDate = parser.issueDate
-            self?.isLoading = false
-            completion?()
-        })
-    }
-    
     func createParser(rawDataFile: RawDataFile) -> DataFileParser? {
         return nil
     }
