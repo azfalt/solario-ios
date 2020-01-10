@@ -10,19 +10,19 @@ import Foundation
 
 class MonthFactParser: DataFileParser {
 
-    var rawDataFile: RawDataFile
+    var rawDataFile: RawDataFile?
 
     var issueDate: Date?
 
-    init(rawDataFile: RawDataFile) {
-        self.rawDataFile = rawDataFile
-    }
-
     func items() throws -> [DataItem] {
+
+        guard let lines = rawDataFile?.lines else {
+            throw ParserError.noDataFile
+        }
 
         var items: [DataItem] = []
 
-        for line in rawDataFile.lines {
+        for line in lines {
 
             var preparedLine = removeLongWhitespaces(fromText: line)
 

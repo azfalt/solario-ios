@@ -1,5 +1,5 @@
 //
-//  RawDataRetreiver.swift
+//  RawDataRetriever.swift
 //  Solario
 //
 //  Created by Hermann Wagenleitner on 13/06/2017.
@@ -8,27 +8,7 @@
 
 import Foundation
 
-class RawDataRetreiver {
-
-    func retreiveLastMonthFactRawDataFile(completion: @escaping (RawDataFile?) -> Void) {
-        let url = URL(string: "http://www-app3.gfz-potsdam.de/kp_index/pqlyymm.tab")!
-        retrieveRawDataFile(url: url, completion: completion)
-    }
-
-    func retreiveCurrentMonthFactRawDataFile(completion: @escaping (RawDataFile?) -> Void) {
-        let url = URL(string: "http://www-app3.gfz-potsdam.de/kp_index/qlyymm.tab")!
-        retrieveRawDataFile(url: url, completion: completion)
-    }
-
-    func retreiveThreeDayForecastRawDataFile(completion: @escaping (RawDataFile?) -> Void) {
-        let url = URL(string: "http://services.swpc.noaa.gov/text/3-day-forecast.txt")!
-        retrieveRawDataFile(url: url, completion: completion)
-    }
-
-    func retreiveTwentySevenDayForecastRawDataFile(completion: @escaping (RawDataFile?) -> Void) {
-        let url = URL(string: "http://services.swpc.noaa.gov/text/27-day-outlook.txt")!
-        retrieveRawDataFile(url: url, completion: completion)
-    }
+class RawDataRetriever {
 
     func retrieveRawDataFile(url: URL, completion: @escaping (RawDataFile?) -> Void) {
         retrieveRawString(url: url, completion: { rawData in
@@ -41,24 +21,19 @@ class RawDataRetreiver {
     }
 
     private func retrieveRawString(url: URL, completion: @escaping (String?) -> Void) {
-
         let sharedSession = URLSession.shared
         let task = sharedSession.downloadTask(with: url, completionHandler: {
             (location: URL?, response: URLResponse?, error: Error?) -> Void in
-
             guard let location = location else {
                 return
             }
-
             let rawData: String?
-
             do {
                 rawData = try String(contentsOf: location)
             } catch {
                 print(error.localizedDescription)
                 rawData = nil
             }
-
             completion(rawData)
         })
         task.resume()

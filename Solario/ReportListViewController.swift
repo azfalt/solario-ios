@@ -106,7 +106,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private func cellForCurrentValue() -> UITableViewCell {
         let cell = ReportItemTableViewCell()
-        cell.configure(item: reportsInteractor.currentMonthReport.items?.last)
+        cell.configure(item: ReportsInteractor.currentMonthReport.items?.last)
         return cell
     }
 

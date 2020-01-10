@@ -8,11 +8,22 @@
 
 import Foundation
 
+enum ParserError: Error {
+
+    case unrecognizedFormat
+
+    case keyNotFound(String)
+
+    case unknownDateFormat(String)
+
+    case noDataFile
+}
+
 protocol DataFileParser {
 
     var calendar: Calendar { get }
 
-    var rawDataFile: RawDataFile { get }
+    var rawDataFile: RawDataFile? { get set }
 
     var issueDate: Date? { get }
 
@@ -33,14 +44,14 @@ extension DataFileParser {
     }
     
     func firstLineIndexBegins(with prefix: String) -> Int? {
-        return rawDataFile.lines.firstIndex(where: {
+        return rawDataFile?.lines.firstIndex(where: {
             return $0.hasPrefix(prefix)
         })
     }
 
     func firstLineBegins(with prefix: String) -> String? {
         if let index = firstLineIndexBegins(with: prefix) {
-            return rawDataFile.lines[index]
+            return rawDataFile?.lines[index]
         }
         return nil
     }

@@ -10,7 +10,31 @@ import Foundation
 import UIKit
 
 class ReportsInteractor {
-    
+
+    static let lastMonthReport =
+        Report(url: URL(string: "http://www-app3.gfz-potsdam.de/kp_index/pqlyymm.tab")!,
+               parser: MonthFactParser(),
+               title: "_report_title_last_month_fact".localized,
+               priority: .high)
+
+    static let currentMonthReport =
+        Report(url: URL(string: "http://www-app3.gfz-potsdam.de/kp_index/qlyymm.tab")!,
+               parser: MonthFactParser(),
+               title: "_report_title_current_month_fact".localized,
+               priority: .high)
+
+    static let threeDayForecastReport =
+        Report(url: URL(string: "http://services.swpc.noaa.gov/text/3-day-forecast.txt")!,
+               parser: ThreeDayForecastParser(),
+               title: "_report_title_three_day_forecast".localized,
+               priority: .normal)
+
+    static let twentySevenDayForecastReport =
+        Report(url: URL(string: "http://services.swpc.noaa.gov/text/27-day-outlook.txt")!,
+               parser: TwentySevenDayForecastParser(),
+               title: "_report_title_twenty_seven_day_forecast".localized,
+               priority: .low)
+
     struct Notifications {
         
         static let ReportWillStartLoading = Notification.Name("ReportsNotification.ReportWillStartLoading")
@@ -20,19 +44,15 @@ class ReportsInteractor {
         static let AllReportsDidFinishLoading = Notification.Name("ReportsNotification.AllReportsDidFinishLoading")
     }
     
-    let lastMonthReport = LastMonthReport()
-    
-    let currentMonthReport = CurrentMonthReport()
-    
-    let threeDayForecastReport = ThreeDayForecastReport()
-    
-    let twentySevenDayForecastReport = TwentySevenDayForecastReport()
-    
+    private lazy var rawDataStorage = RawDataStorage()
+
+    private lazy var rawDataRetriever = RawDataRetriever()
+
     lazy var reports: [Report] = [
-        self.lastMonthReport,
-        self.currentMonthReport,
-        self.threeDayForecastReport,
-        self.twentySevenDayForecastReport
+        ReportsInteractor.lastMonthReport,
+        ReportsInteractor.currentMonthReport,
+        ReportsInteractor.threeDayForecastReport,
+        ReportsInteractor.twentySevenDayForecastReport
     ]
 
     var isAnyReportLoading: Bool {
@@ -138,35 +158,30 @@ class ReportsInteractor {
         }
     }
 
-    private lazy var rawDataRetriever = RawDataRetreiver()
-
     func load(report: Report, completion: (() -> Void)? = nil) {
-        guard let url = report.fileURL else {
-            return
-        }
         report.isLoading = true
-        rawDataRetriever.retrieveRawDataFile(url: url, completion: { [weak self] rawDataFile in
-            if let file = rawDataFile {
-                report.update(rawDataFile: file)
-                report.isLoading = false
-                self?.rawDataStorage.set(rawDataFile: file, url: url)
-                completion?()
+        rawDataRetriever.retrieveRawDataFile(url: report.url, completion: { [weak self] rawDataFile in
+            guard
+                let self = self,
+                let file = rawDataFile else {
+                    return
             }
+            report.rawDataFile = file
+            report.isLoading = false
+            self.rawDataStorage.set(rawDataFile: file, url: report.url)
+            completion?()
         })
     }
 
-    private lazy var rawDataStorage = RawDataStorage()
-
     private func tryLoadStored(report: Report) {
-        if let url = report.fileURL,
-            let file = rawDataStorage.rawDataFile(url: url) {
-            report.update(rawDataFile: file)
+        if let file = rawDataStorage.rawDataFile(url: report.url) {
+            report.rawDataFile = file
         }
     }
 
     init() {
         tryLoadStoredReports()
-        subsribeToAppNotifications()
+        subscribeToAppNotifications()
     }
     
     private let calendar = Calendar.current
@@ -175,7 +190,7 @@ class ReportsInteractor {
         return reports.sorted(by: { $0.priority.rawValue > $1.priority.rawValue })
     }()
 
-    private func subsribeToAppNotifications() {
+    private func subscribeToAppNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(loadReports),
                                                name: UIApplication.didBecomeActiveNotification,

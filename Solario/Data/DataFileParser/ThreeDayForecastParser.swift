@@ -10,11 +10,7 @@ import Foundation
 
 class ThreeDayForecastParser: DataFileParser, NOAADataFileParser {
 
-    var rawDataFile: RawDataFile
-
-    init(rawDataFile: RawDataFile) {
-        self.rawDataFile = rawDataFile
-    }
+    var rawDataFile: RawDataFile?
 
     private let titleKey = "NOAA Kp index breakdown"
 
@@ -23,6 +19,10 @@ class ThreeDayForecastParser: DataFileParser, NOAADataFileParser {
     private let eighthKeys = ["00-03UT", "03-06UT", "06-09UT", "09-12UT", "12-15UT", "15-18UT", "18-21UT", "21-00UT"]
 
     func items() throws -> [DataItem] {
+
+        guard rawDataFile != nil else {
+            throw ParserError.noDataFile
+        }
 
         guard let titleLine = firstLineBegins(with: titleKey) else {
             throw ParserError.keyNotFound(titleKey)

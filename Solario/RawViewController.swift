@@ -50,8 +50,6 @@ class RawViewController: UIViewController {
     }
 
     @objc private func openInSafari() {
-        if let url = report.fileURL {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+        UIApplication.shared.open(report.url, options: [:], completionHandler: nil)
     }
 }

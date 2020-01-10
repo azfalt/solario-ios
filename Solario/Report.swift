@@ -21,21 +21,46 @@ typealias DateBounds = (earliest: Date, latest: Date)
 
 class Report {
 
-    var title: String?
+    let url: URL
 
-    var rawDataFile: RawDataFile?
+    private(set) var parser: DataFileParser
 
-    var items: [DataItem]?
+    let title: String
 
-    var loadDate: Date?
+    let priority: ReportPriority
 
-    var issueDate: Date?
+    var rawDataFile: RawDataFile? {
+        set {
+            parser.rawDataFile = newValue
+            parse()
+        }
+        get {
+            return parser.rawDataFile
+        }
+    }
+
+    private func parse() {
+        loadDate = Date()
+        do {
+            items = try parser.items()
+        } catch {
+            print(error.localizedDescription)
+            items = nil
+        }
+        issueDate = parser.issueDate
+    }
+
+    private(set) var items: [DataItem]?
+
+    private(set) var loadDate: Date?
+
+    private(set) var issueDate: Date?
 
     var isLoading: Bool = false
 
-    var fileURL: URL?
-
-    var priority: ReportPriority = .normal
+    var isLoaded: Bool {
+        return rawDataFile != nil
+    }
 
     var itemsDateBounds: DateBounds? {
         guard let items = items else {
@@ -64,29 +89,10 @@ class Report {
         return (earliest: earliest!, latest: latest!)
     }
 
-    init() {
-        configure()
-    }
-
-    func update(rawDataFile: RawDataFile) {
-        guard
-            let parser = self.createParser(rawDataFile: rawDataFile),
-            let items = try? parser.items() else {
-                return
-        }
-        self.rawDataFile = rawDataFile
-        self.loadDate = Date()
-        self.items = items
-        self.issueDate = parser.issueDate
-    }
-
-    var isLoaded: Bool {
-        return rawDataFile != nil
-    }
-
-    func configure() {}
-
-    func createParser(rawDataFile: RawDataFile) -> DataFileParser? {
-        return nil
+    init(url: URL, parser: DataFileParser, title: String, priority: ReportPriority) {
+        self.url = url
+        self.parser = parser
+        self.title = title
+        self.priority = priority
     }
 }

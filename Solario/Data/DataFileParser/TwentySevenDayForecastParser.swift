@@ -10,11 +10,7 @@ import Foundation
 
 class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
 
-    var rawDataFile: RawDataFile
-
-    init(rawDataFile: RawDataFile) {
-        self.rawDataFile = rawDataFile
-    }
+    var rawDataFile: RawDataFile?
 
     private let tableHeaderKey = "#  Date"
 
@@ -24,18 +20,22 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
 
     func items() throws -> [DataItem] {
 
+        guard let lines = rawDataFile?.lines else {
+            throw ParserError.noDataFile
+        }
+
         guard let tableHeaderIndex = firstLineIndexBegins(with: tableHeaderKey) else {
             throw ParserError.keyNotFound(tableHeaderKey)
         }
 
         let dataLinesStartIndex = tableHeaderIndex + 1
-        let dataLinesEndIndex = rawDataFile.lines.count - 1
+        let dataLinesEndIndex = lines.count - 1
 
         var items: [DataItem] = []
 
         for lineIndex in dataLinesStartIndex...dataLinesEndIndex {
 
-            let line = rawDataFile.lines[lineIndex]
+            let line = lines[lineIndex]
 
             guard line.count > 10 else {
                 continue

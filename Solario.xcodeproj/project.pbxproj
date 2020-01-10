@@ -13,18 +13,12 @@
 		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
 		A128AA111F32449100505390 /* RawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA101F32449100505390 /* RawViewController.swift */; };
 		A128AA131F3253E300505390 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
-		A128AA151F32541200505390 /* LastMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA141F32541200505390 /* LastMonthReport.swift */; };
-		A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA161F32542200505390 /* CurrentMonthReport.swift */; };
-		A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA181F32543500505390 /* ThreeDayForecastReport.swift */; };
-		A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */; };
 		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
-		A128AA1F1F3255F900505390 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1E1F3255F900505390 /* Tester.swift */; };
 		A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* ReportsInteractor.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
 		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
-		A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16D1EEFD4BD007A730B /* ParserError.swift */; };
-		A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */; };
+		A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */; };
 		A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* DataFileParser.swift */; };
 		A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */; };
 		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
@@ -49,18 +43,12 @@
 		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A128AA101F32449100505390 /* RawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RawViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A128AA121F3253E300505390 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
-		A128AA141F32541200505390 /* LastMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMonthReport.swift; sourceTree = "<group>"; };
-		A128AA161F32542200505390 /* CurrentMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMonthReport.swift; sourceTree = "<group>"; };
-		A128AA181F32543500505390 /* ThreeDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastReport.swift; sourceTree = "<group>"; };
-		A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastReport.swift; sourceTree = "<group>"; };
 		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
-		A128AA1E1F3255F900505390 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		A13479B81F654BA500435648 /* ReportsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
-		A13AB16D1EEFD4BD007A730B /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
-		A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetreiver.swift; sourceTree = "<group>"; };
+		A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetriever.swift; sourceTree = "<group>"; };
 		A13AB1711EEFD4F2007A730B /* DataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileParser.swift; sourceTree = "<group>"; };
 		A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAADataFileParser.swift; sourceTree = "<group>"; };
 		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
@@ -103,8 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
-				A13AB16D1EEFD4BD007A730B /* ParserError.swift */,
-				A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */,
+				A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */,
 				A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */,
 				A17427AC1F155671009852DD /* DataFileParser */,
 				A13AB1811EEFD895007A730B /* DataItem */,
@@ -156,13 +143,8 @@
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
 				A1789DFB216161460068AA02 /* Appearance.swift */,
-				A128AA1E1F3255F900505390 /* Tester.swift */,
-				A128AA121F3253E300505390 /* Report.swift */,
-				A128AA141F32541200505390 /* LastMonthReport.swift */,
-				A128AA161F32542200505390 /* CurrentMonthReport.swift */,
-				A128AA181F32543500505390 /* ThreeDayForecastReport.swift */,
-				A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */,
 				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
+				A128AA121F3253E300505390 /* Report.swift */,
 				A13AB1801EEFD819007A730B /* Data */,
 				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
 				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
@@ -323,24 +305,18 @@
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
 				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,
 				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
-				A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */,
-				A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */,
 				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
 				A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */,
 				A128AA111F32449100505390 /* RawViewController.swift in Sources */,
-				A128AA151F32541200505390 /* LastMonthReport.swift in Sources */,
 				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
 				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
 				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
 				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
 				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
-				A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */,
-				A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */,
+				A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
-				A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */,
-				A128AA1F1F3255F900505390 /* Tester.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
