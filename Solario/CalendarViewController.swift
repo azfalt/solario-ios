@@ -10,13 +10,6 @@ import UIKit
 
 class CalendarViewController: UIViewController {
 
-    private enum CalendarMode {
-
-        case week
-
-        case month
-    }
-
     var reportsInteractor: ReportsInteractor!
 
     private lazy var calendarView: FSCalendar = FSCalendar()
@@ -25,17 +18,17 @@ class CalendarViewController: UIViewController {
 
     private var scopeGesture: UIPanGestureRecognizer!
 
-    private var calendarMode: CalendarMode = .month
+    private var lastUsedPortraitCalendarScope: FSCalendarScope = .month
+
+    private var calendarScopeForCurrentOrientation: FSCalendarScope {
+        return UIDevice.current.orientation.isPortrait ? lastUsedPortraitCalendarScope : .week
+    }
 
     private var selectedDate: Date?
 
     private lazy var selectedDayLabel: UILabel = UILabel()
 
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
-
-    private let cellId = "dayCell"
-
-    private let headerId = "monthHeaderView"
 
     private var selectedDayFormatter: DateFormatter {
         let df = DateFormatter()
@@ -52,12 +45,13 @@ class CalendarViewController: UIViewController {
         selectCurrentDate()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        // TODO: Fix in the FSCalendar code issues with rotation and changing scope at the same time:
+        // - FSCalendarHeaderView shows wrong date
+        // - Calendar cells can blink
+        // - Poor animation performance
+        perform(#selector(updateCalendarScopeState), with: nil, afterDelay: 0.1)
     }
 
     // MARK: -
@@ -76,8 +70,9 @@ class CalendarViewController: UIViewController {
         configureTableView()
         configureReportsButton()
         updateRefreshButtonState()
-        subsribeToReportsNotifications()
+        subscribeToReportsNotifications()
         configureScopeGesture()
+        updateCalendarScopeState()
     }
 
     @objc private func showReports() {
@@ -95,7 +90,7 @@ class CalendarViewController: UIViewController {
         calendarViewHeightConstraint.isActive = true
         calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        calendarView.scope = calendarMode == .month ? .month : .week
+        calendarView.scope = calendarScopeForCurrentOrientation
         var calendar = Calendar.current
         calendar.locale = Locale.autoupdatingCurrent
         calendarView.firstWeekday = UInt(calendar.firstWeekday)
@@ -105,6 +100,11 @@ class CalendarViewController: UIViewController {
         calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: "cell")
         calendarView.appearance.headerTitleColor = UIColor.label
         calendarView.appearance.weekdayTextColor = UIColor.label
+    }
+
+    @objc private func updateCalendarScopeState() {
+        scopeGesture.isEnabled = UIDevice.current.orientation.isPortrait
+        calendarView.setScope(calendarScopeForCurrentOrientation, animated: true)
     }
 
     private func configureSelectedDayLabel() {
@@ -145,7 +145,7 @@ class CalendarViewController: UIViewController {
         }
     }
 
-    private func subsribeToReportsNotifications() {
+    private func subscribeToReportsNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(refreshData),
                                                name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
@@ -219,6 +219,9 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     // MARK: - FSCalendarDelegate
 
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
+        if !UIDevice.current.orientation.isLandscape {
+            lastUsedPortraitCalendarScope = calendarView.scope
+        }
         calendarViewHeightConstraint.constant = bounds.height
         self.view.layoutIfNeeded()
     }
