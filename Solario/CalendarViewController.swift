@@ -248,13 +248,22 @@ class CalendarViewController: UIViewController {
     }
 
     private func configureScopeGesture() {
-        let gesture = UIPanGestureRecognizer(target: calendarView, action: #selector(calendarView.handleScopeGesture(_:)))
-        gesture.minimumNumberOfTouches = 1
-        gesture.maximumNumberOfTouches = 2
-        gesture.delegate = self
-        scopeGesture = gesture
-        self.view.addGestureRecognizer(scopeGesture)
-        self.tableView.panGestureRecognizer.require(toFail: scopeGesture)
+        scopeGesture = UIPanGestureRecognizer(target: self, action: #selector(handleScopeGesture(_:)))
+        scopeGesture.minimumNumberOfTouches = 1
+        scopeGesture.maximumNumberOfTouches = 2
+        scopeGesture.delegate = self
+        view.addGestureRecognizer(scopeGesture)
+        tableView.panGestureRecognizer.require(toFail: scopeGesture)
+    }
+
+    @objc func handleScopeGesture(_ gesture: UIPanGestureRecognizer) {
+        var translation = gesture.translation(in: view)
+        if (calendarView.scope == .month && translation.y > 0) ||
+            (calendarView.scope == .week && translation.y < 0) {
+            translation.y = 0
+            gesture.setTranslation(translation, in: view)
+        }
+        calendarView.handleScopeGesture(gesture)
     }
 
     @objc private func reloadData() {
