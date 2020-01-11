@@ -64,15 +64,17 @@ class CalendarViewController: UIViewController {
 
     // MARK: -
 
-    private func redrawCalendarView() {
-        let page = calendarView.currentPage
-        configureCalendarView()
-        if let date = selectedDate {
-            calendarView.select(date, scrollToDate: false)
+    @objc private func redrawCalendarView() {
+        DispatchQueue.main.async {
+            let page = self.calendarView.currentPage
+            self.configureCalendarView()
+            if let date = self.selectedDate {
+                self.calendarView.select(date, scrollToDate: false)
+            }
+            self.configureScopeGesture()
+            self.updateCalendarScopeState()
+            self.calendarView.setCurrentPage(page, animated: false)
         }
-        configureScopeGesture()
-        updateCalendarScopeState()
-        calendarView.setCurrentPage(page, animated: false)
     }
 
     private func updateViewSize(newValue: CGSize? = nil, successCompletion: (() -> Void)? = nil) {
@@ -165,6 +167,7 @@ class CalendarViewController: UIViewController {
         calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: calendarCellId)
         calendarView.appearance.headerTitleColor = UIColor.label
         calendarView.appearance.weekdayTextColor = UIColor.label
+        calendarView.appearance.headerTitleFont = UIFont.preferredFont(forTextStyle: .body)
     }
 
     private var isMonthScopeAllowed: Bool {
@@ -185,9 +188,14 @@ class CalendarViewController: UIViewController {
         view.addSubview(selectedDayLabel)
         selectedDayLabel.translatesAutoresizingMaskIntoConstraints = false
         selectedDayLabel.topAnchor.constraint(equalTo: calendarContainerView.bottomAnchor, constant: 7).isActive = true
-        selectedDayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        selectedDayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        selectedDayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        selectedDayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        selectedDayLabel.heightAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.125).isActive = true
+        selectedDayLabel.font = UIFont.preferredFont(forTextStyle: .body)
         selectedDayLabel.textAlignment = .center
+        selectedDayLabel.adjustsFontForContentSizeCategory = true
+        selectedDayLabel.adjustsFontSizeToFitWidth = true
+        selectedDayLabel.baselineAdjustment = .alignCenters
     }
 
     private func configureTableView() {
@@ -232,6 +240,10 @@ class CalendarViewController: UIViewController {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateRefreshButtonState),
                                                name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(redrawCalendarView),
+                                               name: UIContentSizeCategory.didChangeNotification,
                                                object: nil)
     }
 

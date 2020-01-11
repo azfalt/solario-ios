@@ -72,6 +72,9 @@ class CalendarDayCell: FSCalendarCell {
         let labelSideLength = contentSideLength * 0.8
         titleLabel.clipsToBounds = true
         titleLabel.layer.cornerRadius = labelSideLength / 2;
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.baselineAdjustment = .alignCenters
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.widthAnchor.constraint(equalToConstant: labelSideLength).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: labelSideLength).isActive = true
