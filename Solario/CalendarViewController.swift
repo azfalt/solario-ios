@@ -12,7 +12,11 @@ class CalendarViewController: UIViewController {
 
     var reportsInteractor: ReportsInteractor!
 
-    private lazy var calendarView: FSCalendar = FSCalendar()
+    private var calendarContainerView: UIView!
+
+    private var viewSize: CGSize = CGSize(width: 0, height: 0)
+
+    private var calendarView: FSCalendar!
 
     private var calendarViewHeightConstraint: NSLayoutConstraint!
 
@@ -20,8 +24,8 @@ class CalendarViewController: UIViewController {
 
     private var lastUsedPortraitCalendarScope: FSCalendarScope = .month
 
-    private var calendarScopeForCurrentOrientation: FSCalendarScope {
-        return UIDevice.current.orientation.isPortrait ? lastUsedPortraitCalendarScope : .week
+    private var calendarScope: FSCalendarScope {
+        return isMonthScopeAllowed ? lastUsedPortraitCalendarScope : .week
     }
 
     private var selectedDate: Date?
@@ -29,6 +33,8 @@ class CalendarViewController: UIViewController {
     private lazy var selectedDayLabel: UILabel = UILabel()
 
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
+
+    private var calendarCellId: String = "cell"
 
     private var selectedDayFormatter: DateFormatter {
         let df = DateFormatter()
@@ -47,14 +53,39 @@ class CalendarViewController: UIViewController {
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        // TODO: Fix in the FSCalendar code issues with rotation and changing scope at the same time:
-        // - FSCalendarHeaderView shows wrong date
-        // - Calendar cells can blink
-        // - Poor animation performance
-        perform(#selector(updateCalendarScopeState), with: nil, afterDelay: 0.1)
+        updateViewSize(newValue: size) {
+            self.redrawCalendarView()
+        }
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
     }
 
     // MARK: -
+
+    private func redrawCalendarView() {
+        let page = calendarView.currentPage
+        configureCalendarView()
+        if let date = selectedDate {
+            calendarView.select(date, scrollToDate: false)
+        }
+        configureScopeGesture()
+        updateCalendarScopeState()
+        calendarView.setCurrentPage(page, animated: false)
+    }
+
+    private func updateViewSize(newValue: CGSize? = nil, successCompletion: (() -> Void)? = nil) {
+        guard viewSize != newValue else {
+            return
+        }
+        if let size = newValue {
+            viewSize = size
+            successCompletion?()
+        } else {
+            viewSize = view.bounds.size
+        }
+    }
 
     private func selectCurrentDate() {
         let now = Date()
@@ -63,8 +94,9 @@ class CalendarViewController: UIViewController {
     }
 
     private func configure() {
-        title = "Solario"
-        view.backgroundColor = UIColor.systemBackground
+        configureTitle()
+        configureAppearance()
+        updateViewSize()
         configureCalendarView()
         configureSelectedDayLabel()
         configureTableView()
@@ -81,36 +113,78 @@ class CalendarViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    private var calendarViewHeight: CGFloat {
+        let viewWidth = min(viewSize.width, viewSize.height)
+        let viewHeight = max(viewSize.width, viewSize.height)
+        let ratio: CGFloat = 0.55
+        let maxHeight = ceil(viewHeight * ratio)
+        return min(maxHeight, viewWidth)
+    }
+
+    private func configureTitle() {
+        title = "Solario"
+    }
+
+    private func configureAppearance() {
+        view.backgroundColor = UIColor.systemBackground
+    }
+
+    private func configureCalendarContainerViewIfNeed() {
+        guard calendarContainerView == nil else {
+            return
+        }
+        calendarContainerView = UIView()
+        view.addSubview(calendarContainerView)
+        calendarContainerView.translatesAutoresizingMaskIntoConstraints = false
+        calendarContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        calendarContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        calendarContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+
     private func configureCalendarView() {
-        view.addSubview(calendarView)
+        configureCalendarContainerViewIfNeed()
+        if calendarView != nil {
+            calendarView.removeFromSuperview()
+        }
+        calendarView = FSCalendar()
+        calendarContainerView.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
-        calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        let height: CGFloat = view.bounds.size.width
-        calendarViewHeightConstraint = calendarView.heightAnchor.constraint(equalToConstant: height)
+        calendarView.topAnchor.constraint(equalTo: calendarContainerView.topAnchor).isActive = true
+        calendarView.bottomAnchor.constraint(equalTo: calendarContainerView.bottomAnchor).isActive = true
+        calendarViewHeightConstraint = calendarView.heightAnchor.constraint(equalToConstant: calendarViewHeight)
         calendarViewHeightConstraint.isActive = true
-        calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        calendarView.scope = calendarScopeForCurrentOrientation
+        calendarView.leadingAnchor.constraint(equalTo: calendarContainerView.leadingAnchor).isActive = true
+        calendarView.trailingAnchor.constraint(equalTo: calendarContainerView.trailingAnchor).isActive = true
+        calendarView.scope = calendarScope
         var calendar = Calendar.current
         calendar.locale = Locale.autoupdatingCurrent
         calendarView.firstWeekday = UInt(calendar.firstWeekday)
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
-        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: "cell")
+        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: calendarCellId)
         calendarView.appearance.headerTitleColor = UIColor.label
         calendarView.appearance.weekdayTextColor = UIColor.label
     }
 
-    @objc private func updateCalendarScopeState() {
-        scopeGesture.isEnabled = UIDevice.current.orientation.isPortrait
-        calendarView.setScope(calendarScopeForCurrentOrientation, animated: true)
+    private var isMonthScopeAllowed: Bool {
+        let ratio = viewSize.height / viewSize.width;
+        let minRatio: CGFloat = 0.69
+        return ratio >= minRatio
+    }
+
+    private func updateCalendarScopeState() {
+        scopeGesture.isEnabled = isMonthScopeAllowed
+        let scope = calendarScope
+        if scope != calendarView.scope {
+            calendarView.setScope(scope, animated: true)
+        }
     }
 
     private func configureSelectedDayLabel() {
         view.addSubview(selectedDayLabel)
         selectedDayLabel.translatesAutoresizingMaskIntoConstraints = false
-        selectedDayLabel.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 7).isActive = true
+        selectedDayLabel.topAnchor.constraint(equalTo: calendarContainerView.bottomAnchor, constant: 7).isActive = true
         selectedDayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         selectedDayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         selectedDayLabel.textAlignment = .center
@@ -136,6 +210,7 @@ class CalendarViewController: UIViewController {
         DispatchQueue.main.async {
             if self.reportsInteractor.isAnyReportLoading {
                 let indicator = UIActivityIndicatorView(style: .medium)
+                indicator.color = UIColor.label
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
                 indicator.startAnimating()
             } else {
@@ -203,8 +278,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        let cell = calendar.dequeueReusableCell(withIdentifier: "cell", for: date, at: position)
-        return cell
+        return calendar.dequeueReusableCell(withIdentifier: calendarCellId, for: date, at: position)
     }
 
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
@@ -219,7 +293,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     // MARK: - FSCalendarDelegate
 
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        if !UIDevice.current.orientation.isLandscape {
+        if isMonthScopeAllowed {
             lastUsedPortraitCalendarScope = calendarView.scope
         }
         calendarViewHeightConstraint.constant = bounds.height

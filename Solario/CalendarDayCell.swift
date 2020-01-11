@@ -32,11 +32,11 @@ class CalendarDayCell: FSCalendarCell {
     }
 
     override func performSelecting() {
-        updateSeletedViewState()
+        updateSelectViewState()
     }
 
     override func configureAppearance() {
-        updateSeletedViewState()
+        updateSelectViewState()
         if let value = value {
             titleLabel.textColor = UIColor.systemBackground
             let color = Appearance.color(value: value)
@@ -79,7 +79,7 @@ class CalendarDayCell: FSCalendarCell {
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
 
-    private func updateSeletedViewState() {
+    private func updateSelectViewState() {
         selectView.isHidden = !isSelected
     }
 }
