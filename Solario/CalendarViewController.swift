@@ -190,8 +190,8 @@ class CalendarViewController: UIViewController {
         view.addSubview(selectedDayLabel)
         selectedDayLabel.translatesAutoresizingMaskIntoConstraints = false
         selectedDayLabel.topAnchor.constraint(equalTo: calendarContainerView.bottomAnchor, constant: 7).isActive = true
-        selectedDayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        selectedDayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        selectedDayLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        selectedDayLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         selectedDayLabel.heightAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.125).isActive = true
         selectedDayLabel.font = UIFont.preferredFont(forTextStyle: .body)
         selectedDayLabel.textAlignment = .center
@@ -219,8 +219,8 @@ class CalendarViewController: UIViewController {
         emptyPlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
         emptyPlaceholderLabel.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
         emptyPlaceholderLabel.bottomAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
-        emptyPlaceholderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        emptyPlaceholderLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emptyPlaceholderLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        emptyPlaceholderLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         emptyPlaceholderLabel.font = UIFont.preferredFont(forTextStyle: .body)
         emptyPlaceholderLabel.textAlignment = .center
         emptyPlaceholderLabel.baselineAdjustment = .alignCenters
