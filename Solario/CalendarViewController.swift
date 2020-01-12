@@ -331,10 +331,16 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     // MARK: - FSCalendarDataSource
 
     func minimumDate(for calendar: FSCalendar) -> Date {
+        if let bounds = reportsInteractor.reportsDateBounds {
+            return bounds.earliest
+        }
         return reportsInteractor.defaultEarliestReportDate
     }
 
     func maximumDate(for calendar: FSCalendar) -> Date {
+        if let bounds = reportsInteractor.reportsDateBounds {
+            return bounds.latest
+        }
         return reportsInteractor.defaultLatestReportDate
     }
 
