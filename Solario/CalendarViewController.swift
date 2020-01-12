@@ -32,6 +32,8 @@ class CalendarViewController: UIViewController {
 
     private lazy var selectedDayLabel: UILabel = UILabel()
 
+    private lazy var emptyPlaceholderLabel: UILabel = UILabel()
+
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
 
     private var calendarCellId: String = "cell"
@@ -193,9 +195,38 @@ class CalendarViewController: UIViewController {
         selectedDayLabel.heightAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.125).isActive = true
         selectedDayLabel.font = UIFont.preferredFont(forTextStyle: .body)
         selectedDayLabel.textAlignment = .center
+        selectedDayLabel.baselineAdjustment = .alignCenters
         selectedDayLabel.adjustsFontForContentSizeCategory = true
         selectedDayLabel.adjustsFontSizeToFitWidth = true
-        selectedDayLabel.baselineAdjustment = .alignCenters
+    }
+
+    private func updateNoItemsState() {
+        if itemsForSelectedDay()?.count ?? 0 == 0 {
+            configureEmptyPlaceholderIfNeed()
+            emptyPlaceholderLabel.isHidden = false
+            tableView.isHidden = true
+        } else {
+            emptyPlaceholderLabel.isHidden = true
+            tableView.isHidden = false
+        }
+    }
+
+    private func configureEmptyPlaceholderIfNeed() {
+        guard emptyPlaceholderLabel.superview == nil else {
+            return
+        }
+        view.addSubview(emptyPlaceholderLabel)
+        emptyPlaceholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyPlaceholderLabel.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+        emptyPlaceholderLabel.bottomAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
+        emptyPlaceholderLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emptyPlaceholderLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emptyPlaceholderLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        emptyPlaceholderLabel.textAlignment = .center
+        emptyPlaceholderLabel.baselineAdjustment = .alignCenters
+        emptyPlaceholderLabel.adjustsFontForContentSizeCategory = true
+        emptyPlaceholderLabel.adjustsFontSizeToFitWidth = true
+        emptyPlaceholderLabel.text = "_no_data".localized
     }
 
     private func configureTableView() {
@@ -274,6 +305,7 @@ class CalendarViewController: UIViewController {
         DispatchQueue.main.async {
             self.calendarView.reloadData()
             self.tableView.reloadData()
+            self.updateNoItemsState()
         }
     }
 
@@ -282,7 +314,15 @@ class CalendarViewController: UIViewController {
         if let date = date {
             selectedDayLabel.text = selectedDayFormatter.string(from: date)
             tableView.reloadData()
+            updateNoItemsState()
         }
+    }
+
+    private func itemsForSelectedDay() -> [DataItem]? {
+        if let date = selectedDate {
+            return reportsInteractor.mergedItems(forDate: date)
+        }
+        return nil
     }
 }
 
@@ -348,14 +388,6 @@ extension CalendarViewController: UITableViewDataSource {
             cell.configure(item: item)
         }
         return cell
-    }
-
-    private func itemsForSelectedDay() -> [DataItem]? {
-        if let date = selectedDate {
-            let i = reportsInteractor.mergedItems(forDate: date)
-            return i
-        }
-        return nil
     }
 }
 
