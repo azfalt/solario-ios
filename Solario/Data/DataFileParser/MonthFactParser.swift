@@ -50,9 +50,10 @@ class MonthFactParser: DataFileParser {
                     throw ParserError.unrecognizedFormat
                 }
 
-                let dateComponents = self.dateComponents(from: date, eighth: eighth)
-                let item = DataItem(value: value, dateComponents: dateComponents, isForecast: false)
-                items.append(item)
+                if let dateInterval = dateInterval(from: date, eighth: eighth) {
+                    let item = DataItem(value: value, dateInterval: dateInterval, isForecast: false)
+                    items.append(item)
+                }
             }
         }
 

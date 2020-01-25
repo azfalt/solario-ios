@@ -36,13 +36,14 @@ extension DataFileParser {
         return Calendar.current
     }
 
-    func dateComponents(from date: Date, eighth: Int?) -> DataItemDateComponents {
+    func dateInterval(from date: Date, eighth: Int?) -> DateInterval? {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        return DataItemDateComponents(year: year, month: month, day: day, eighth: eighth)
+        let components = DataItemDateComponents(year: year, month: month, day: day, eighth: eighth)
+        return components.dateInterval
     }
-    
+
     func firstLineIndexBegins(with prefix: String) -> Int? {
         return rawDataFile?.lines.firstIndex(where: {
             return $0.hasPrefix(prefix)

@@ -76,23 +76,23 @@ class ReportsInteractor {
         return latest
     }
 
-    var reportsDateBounds: DateBounds? {
-        var bounds: DateBounds?
+    var reportsDateInterval: DateInterval? {
+        var interval: DateInterval?
         for report in reports {
-            if let reportBounds = report.itemsDateBounds {
-                if bounds == nil {
-                    bounds = reportBounds
+            if let reportInterval = report.itemsDateInterval {
+                if interval == nil {
+                    interval = reportInterval
                 } else {
-                    if reportBounds.earliest < bounds!.earliest {
-                        bounds!.earliest = reportBounds.earliest
+                    if reportInterval.start < interval!.start {
+                        interval!.start = reportInterval.start
                     }
-                    if reportBounds.latest > bounds!.latest {
-                        bounds!.latest = reportBounds.latest
+                    if reportInterval.end > interval!.end {
+                        interval!.end = reportInterval.end
                     }
                 }
             }
         }
-        return bounds
+        return interval
     }
 
     func maxValue(forDate date: Date) -> Float? {
@@ -102,27 +102,22 @@ class ReportsInteractor {
     func mergedItems(forDate date: Date) -> [DataItem] {
         var resultItems: [DataItem] = []
         for report in reportsOrderedByPriority {
-            guard let items = report.items else {
+            guard let reportItems = report.items else {
                 continue
             }
+            let items = splitByDays(items: reportItems)
             for item in items {
-                guard item.dateComponents.beginDay == date else {
+                let itemDay = calendar.startOfDay(for: item.dateInterval.start)
+                guard itemDay == date else {
                     continue
                 }
                 var isAlreadyAdded = false
                 for resultItem in resultItems {
-                    guard resultItem.dateComponents.hasTheSameBaseDate(as: item.dateComponents) else {
-                        continue
-                    }
-                    if let itemEight = item.dateComponents.eighth {
-                        if let resultItemEight = resultItem.dateComponents.eighth,
-                            itemEight == resultItemEight {
+                    if let intersection = resultItem.dateInterval.intersection(with: item.dateInterval) {
+                        if intersection.duration > 0 {
                             isAlreadyAdded = true
                             break
                         }
-                    } else {
-                        isAlreadyAdded = true
-                        break
                     }
                 }
                 if !isAlreadyAdded {
@@ -131,6 +126,32 @@ class ReportsInteractor {
             }
         }
         return resultItems
+    }
+
+    private func splitByDays(items: [DataItem]) -> [DataItem] {
+        var resultItems: [DataItem] = []
+        for item in items {
+            let startDate = item.dateInterval.start
+            let endDate = item.dateInterval.end
+            if calendar.isDate(startDate, inSameDayAs: endDate) {
+                resultItems.append(item)
+            } else {
+                let splitResult = splitByDays(item: item)
+                resultItems.append(contentsOf: splitResult)
+            }
+        }
+        return resultItems
+    }
+
+    private func splitByDays(item: DataItem) -> [DataItem] {
+        let beginDate = item.dateInterval.start
+        let endDate = item.dateInterval.end
+        let splitDate = calendar.startOfDay(for: endDate)
+        let interval1 = DateInterval(start: beginDate, end: splitDate)
+        let item1 = DataItem(value: item.value, dateInterval: interval1, isForecast: item.isForecast)
+        let interval2 = DateInterval(start: splitDate, end: endDate)
+        let item2 = DataItem(value: item.value, dateInterval: interval2, isForecast: item.isForecast)
+        return [item1, item2]
     }
 
     func loadReports(completion: (() -> Void)? = nil) {
@@ -204,12 +225,12 @@ class ReportsInteractor {
     private var maxValuesByDate = [Date:Float]()
 
     private func calculateMaxValues() {
-        guard let dateBounds = reportsDateBounds else {
+        guard let dateInterval = reportsDateInterval else {
             return
         }
         maxValuesByDate.removeAll()
-        var date = calendar.startOfDay(for: dateBounds.earliest)
-        while date < dateBounds.latest {
+        var date = calendar.startOfDay(for: dateInterval.start)
+        while date < dateInterval.end {
             maxValuesByDate[date] = itemWithMaxValue(forDate: date)?.value
             date = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: date)!)
         }

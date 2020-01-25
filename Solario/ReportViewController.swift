@@ -76,10 +76,7 @@ class ReportViewController: UIViewController, UITableViewDataSource {
     }
 
     private func createGroup(fromItem item: DataItem) -> String? {
-        if let date = item.dateComponents.beginUTCDate {
-            return groupDateFormatter.string(from: date)
-        }
-        return nil
+        return groupDateFormatter.string(from: item.dateInterval.start)
     }
 
     private var nearestGroup: String? {
@@ -90,12 +87,10 @@ class ReportViewController: UIViewController, UITableViewDataSource {
         var smallestInterval: TimeInterval = TimeInterval.greatestFiniteMagnitude
         let now = Date()
         for item in items {
-            if let date = item.dateComponents.beginUTCDate {
-                let interval = abs(now.timeIntervalSince(date))
-                if interval < smallestInterval {
-                    smallestInterval = interval
-                    nearestGroup = createGroup(fromItem: item)
-                }
+            let interval = abs(now.timeIntervalSince(item.dateInterval.start))
+            if interval < smallestInterval {
+                smallestInterval = interval
+                nearestGroup = createGroup(fromItem: item)
             }
         }
         return nearestGroup

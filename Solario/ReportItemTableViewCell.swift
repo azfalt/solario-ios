@@ -40,11 +40,9 @@ extension ReportItemTableViewCell {
 
     func configure(item: DataItem?) {
         if let item = item {
-            guard let beginDate = item.dateComponents.beginUTCDate,
-                let endDate = item.dateComponents.endUTCDate else {
-                    return
-            }
-            let beginDateString = dateFormatter.string(from: beginDate)
+            let startDate = item.dateInterval.start
+            let endDate = item.dateInterval.end
+            let beginDateString = dateFormatter.string(from: startDate)
             let endDateString = dateFormatter.string(from: endDate)
             var title = "\(beginDateString)..\(endDateString)"
             var titleFontWeight: UIFont.Weight = .regular
@@ -53,14 +51,11 @@ extension ReportItemTableViewCell {
             if item.isForecast {
                 title = "\(title), \("_forecast".localized)"
             }
-            if item.dateComponents.isCurrent {
+            if item.isCurrent {
                 title = "\(title), \("_current".localized)"
                 titleFontWeight = .semibold
                 valueFontWeight = .bold
                 valueFontSize *= 1.1
-            }
-            if item.dateComponents.eighth == nil {
-                title = "\(title), \("_day_max".localized)"
             }
             textLabel?.text = title
             textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: titleFontWeight)

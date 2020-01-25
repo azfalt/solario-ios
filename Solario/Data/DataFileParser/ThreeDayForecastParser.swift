@@ -58,24 +58,27 @@ class ThreeDayForecastParser: DataFileParser, NOAADataFileParser {
 
             let eighth = index + 1
 
-            let dataItem1 = dataItem(date: date1, eighth: eighth, line: line, offset: 15)
-            let dataItem2 = dataItem(date: date2, eighth: eighth, line: line, offset: 26)
-            let dataItem3 = dataItem(date: date3, eighth: eighth, line: line, offset: 37)
-
-            items1.append(dataItem1)
-            items2.append(dataItem2)
-            items3.append(dataItem3)
-
+            if let dataItem1 = dataItem(date: date1, eighth: eighth, line: line, offset: 15) {
+                items1.append(dataItem1)
+            }
+            if let dataItem2 = dataItem(date: date2, eighth: eighth, line: line, offset: 26) {
+                items2.append(dataItem2)
+            }
+            if let dataItem3 = dataItem(date: date3, eighth: eighth, line: line, offset: 37) {
+                items3.append(dataItem3)
+            }
         }
 
         return items1 + items2 + items3
     }
 
-    private func dataItem(date: Date, eighth: Int, line: String, offset: Int) -> DataItem {
+    private func dataItem(date: Date, eighth: Int, line: String, offset: Int) -> DataItem? {
         let valueChar = line[line.index(line.startIndex, offsetBy: offset)]
         let value = (String(valueChar) as NSString).floatValue
-        let dateComponents = self.dateComponents(from: date, eighth: eighth)
-        return DataItem(value: value, dateComponents: dateComponents, isForecast: true)
+        if let dateInterval = dateInterval(from: date, eighth: eighth) {
+            return DataItem(value: value, dateInterval: dateInterval, isForecast: true)
+        }
+        return nil
     }
 
     var issueDate: Date? {

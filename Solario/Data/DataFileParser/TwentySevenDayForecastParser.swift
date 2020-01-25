@@ -49,7 +49,7 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
         return items
     }
 
-    private func dataItem(line: String) throws -> DataItem {
+    private func dataItem(line: String) throws -> DataItem? {
 
         let dateEndIndex = line.index(line.startIndex, offsetBy: 11)
 
@@ -63,9 +63,10 @@ class TwentySevenDayForecastParser: DataFileParser, NOAADataFileParser {
 
         let value = (String(valueChar) as NSString).floatValue
 
-        let dateComponents = self.dateComponents(from: date, eighth: nil)
-
-        return DataItem(value: value, dateComponents: dateComponents, isForecast: true)
+        if let dateInterval = dateInterval(from: date, eighth: nil) {
+            return DataItem(value: value, dateInterval: dateInterval, isForecast: true)
+        }
+        return nil
     }
 
     var issueDate: Date? {

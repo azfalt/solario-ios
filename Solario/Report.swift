@@ -17,8 +17,6 @@ enum ReportPriority: Int {
     case high
 }
 
-typealias DateBounds = (earliest: Date, latest: Date)
-
 class Report {
 
     let url: URL
@@ -62,31 +60,29 @@ class Report {
         return rawDataFile != nil
     }
 
-    var itemsDateBounds: DateBounds? {
+    var itemsDateInterval: DateInterval? {
         guard let items = items else {
             return nil
         }
-        var earliest, latest: Date?
+        var start, end: Date?
         for item in items {
-            if let beginDate = item.dateComponents.beginUTCDate {
-                if earliest == nil {
-                    earliest = beginDate
-                } else if beginDate < earliest! {
-                    earliest = beginDate
-                }
+            let itemStart = item.dateInterval.start
+            if start == nil {
+                start = itemStart
+            } else if itemStart < start! {
+                start = itemStart
             }
-            if let endDate = item.dateComponents.endUTCDate {
-                if latest == nil {
-                    latest = endDate
-                } else if endDate > latest! {
-                    latest = endDate
-                }
+            let itemEnd = item.dateInterval.end
+            if end == nil {
+                end = itemEnd
+            } else if itemEnd > end! {
+                end = itemEnd
             }
         }
-        guard earliest != nil, latest != nil else {
-            return nil
+        if let start = start, let end = end {
+            return DateInterval(start: start, end: end)
         }
-        return (earliest: earliest!, latest: latest!)
+        return nil
     }
 
     init(url: URL, parser: DataFileParser, title: String, priority: ReportPriority) {

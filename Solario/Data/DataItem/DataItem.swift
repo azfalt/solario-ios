@@ -12,7 +12,14 @@ struct DataItem {
 
     let value: Float
 
-    let dateComponents: DataItemDateComponents
+    let dateInterval: DateInterval
 
     let isForecast: Bool
+}
+
+extension DataItem {
+
+    var isCurrent: Bool {
+        return dateInterval.contains(Date())
+    }
 }
