@@ -276,6 +276,10 @@ class CalendarViewController: UIViewController {
                                                selector: #selector(redrawCalendarView),
                                                name: UIContentSizeCategory.didChangeNotification,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(redrawCalendarView),
+                                               name: TimeService.Notifications.DayDidChange,
+                                               object: nil)
     }
 
     private func configureScopeGesture() {

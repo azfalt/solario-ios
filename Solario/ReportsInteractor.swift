@@ -202,7 +202,7 @@ class ReportsInteractor {
 
     init() {
         tryLoadStoredReports()
-        subscribeToAppNotifications()
+        subscribeToNotifications()
     }
     
     private let calendar = Calendar.current
@@ -211,10 +211,14 @@ class ReportsInteractor {
         return reports.sorted(by: { $0.priority.rawValue > $1.priority.rawValue })
     }()
 
-    private func subscribeToAppNotifications() {
+    private func subscribeToNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(loadReports),
                                                name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(loadReports),
+                                               name: TimeService.Notifications.DayDidChange,
                                                object: nil)
     }
     

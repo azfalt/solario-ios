@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let reportsInteractor = ReportsInteractor()
+
+    lazy var timeService = TimeService()
     
     // MARK: - UIApplicationDelegate
     
@@ -28,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureAppearance()
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
+        timeService.start()
         
         return true
     }
