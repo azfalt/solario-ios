@@ -22,7 +22,17 @@ class CalendarViewController: UIViewController {
 
     private var scopeGesture: UIPanGestureRecognizer!
 
-    private var lastUsedPortraitCalendarScope: FSCalendarScope = .month
+    private static let calendarScopeDefaultsKey = "calendarScope"
+
+    private var lastUsedPortraitCalendarScope: FSCalendarScope {
+        set(scope) {
+            UserDefaults.standard.set(scope.rawValue, forKey: CalendarViewController.calendarScopeDefaultsKey)
+        }
+        get {
+            let value = UserDefaults.standard.integer(forKey: CalendarViewController.calendarScopeDefaultsKey)
+            return FSCalendarScope(rawValue: UInt(value)) ?? .month
+        }
+    }
 
     private var calendarScope: FSCalendarScope {
         return isMonthScopeAllowed ? lastUsedPortraitCalendarScope : .week
