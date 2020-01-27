@@ -46,7 +46,7 @@ class CalendarViewController: UIViewController {
 
     private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
 
-    private var calendarCellId: String = "cell"
+    private static let calendarCellId: String = "cell"
 
     private var selectedDayFormatter: DateFormatter {
         let df = DateFormatter()
@@ -176,7 +176,7 @@ class CalendarViewController: UIViewController {
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
-        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: calendarCellId)
+        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: CalendarViewController.calendarCellId)
         calendarView.appearance.headerTitleColor = UIColor.label
         calendarView.appearance.weekdayTextColor = UIColor.label
         calendarView.appearance.headerTitleFont = UIFont.preferredFont(forTextStyle: .body)
@@ -359,7 +359,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        return calendar.dequeueReusableCell(withIdentifier: calendarCellId, for: date, at: position)
+        return calendar.dequeueReusableCell(withIdentifier: CalendarViewController.calendarCellId, for: date, at: position)
     }
 
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
