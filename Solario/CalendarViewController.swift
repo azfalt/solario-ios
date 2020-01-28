@@ -108,7 +108,6 @@ class CalendarViewController: UIViewController {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: now)
         if let today = Calendar.current.date(from: components) {
             select(date: today)
-            calendarView.select(today, scrollToDate: true)
         }
         lastUsedCalendarPage = calendarView.currentPage
     }
@@ -343,6 +342,12 @@ class CalendarViewController: UIViewController {
         }
         return nil
     }
+
+    private func select(date: Date) {
+        selectedDate = date
+        showDetails(for: date)
+        calendarView.select(date, scrollToDate: true)
+    }
 }
 
 extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
@@ -388,70 +393,6 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         select(date: date)
-        calendarView.select(date, scrollToDate: true)
-    }
-
-    private func select(date: Date) {
-        selectedDate = date
-        showDetails(for: date)
-    }
-
-    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        checkForSelectedDateisOnTheCurrentPage()
-    }
-
-    @objc private func checkForSelectedDateisOnTheCurrentPage() {
-        if let lastPage = lastUsedCalendarPage {
-            guard lastPage != calendarView.currentPage else {
-                return
-            }
-            let direction = lastPage.compare(calendarView.currentPage)
-            if let date = correctedSelectedDateForCurrentPage(changeDirection: direction) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                    self.select(date: date)
-                    self.calendarView.select(date, scrollToDate: false)
-                }
-            }
-        }
-        lastUsedCalendarPage = calendarView.currentPage
-    }
-
-    private func correctedSelectedDateForCurrentPage(changeDirection: ComparisonResult) -> Date? {
-        guard
-            let date = selectedDate,
-            changeDirection != .orderedSame else {
-                return nil
-        }
-        let cal = Calendar.current
-        if calendarView.scope == .month {
-            let dateMonth = cal.component(.month, from: date)
-            let pageMonth = cal.component(.month, from: calendarView.currentPage)
-            guard dateMonth != pageMonth else {
-                return nil
-            }
-            let pageYear = cal.component(.year, from: calendarView.currentPage)
-            let components = DateComponents(year: pageYear, month: pageMonth)
-            let startOfMonth = cal.date(from: components)!
-            if changeDirection == .orderedAscending {
-                return startOfMonth
-            }
-            let endOfMonth = cal.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
-            return endOfMonth
-        } else if calendarView.scope == .week {
-            let dateWeek = Calendar.current.component(.weekOfYear, from: date)
-            let pageWeek = Calendar.current.component(.weekOfYear, from: calendarView.currentPage)
-            guard dateWeek != pageWeek else {
-                return nil
-            }
-            let components = cal.dateComponents([.yearForWeekOfYear, .weekOfYear], from: calendarView.currentPage)
-            let startOfWeek = cal.date(from: components)!
-            if changeDirection == .orderedAscending {
-                return startOfWeek
-            }
-            let endOfWeek = cal.date(byAdding: DateComponents(day: 6), to: startOfWeek)!
-            return endOfWeek
-        }
-        return nil
     }
 }
 
