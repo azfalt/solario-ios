@@ -83,6 +83,6 @@ class CalendarDayCell: FSCalendarCell {
     }
 
     private func updateSelectViewState() {
-        selectView.isHidden = !isSelected
+        selectView.isHidden = isPlaceholder || !isSelected
     }
 }
