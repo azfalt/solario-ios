@@ -9,13 +9,11 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
     
     var window: UIWindow?
-    
-    let reportsInteractor = ReportsInteractor()
 
-    lazy var timeService = TimeService()
+    let dependencyProvider = DependencyProvider()
     
     // MARK: - UIApplicationDelegate
     
@@ -23,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootVC = CalendarViewController()
-        rootVC.reportsInteractor = reportsInteractor
         let nc = UINavigationController(rootViewController: rootVC)
         window?.rootViewController = nc
         window?.makeKeyAndVisible()

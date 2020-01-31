@@ -8,9 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
-
-    var reportsInteractor: ReportsInteractor!
+class CalendarViewController: UIViewController, DependencyProtocol {
 
     private var calendarContainerView: UIView!
 
@@ -128,7 +126,6 @@ class CalendarViewController: UIViewController {
 
     @objc private func showReports() {
         let vc = ReportListViewController()
-        vc.reportsInteractor = reportsInteractor
         navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -293,7 +290,7 @@ class CalendarViewController: UIViewController {
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(redrawCalendarView),
-                                               name: TimeService.Notifications.DayDidChange,
+                                               name: TimeServiceNotification.dayDidChange,
                                                object: nil)
     }
 

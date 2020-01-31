@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
+		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
 		A128AA0B1F31E42700505390 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* Extensions.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
 		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
@@ -40,6 +41,7 @@
 		26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Solario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
+		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		A128AA0A1F31E42700505390 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -145,6 +147,7 @@
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
 				A1789DFB216161460068AA02 /* Appearance.swift */,
+				A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */,
 				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
 				A128AA121F3253E300505390 /* Report.swift */,
 				A10F366E23DE32AE00BDB920 /* TimeService.swift */,
@@ -305,6 +308,7 @@
 				A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */,
 				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
+				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
 				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,

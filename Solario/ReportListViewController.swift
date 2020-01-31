@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ReportListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReportListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DependencyProtocol {
 
     private enum SectionType {
         case current, reports
     }
-
-    public var reportsInteractor: ReportsInteractor!
 
     private let sections: [SectionType] = [.current, .reports]
 
@@ -160,7 +158,6 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private func showReport(_ report: Report) {
         let vc = ReportViewController()
-        vc.reportsInteractor = reportsInteractor
         vc.report = report
         navigationController?.pushViewController(vc, animated: true)
     }

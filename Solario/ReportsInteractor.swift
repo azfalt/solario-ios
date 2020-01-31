@@ -218,7 +218,7 @@ class ReportsInteractor {
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(loadReports),
-                                               name: TimeService.Notifications.DayDidChange,
+                                               name: TimeServiceNotification.dayDidChange,
                                                object: nil)
     }
     

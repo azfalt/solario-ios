@@ -8,12 +8,19 @@
 
 import Foundation
 
-class TimeService {
+protocol TimeServiceProtocol {
 
-    struct Notifications {
+    func start()
 
-        static let DayDidChange = Notification.Name("TimeService.DayDidChange")
-    }
+    func stop()
+}
+
+enum TimeServiceNotification {
+
+    static let dayDidChange = Notification.Name("TimeServiceNotification.dayDidChange")
+}
+
+class TimeService: TimeServiceProtocol {
 
     private var timer: Timer?
 
@@ -33,7 +40,7 @@ class TimeService {
     @objc private func checkForCahnges() {
         let day = Calendar.current.component(.day, from: Date())
         if lastDay > 0 && day != lastDay {
-            NotificationCenter.default.post(name: Notifications.DayDidChange, object: nil)
+            NotificationCenter.default.post(name: TimeServiceNotification.dayDidChange, object: nil)
         }
         lastDay = day
     }

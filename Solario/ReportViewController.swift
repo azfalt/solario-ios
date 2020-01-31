@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ReportViewController: UIViewController, UITableViewDataSource {
-
-    var reportsInteractor: ReportsInteractor!
+class ReportViewController: UIViewController, UITableViewDataSource, DependencyProtocol {
 
     var report: Report!
 
