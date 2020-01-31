@@ -21,10 +21,10 @@ class RawDataRetriever {
     }
 
     private func retrieveRawString(url: URL, completion: @escaping (String?) -> Void) {
-        let sharedSession = URLSession.shared
-        let task = sharedSession.downloadTask(with: url, completionHandler: {
+        let task = URLSession.shared.downloadTask(with: url, completionHandler: {
             (location: URL?, response: URLResponse?, error: Error?) -> Void in
             guard let location = location else {
+                completion(nil)
                 return
             }
             let rawData: String?

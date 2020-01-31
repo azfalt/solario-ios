@@ -182,13 +182,13 @@ class ReportsInteractor {
     func load(report: Report, completion: (() -> Void)? = nil) {
         report.isLoading = true
         rawDataRetriever.retrieveRawDataFile(url: report.url, completion: { [weak self] rawDataFile in
+            report.isLoading = false
             guard
                 let self = self,
                 let file = rawDataFile else {
                     return
             }
             report.rawDataFile = file
-            report.isLoading = false
             self.rawDataStorage.set(rawDataFile: file, url: report.url)
             completion?()
         })
