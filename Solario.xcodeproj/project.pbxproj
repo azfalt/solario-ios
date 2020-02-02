@@ -10,6 +10,7 @@
 		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
 		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
+		A10F367423E5729900BDB920 /* RawDataRetrieverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */; };
 		A128AA0B1F31E42700505390 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* Extensions.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
 		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
@@ -34,6 +35,11 @@
 		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
 		A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */; };
+		A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */; };
+		A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */; };
+		A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */; };
+		A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB223E6E18300D1C6AE /* Observable.swift */; };
+		A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,7 @@
 		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
 		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetrieverProtocol.swift; sourceTree = "<group>"; };
 		A128AA0A1F31E42700505390 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -69,6 +76,11 @@
 		A1E594CB1E6C1891008745B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E594CE1E6C1891008745B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E594D01E6C1891008745B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStorageProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProviderProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CB223E6E18300D1C6AE /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +103,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A10F367223E5727300BDB920 /* RawDataRetriever */ = {
+			isa = PBXGroup;
+			children = (
+				A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */,
+				A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */,
+			);
+			path = RawDataRetriever;
+			sourceTree = "<group>";
+		};
 		A13AB1801EEFD819007A730B /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
-				A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */,
-				A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */,
 				A17427AC1F155671009852DD /* DataFileParser */,
 				A13AB1811EEFD895007A730B /* DataItem */,
 			);
@@ -147,10 +166,14 @@
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
 				A1789DFB216161460068AA02 /* Appearance.swift */,
-				A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */,
+				A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */,
+				A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */,
+				A1EF8CB223E6E18300D1C6AE /* Observable.swift */,
 				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
+				A10F367223E5727300BDB920 /* RawDataRetriever */,
+				A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */,
 				A128AA121F3253E300505390 /* Report.swift */,
-				A10F366E23DE32AE00BDB920 /* TimeService.swift */,
+				A1EF8CB423E7672900D1C6AE /* TimeService */,
 				A13AB1801EEFD819007A730B /* Data */,
 				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
 				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
@@ -166,6 +189,33 @@
 				A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */,
 			);
 			path = Solario;
+			sourceTree = "<group>";
+		};
+		A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */,
+				A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */,
+			);
+			path = RawDataStorage;
+			sourceTree = "<group>";
+		};
+		A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */,
+				A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */,
+			);
+			path = DependencyProvider;
+			sourceTree = "<group>";
+		};
+		A1EF8CB423E7672900D1C6AE /* TimeService */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */,
+				A10F366E23DE32AE00BDB920 /* TimeService.swift */,
+			);
+			path = TimeService;
 			sourceTree = "<group>";
 		};
 		D4F8B0979F64F4CA7D34021B /* Pods */ = {
@@ -310,7 +360,11 @@
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
+				A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */,
+				A10F367423E5729900BDB920 /* RawDataRetrieverProtocol.swift in Sources */,
+				A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */,
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
+				A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */,
 				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,
 				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
 				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
@@ -321,8 +375,10 @@
 				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
 				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
 				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
+				A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
 				A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */,
+				A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,

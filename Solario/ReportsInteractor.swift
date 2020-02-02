@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReportsInteractor {
+class ReportsInteractor: DependencyProtocol {
 
     static let lastMonthReport =
         Report(url: URL(string: "http://www-app3.gfz-potsdam.de/kp_index/pqlyymm.tab")!,
@@ -35,27 +35,32 @@ class ReportsInteractor {
                title: "_report_title_twenty_seven_day_forecast".localized,
                priority: .low)
 
-    struct Notifications {
-        
-        static let ReportWillStartLoading = Notification.Name("ReportsNotification.ReportWillStartLoading")
-        
-        static let ReportDidFinishLoading = Notification.Name("ReportsNotification.ReportDidFinishLoading")
-
-        static let AllReportsDidFinishLoading = Notification.Name("ReportsNotification.AllReportsDidFinishLoading")
-    }
-    
-    private lazy var rawDataStorage = RawDataStorage()
-
-    private lazy var rawDataRetriever = RawDataRetriever()
-
-    lazy var reports: [Report] = [
+    private(set) lazy var reports: [Report] = [
         ReportsInteractor.lastMonthReport,
         ReportsInteractor.currentMonthReport,
         ReportsInteractor.threeDayForecastReport,
         ReportsInteractor.twentySevenDayForecastReport
     ]
 
-    var isAnyReportLoading: Bool {
+    private(set) var isUpdating: Observable<Bool> = Observable(value: false)
+
+    private func updateUpdatingState() {
+        isUpdating.value = isLoading || isCalculating
+    }
+
+    private var isCalculating: Bool = false {
+        didSet {
+            updateUpdatingState()
+        }
+    }
+
+    private var isLoading: Bool = false {
+        didSet {
+            updateUpdatingState()
+        }
+    }
+
+    private var isAnyReportLoading: Bool {
         for report in reports {
             if report.isLoading {
                 return true
@@ -156,13 +161,17 @@ class ReportsInteractor {
 
     func loadReports(completion: (() -> Void)? = nil) {
         for report in reports {
-            NotificationCenter.default.post(name: Notifications.ReportWillStartLoading, object: report)
+            isLoading = true
             load(report: report, completion: { [weak self] in
-                NotificationCenter.default.post(name: Notifications.ReportDidFinishLoading, object: report)
-                if self?.isAnyReportLoading == false {
-                    self?.calculateMaxValues()
-                    NotificationCenter.default.post(name: Notifications.AllReportsDidFinishLoading, object: nil)
+                defer {
                     completion?()
+                }
+                guard let self = self else {
+                    return
+                }
+                if self.isAnyReportLoading == false {
+                    self.calculateMaxValues()
+                    self.isLoading = false
                 }
             })
         }
@@ -182,6 +191,9 @@ class ReportsInteractor {
     func load(report: Report, completion: (() -> Void)? = nil) {
         report.isLoading = true
         rawDataRetriever.retrieveRawDataFile(url: report.url, completion: { [weak self] rawDataFile in
+            defer {
+                completion?()
+            }
             report.isLoading = false
             guard
                 let self = self,
@@ -190,7 +202,6 @@ class ReportsInteractor {
             }
             report.rawDataFile = file
             self.rawDataStorage.set(rawDataFile: file, url: report.url)
-            completion?()
         })
     }
 
@@ -202,7 +213,11 @@ class ReportsInteractor {
 
     init() {
         tryLoadStoredReports()
-        subscribeToNotifications()
+        addObservers()
+    }
+
+    deinit {
+        removeObservers()
     }
     
     private let calendar = Calendar.current
@@ -211,17 +226,20 @@ class ReportsInteractor {
         return reports.sorted(by: { $0.priority.rawValue > $1.priority.rawValue })
     }()
 
-    private func subscribeToNotifications() {
+    private func addObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(loadReports),
                                                name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(loadReports),
-                                               name: TimeServiceNotification.dayDidChange,
-                                               object: nil)
+        timeService.day.addObserver(self) { [weak self] day in
+            self?.loadReports()
+        }
     }
-    
+
+    private func removeObservers() {
+        timeService.day.removeObserver(self)
+    }
+
     @objc private func loadReports() {
         loadReports(completion: nil)
     }
@@ -232,12 +250,14 @@ class ReportsInteractor {
         guard let dateInterval = reportsDateInterval else {
             return
         }
+        isCalculating = true
         maxValuesByDate.removeAll()
         var date = calendar.startOfDay(for: dateInterval.start)
         while date < dateInterval.end {
             maxValuesByDate[date] = itemWithMaxValue(forDate: date)?.value
             date = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: date)!)
         }
+        isCalculating = false
     }
 
     private func itemWithMaxValue(forDate date: Date) -> DataItem? {

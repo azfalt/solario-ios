@@ -38,14 +38,9 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     private func subsribeToReportsNotifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateLoadingState),
-                                               name: ReportsInteractor.Notifications.ReportWillStartLoading,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateLoadingState),
-                                               name: ReportsInteractor.Notifications.ReportDidFinishLoading,
-                                               object: nil)
+        reportsInteractor.isUpdating.addObserver(self) { [weak self] _ in
+            self?.updateLoadingState()
+        }
     }
 
     @objc dynamic private func loadReports() {
@@ -53,10 +48,10 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
         reportsInteractor.loadReports()
     }
 
-    @objc dynamic func updateLoadingState() {
+    private func updateLoadingState() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            if self.reportsInteractor.isAnyReportLoading == false && self.refreshControl.isRefreshing {
+            if self.reportsInteractor.isUpdating.value == false && self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
         }

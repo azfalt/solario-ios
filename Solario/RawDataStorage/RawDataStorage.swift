@@ -8,9 +8,9 @@
 
 import Foundation
 
-class RawDataStorage {
+class RawDataStorage: RawDataStorageProtocol {
 
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
 
     func rawDataFile(url: URL) -> RawDataFile? {
         if let text = defaults.string(forKey: url.absoluteString) {

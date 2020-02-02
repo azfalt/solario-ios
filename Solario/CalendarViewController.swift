@@ -74,6 +74,10 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         super.traitCollectionDidChange(previousTraitCollection)
     }
 
+    deinit {
+        removeObservers()
+    }
+
     // MARK: -
 
     @objc private func redrawCalendarView() {
@@ -119,7 +123,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         configureTableView()
         configureReportsButton()
         updateRefreshButtonState()
-        subscribeToNotifications()
+        addObservers()
         configureScopeGesture()
         updateCalendarScopeState()
     }
@@ -259,7 +263,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     @objc private func updateRefreshButtonState() {
         DispatchQueue.main.async {
-            if self.reportsInteractor.isAnyReportLoading {
+            if self.reportsInteractor.isUpdating.value == true {
                 let indicator = UIActivityIndicatorView(style: .medium)
                 indicator.color = UIColor.label
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
@@ -271,27 +275,27 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         }
     }
 
-    private func subscribeToNotifications() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(refreshData),
-                                               name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateRefreshButtonState),
-                                               name: ReportsInteractor.Notifications.ReportWillStartLoading,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(updateRefreshButtonState),
-                                               name: ReportsInteractor.Notifications.AllReportsDidFinishLoading,
-                                               object: nil)
+    private func addObservers() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(redrawCalendarView),
                                                name: UIContentSizeCategory.didChangeNotification,
                                                object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(redrawCalendarView),
-                                               name: TimeServiceNotification.dayDidChange,
-                                               object: nil)
+        timeService.day.addObserver(self) { [weak self] _ in
+            self?.redrawCalendarView()
+        }
+        reportsInteractor.isUpdating.addObserver(self) { [weak self] isUpdating in
+            guard let self = self else {
+                return
+            }
+            if !isUpdating {
+                self.refreshData()
+            }
+            self.updateRefreshButtonState()
+        }
+    }
+
+    private func removeObservers() {
+        timeService.day.removeObserver(self)
     }
 
     private func configureScopeGesture() {

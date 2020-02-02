@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
         UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
         timeService.start()
-        
+
         return true
     }
-    
+
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         reportsInteractor.loadReports(completion: {
             completionHandler(.newData)

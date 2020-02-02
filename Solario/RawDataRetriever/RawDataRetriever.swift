@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RawDataRetriever {
+class RawDataRetriever: RawDataRetrieverProtocol {
 
     func retrieveRawDataFile(url: URL, completion: @escaping (RawDataFile?) -> Void) {
         retrieveRawString(url: url, completion: { rawData in
