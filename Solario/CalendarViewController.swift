@@ -107,6 +107,11 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private func selectCurrentDate() {
         let now = Date()
+        let minDate = minimumDate(for: calendarView)
+        let maxDate = maximumDate(for: calendarView)
+        guard now >= minDate && now <= maxDate else {
+            return
+        }
         let components = Calendar.current.dateComponents([.year, .month, .day], from: now)
         if let today = Calendar.current.date(from: components) {
             select(date: today)
