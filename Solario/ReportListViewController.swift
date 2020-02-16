@@ -16,7 +16,7 @@ class ReportListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     private let sections: [SectionType] = [.current, .reports]
 
-    private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+    private lazy var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
     private var refreshControl = UIRefreshControl()
 

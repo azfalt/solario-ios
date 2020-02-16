@@ -58,10 +58,10 @@ extension ReportItemTableViewCell {
                 valueFontSize *= 1.1
             }
             textLabel?.text = title
-            textLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: titleFontWeight)
+            textLabel?.font = .monospacedDigitSystemFont(ofSize: fontSize, weight: titleFontWeight)
             detailTextLabel?.text = valueFormatter.string(from: NSNumber(value: item.value))
             detailTextLabel?.textColor = Appearance.color(value: item.value)
-            detailTextLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: valueFontSize, weight: valueFontWeight)
+            detailTextLabel?.font = .monospacedDigitSystemFont(ofSize: valueFontSize, weight: valueFontWeight)
         } else {
             textLabel?.text = "—"
             detailTextLabel?.text = nil
@@ -76,10 +76,10 @@ extension ReportItemTableViewCell {
     }
 
     private var valueFormatter: NumberFormatter {
-        let vf = NumberFormatter()
-        vf.numberStyle = .decimal
-        vf.minimumFractionDigits = 1
-        vf.maximumFractionDigits = 1
-        return vf
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 1
+        nf.maximumFractionDigits = 1
+        return nf
     }
 }

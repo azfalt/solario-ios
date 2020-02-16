@@ -45,7 +45,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private lazy var emptyPlaceholderLabel: UILabel = UILabel()
 
-    private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
+    private lazy var tableView: UITableView = UITableView(frame: .zero, style: .plain)
 
     private static let calendarCellId: String = "cell"
 
@@ -184,15 +184,15 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.trailingAnchor.constraint(equalTo: calendarContainerView.trailingAnchor).isActive = true
         calendarView.scope = calendarScope
         var calendar = Calendar.current
-        calendar.locale = Locale.autoupdatingCurrent
+        calendar.locale = .autoupdatingCurrent
         calendarView.firstWeekday = UInt(calendar.firstWeekday)
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
         calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: CalendarViewController.calendarCellId)
-        calendarView.appearance.headerTitleColor = UIColor.label
-        calendarView.appearance.weekdayTextColor = UIColor.label
-        calendarView.appearance.headerTitleFont = UIFont.preferredFont(forTextStyle: .body)
+        calendarView.appearance.headerTitleColor = .label
+        calendarView.appearance.weekdayTextColor = .label
+        calendarView.appearance.headerTitleFont = .preferredFont(forTextStyle: .body)
     }
 
     private var isMonthScopeAllowed: Bool {
@@ -216,7 +216,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         selectedDayLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         selectedDayLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         selectedDayLabel.heightAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.125).isActive = true
-        selectedDayLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        selectedDayLabel.font = .preferredFont(forTextStyle: .body)
         selectedDayLabel.textAlignment = .center
         selectedDayLabel.baselineAdjustment = .alignCenters
         selectedDayLabel.adjustsFontForContentSizeCategory = true
@@ -244,7 +244,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         emptyPlaceholderLabel.bottomAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
         emptyPlaceholderLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         emptyPlaceholderLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-        emptyPlaceholderLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        emptyPlaceholderLabel.font = .preferredFont(forTextStyle: .body)
         emptyPlaceholderLabel.textAlignment = .center
         emptyPlaceholderLabel.baselineAdjustment = .alignCenters
         emptyPlaceholderLabel.adjustsFontForContentSizeCategory = true

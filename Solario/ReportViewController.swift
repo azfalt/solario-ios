@@ -12,7 +12,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, DependencyP
 
     var report: Report!
 
-    private lazy var tableView: UITableView = UITableView(frame: CGRect.zero, style: .grouped)
+    private lazy var tableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
     private var refreshControl = UIRefreshControl()
 
@@ -82,7 +82,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, DependencyP
             return nil
         }
         var nearestGroup: String?
-        var smallestInterval: TimeInterval = TimeInterval.greatestFiniteMagnitude
+        var smallestInterval: TimeInterval = .greatestFiniteMagnitude
         let now = Date()
         for item in items {
             let interval = abs(now.timeIntervalSince(item.dateInterval.start))

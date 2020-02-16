@@ -15,11 +15,11 @@ class CalendarDayCell: FSCalendarCell {
     private var value: Float?
 
     private lazy var normalFont: UIFont = {
-        return UIFont.preferredFont(forTextStyle: .body)
+        return .preferredFont(forTextStyle: .body)
     }()
 
     private lazy var todayFont: UIFont = {
-        return UIFont.systemFont(ofSize: normalFont.pointSize, weight: .heavy)
+        return .systemFont(ofSize: normalFont.pointSize, weight: .heavy)
     }()
 
     override init(frame: CGRect) {
@@ -38,12 +38,12 @@ class CalendarDayCell: FSCalendarCell {
     override func configureAppearance() {
         updateSelectViewState()
         if let value = value {
-            titleLabel.textColor = UIColor.systemBackground
+            titleLabel.textColor = .systemBackground
             let color = Appearance.color(value: value)
             titleLabel.backgroundColor = color
         } else {
-            titleLabel.textColor = UIColor.label
-            titleLabel.backgroundColor = UIColor.clear
+            titleLabel.textColor = .label
+            titleLabel.backgroundColor = .clear
         }
         titleLabel.alpha = isPlaceholder ? 0.3 : 1
         titleLabel.font = self.dateIsToday ? todayFont : normalFont
