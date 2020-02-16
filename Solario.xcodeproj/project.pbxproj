@@ -11,7 +11,7 @@
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
 		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
 		A10F367423E5729900BDB920 /* RawDataRetrieverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */; };
-		A128AA0B1F31E42700505390 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* Extensions.swift */; };
+		A128AA0B1F31E42700505390 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
 		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
 		A128AA111F32449100505390 /* RawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA101F32449100505390 /* RawViewController.swift */; };
@@ -28,6 +28,12 @@
 		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
 		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
 		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
+		A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635523EF6AAA0090791F /* InfoViewController.swift */; };
+		A176635823F078020090791F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635723F078020090791F /* InfoView.swift */; };
+		A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635923F8B1E70090791F /* EdgeButton.swift */; };
+		A176635C23F8B2070090791F /* AppDescrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635B23F8B2070090791F /* AppDescrView.swift */; };
+		A176635E23F8C0150090791F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635D23F8C0150090791F /* UIColor.swift */; };
+		A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */; };
 		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
 		A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */; };
 		A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */; };
@@ -49,7 +55,7 @@
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
 		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
 		A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetrieverProtocol.swift; sourceTree = "<group>"; };
-		A128AA0A1F31E42700505390 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A128AA0A1F31E42700505390 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A128AA101F32449100505390 /* RawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RawViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -66,6 +72,12 @@
 		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
 		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
 		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A176635523EF6AAA0090791F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A176635723F078020090791F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		A176635923F8B1E70090791F /* EdgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeButton.swift; sourceTree = "<group>"; };
+		A176635B23F8B2070090791F /* AppDescrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDescrView.swift; sourceTree = "<group>"; };
+		A176635D23F8C0150090791F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
@@ -143,6 +155,16 @@
 			path = DataFileParser;
 			sourceTree = "<group>";
 		};
+		A176636123F8C05D0090791F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A128AA0A1F31E42700505390 /* String.swift */,
+				A176635D23F8C0150090791F /* UIColor.swift */,
+				A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A1E594B81E6C1891008745B1 = {
 			isa = PBXGroup;
 			children = (
@@ -177,11 +199,15 @@
 				A13AB1801EEFD819007A730B /* Data */,
 				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
 				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
+				A176635523EF6AAA0090791F /* InfoViewController.swift */,
+				A176635723F078020090791F /* InfoView.swift */,
+				A176635923F8B1E70090791F /* EdgeButton.swift */,
+				A176635B23F8B2070090791F /* AppDescrView.swift */,
 				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
 				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
 				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
 				A128AA101F32449100505390 /* RawViewController.swift */,
-				A128AA0A1F31E42700505390 /* Extensions.swift */,
+				A176636123F8C05D0090791F /* Extensions */,
 				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
 				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
 				A1E594D01E6C1891008745B1 /* Info.plist */,
@@ -357,6 +383,8 @@
 				A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */,
 				A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */,
 				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
+				A176635823F078020090791F /* InfoView.swift in Sources */,
+				A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
@@ -369,16 +397,20 @@
 				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
 				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
 				A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */,
+				A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */,
 				A128AA111F32449100505390 /* RawViewController.swift in Sources */,
 				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
 				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
 				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
+				A176635C23F8B2070090791F /* AppDescrView.swift in Sources */,
+				A176635E23F8C0150090791F /* UIColor.swift in Sources */,
 				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
-				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
+				A128AA0B1F31E42700505390 /* String.swift in Sources */,
 				A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
 				A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */,
 				A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */,
+				A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class CalendarViewController: UIViewController, DependencyProtocol {
 
@@ -126,16 +127,17 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         configureCalendarView()
         configureSelectedDayLabel()
         configureTableView()
-        configureReportsButton()
+        configureInfoButton()
         updateRefreshButtonState()
         addObservers()
         configureScopeGesture()
         updateCalendarScopeState()
     }
 
-    @objc private func showReports() {
-        let vc = ReportListViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    @objc private func showInfo() {
+        let vc = InfoViewController()
+        vc.modalPresentationStyle = .formSheet
+        navigationController?.present(vc, animated: true)
     }
 
     private var calendarViewHeight: CGFloat {
@@ -151,7 +153,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
     }
 
     private func configureAppearance() {
-        view.backgroundColor = UIColor.systemBackground
+        view.backgroundColor = .systemBackground
     }
 
     private func configureCalendarContainerViewIfNeed() {
@@ -261,16 +263,16 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         tableView.register(ReportItemTableViewCell.self, forCellReuseIdentifier: String(describing: ReportItemTableViewCell.self))
     }
 
-    private func configureReportsButton() {
-        let image = UIImage(systemName: "list.dash")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showReports))
+    private func configureInfoButton() {
+        let image = UIImage(systemName: "info.circle")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInfo))
     }
 
     @objc private func updateRefreshButtonState() {
         DispatchQueue.main.async {
             if self.reportsInteractor.isUpdating.value == true {
                 let indicator = UIActivityIndicatorView(style: .medium)
-                indicator.color = UIColor.label
+                indicator.color = .label
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
                 indicator.startAnimating()
             } else {

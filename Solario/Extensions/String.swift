@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  String.swift
 //  Solario
 //
 //  Created by Hermann Wagenleitner on 02/08/2017.
