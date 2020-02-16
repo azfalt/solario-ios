@@ -29,9 +29,9 @@ _app_version_with_placeholder = "Version %@";
 _data_provision_with_placeholders = "Solario shows the forecast and the actual state of Earth’s geomagnetic field using %@ index.\n\nData provided by %@ and %@ / %@";
 _kp = "Kp";
 _noaa_title = "National Oceanic and Atmospheric Administration";
-_noaa_url = "https://www.swpc.noaa.gov/";
+_noaa_url = "https://www.swpc.noaa.gov/products";
 _gfz_title = "German Research Centre for Geosciences";
-_gfz_url = "https://www.gfz-potsdam.de/en/home/";
+_gfz_url = "https://www.gfz-potsdam.de/en/kp-index/";
 _cc_by_40_title = "CC BY 4.0";
 _cc_by_40_url = "https://creativecommons.org/licenses/by/4.0/";
 

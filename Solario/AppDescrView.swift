@@ -19,7 +19,7 @@ struct AppDescrView: UIViewRepresentable {
         let font = UIFont.preferredFont(forTextStyle: .body)
         let italicFont = UIFont.italicSystemFont(ofSize: font.pointSize)
         let noaaUrl = URL(string: "_noaa_url".localized)!
-        let gfzUrl = URL(string: "_gfc_url".localized)!
+        let gfzUrl = URL(string: "_gfz_url".localized)!
         let ccBy40URL = URL(string: "_cc_by_40_url".localized)!
         let attrString = NSMutableAttributedString(string: text)
         attrString.set(font: font, forText: text)
