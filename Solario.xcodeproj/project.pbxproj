@@ -550,7 +550,7 @@
 			baseConfigurationReference = 003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -558,6 +558,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
@@ -570,7 +571,7 @@
 			baseConfigurationReference = 94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = Solario/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -578,6 +579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
