@@ -10,23 +10,27 @@
 		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
 		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
-		A10F367423E5729900BDB920 /* RawDataRetrieverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */; };
 		A128AA0B1F31E42700505390 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
-		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
-		A128AA111F32449100505390 /* RawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA101F32449100505390 /* RawViewController.swift */; };
 		A128AA131F3253E300505390 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
 		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
-		A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* ReportsInteractor.swift */; };
+		A13479B91F654BA500435648 /* DataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* DataInteractor.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
 		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
-		A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */; };
-		A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* DataFileParser.swift */; };
-		A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */; };
-		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
-		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
-		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
+		A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */; };
+		A13AB1741EEFD513007A730B /* NOAAParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */; };
+		A13AB17A1EEFD57F007A730B /* NOAA27DayOutlookParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */; };
+		A13AB17C1EEFD599007A730B /* NOAA3DayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */; };
+		A1416D391F0A5CFF0084DF20 /* GFZMonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */; };
+		A15C5E5A23FC0E2400906D3A /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5923FC0E2400906D3A /* Calendar.swift */; };
+		A15C5E5D23FD273C00906D3A /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5C23FD273C00906D3A /* DataProcessor.swift */; };
+		A15C5E5F23FD275D00906D3A /* DataProcessorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */; };
+		A15C5E6223FD27FE00906D3A /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */; };
+		A15C5E6423FD281000906D3A /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6323FD281000906D3A /* DataLoader.swift */; };
+		A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */; };
+		A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */; };
+		A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */; };
 		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
 		A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635523EF6AAA0090791F /* InfoViewController.swift */; };
 		A176635823F078020090791F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635723F078020090791F /* InfoView.swift */; };
@@ -34,11 +38,16 @@
 		A176635C23F8B2070090791F /* AppDescrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635B23F8B2070090791F /* AppDescrView.swift */; };
 		A176635E23F8C0150090791F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635D23F8C0150090791F /* UIColor.swift */; };
 		A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */; };
+		A176636523F985830090791F /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636423F985830090791F /* ParserError.swift */; };
+		A176636823F98C6B0090791F /* DataInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636723F98C6B0090791F /* DataInteractorProtocol.swift */; };
+		A176636D23F99D790090791F /* AppearanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636C23F99D790090791F /* AppearanceProtocol.swift */; };
+		A176636F23F9FE210090791F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636E23F9FE210090791F /* Constants.swift */; };
 		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
 		A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */; };
 		A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */; };
+		A1A7E0DB23FA103D00345F13 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7E0DA23FA103D00345F13 /* Bundle.swift */; };
+		A1A8A22023FBE03100E95316 /* DataItemPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
-		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
 		A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */; };
 		A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */; };
@@ -54,23 +63,27 @@
 		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
 		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
-		A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetrieverProtocol.swift; sourceTree = "<group>"; };
 		A128AA0A1F31E42700505390 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
-		A128AA101F32449100505390 /* RawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RawViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A128AA121F3253E300505390 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
-		A13479B81F654BA500435648 /* ReportsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		A13479B81F654BA500435648 /* DataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
-		A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetriever.swift; sourceTree = "<group>"; };
-		A13AB1711EEFD4F2007A730B /* DataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileParser.swift; sourceTree = "<group>"; };
-		A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAADataFileParser.swift; sourceTree = "<group>"; };
-		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
-		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
-		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
+		A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataParserProtocol.swift; sourceTree = "<group>"; };
+		A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAAParserProtocol.swift; sourceTree = "<group>"; };
+		A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAA27DayOutlookParser.swift; sourceTree = "<group>"; };
+		A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAA3DayForecastParser.swift; sourceTree = "<group>"; };
+		A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFZMonthFactParser.swift; sourceTree = "<group>"; };
+		A15C5E5923FC0E2400906D3A /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		A15C5E5C23FD273C00906D3A /* DataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessor.swift; sourceTree = "<group>"; };
+		A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessorProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6323FD281000906D3A /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactoryProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactory.swift; sourceTree = "<group>"; };
 		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		A176635523EF6AAA0090791F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A176635723F078020090791F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -78,13 +91,18 @@
 		A176635B23F8B2070090791F /* AppDescrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDescrView.swift; sourceTree = "<group>"; };
 		A176635D23F8C0150090791F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		A176636423F985830090791F /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
+		A176636723F98C6B0090791F /* DataInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInteractorProtocol.swift; sourceTree = "<group>"; };
+		A176636C23F99D790090791F /* AppearanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceProtocol.swift; sourceTree = "<group>"; };
+		A176636E23F9FE210090791F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
 		A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
 		A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStorage.swift; sourceTree = "<group>"; };
+		A1A7E0DA23FA103D00345F13 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemPriority.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
-		A1E594C61E6C1891008745B1 /* ReportListViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A1E594CB1E6C1891008745B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E594CE1E6C1891008745B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E594D01E6C1891008745B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,21 +133,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A10F367223E5727300BDB920 /* RawDataRetriever */ = {
-			isa = PBXGroup;
-			children = (
-				A10F367323E5729900BDB920 /* RawDataRetrieverProtocol.swift */,
-				A13AB16F1EEFD4D0007A730B /* RawDataRetriever.swift */,
-			);
-			path = RawDataRetriever;
-			sourceTree = "<group>";
-		};
 		A13AB1801EEFD819007A730B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
-				A17427AC1F155671009852DD /* DataFileParser */,
+				A176636623F98C510090791F /* DataInteractor */,
 				A13AB1811EEFD895007A730B /* DataItem */,
+				A15C5E6023FD27C900906D3A /* DataLoader */,
+				A15C5E5B23FD272B00906D3A /* DataProcessor */,
+				A176636A23F998D10090791F /* RawData */,
+				A15C5E6523FD3B4C00906D3A /* Report */,
+				A15C5E6823FD3F4400906D3A /* ReportFactory */,
+				A17427AC1F155671009852DD /* RawDataParser */,
+				A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -137,32 +152,133 @@
 		A13AB1811EEFD895007A730B /* DataItem */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */,
+				A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */,
 				A13AB1691EEFD47F007A730B /* DataItem.swift */,
 			);
 			path = DataItem;
 			sourceTree = "<group>";
 		};
-		A17427AC1F155671009852DD /* DataFileParser */ = {
+		A15C5E5B23FD272B00906D3A /* DataProcessor */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB1711EEFD4F2007A730B /* DataFileParser.swift */,
-				A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */,
-				A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */,
-				A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */,
-				A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */,
+				A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */,
+				A15C5E5C23FD273C00906D3A /* DataProcessor.swift */,
 			);
-			path = DataFileParser;
+			path = DataProcessor;
+			sourceTree = "<group>";
+		};
+		A15C5E6023FD27C900906D3A /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */,
+				A15C5E6323FD281000906D3A /* DataLoader.swift */,
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		A15C5E6523FD3B4C00906D3A /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */,
+				A128AA121F3253E300505390 /* Report.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		A15C5E6823FD3F4400906D3A /* ReportFactory */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */,
+				A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */,
+			);
+			path = ReportFactory;
+			sourceTree = "<group>";
+		};
+		A17427AC1F155671009852DD /* RawDataParser */ = {
+			isa = PBXGroup;
+			children = (
+				A176636423F985830090791F /* ParserError.swift */,
+				A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */,
+				A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */,
+				A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */,
+				A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */,
+				A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */,
+				A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */,
+			);
+			path = RawDataParser;
 			sourceTree = "<group>";
 		};
 		A176636123F8C05D0090791F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A1A7E0DA23FA103D00345F13 /* Bundle.swift */,
+				A15C5E5923FC0E2400906D3A /* Calendar.swift */,
+				A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */,
 				A128AA0A1F31E42700505390 /* String.swift */,
 				A176635D23F8C0150090791F /* UIColor.swift */,
-				A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A176636223F980310090791F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
+				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
+				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
+				A176635523EF6AAA0090791F /* InfoViewController.swift */,
+				A176635723F078020090791F /* InfoView.swift */,
+				A176635923F8B1E70090791F /* EdgeButton.swift */,
+				A176635B23F8B2070090791F /* AppDescrView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A176636323F980D40090791F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
+				A1E594D01E6C1891008745B1 /* Info.plist */,
+				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
+				A128AA0C1F31E4F100505390 /* Localizable.strings */,
+				A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		A176636623F98C510090791F /* DataInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				A176636723F98C6B0090791F /* DataInteractorProtocol.swift */,
+				A13479B81F654BA500435648 /* DataInteractor.swift */,
+			);
+			path = DataInteractor;
+			sourceTree = "<group>";
+		};
+		A176636923F998620090791F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */,
+				A1EF8CB223E6E18300D1C6AE /* Observable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A176636A23F998D10090791F /* RawData */ = {
+			isa = PBXGroup;
+			children = (
+				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
+			);
+			path = RawData;
+			sourceTree = "<group>";
+		};
+		A176636B23F99D630090791F /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				A176636C23F99D790090791F /* AppearanceProtocol.swift */,
+				A1789DFB216161460068AA02 /* Appearance.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 		A1E594B81E6C1891008745B1 = {
@@ -187,32 +303,15 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
-				A1789DFB216161460068AA02 /* Appearance.swift */,
-				A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */,
-				A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */,
-				A1EF8CB223E6E18300D1C6AE /* Observable.swift */,
-				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
-				A10F367223E5727300BDB920 /* RawDataRetriever */,
-				A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */,
-				A128AA121F3253E300505390 /* Report.swift */,
-				A1EF8CB423E7672900D1C6AE /* TimeService */,
+				A176636E23F9FE210090791F /* Constants.swift */,
+				A176636B23F99D630090791F /* Appearance */,
 				A13AB1801EEFD819007A730B /* Data */,
-				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
-				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
-				A176635523EF6AAA0090791F /* InfoViewController.swift */,
-				A176635723F078020090791F /* InfoView.swift */,
-				A176635923F8B1E70090791F /* EdgeButton.swift */,
-				A176635B23F8B2070090791F /* AppDescrView.swift */,
-				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
-				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
-				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
-				A128AA101F32449100505390 /* RawViewController.swift */,
+				A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */,
 				A176636123F8C05D0090791F /* Extensions */,
-				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
-				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
-				A1E594D01E6C1891008745B1 /* Info.plist */,
-				A128AA0C1F31E4F100505390 /* Localizable.strings */,
-				A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */,
+				A176636923F998620090791F /* Helpers */,
+				A1EF8CB423E7672900D1C6AE /* TimeService */,
+				A176636223F980310090791F /* UI */,
+				A176636323F980D40090791F /* Support Files */,
 			);
 			path = Solario;
 			sourceTree = "<group>";
@@ -379,40 +478,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15C5E6223FD27FE00906D3A /* DataLoaderProtocol.swift in Sources */,
 				A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */,
-				A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */,
+				A13AB1741EEFD513007A730B /* NOAAParserProtocol.swift in Sources */,
 				A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */,
-				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
+				A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */,
+				A1416D391F0A5CFF0084DF20 /* GFZMonthFactParser.swift in Sources */,
+				A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */,
 				A176635823F078020090791F /* InfoView.swift in Sources */,
 				A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
+				A15C5E5D23FD273C00906D3A /* DataProcessor.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
 				A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */,
-				A10F367423E5729900BDB920 /* RawDataRetrieverProtocol.swift in Sources */,
+				A176636D23F99D790090791F /* AppearanceProtocol.swift in Sources */,
 				A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */,
+				A176636823F98C6B0090791F /* DataInteractorProtocol.swift in Sources */,
 				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
 				A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */,
+				A1A8A22023FBE03100E95316 /* DataItemPriority.swift in Sources */,
+				A15C5E5F23FD275D00906D3A /* DataProcessorProtocol.swift in Sources */,
 				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,
-				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
-				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
+				A13479B91F654BA500435648 /* DataInteractor.swift in Sources */,
+				A13AB17A1EEFD57F007A730B /* NOAA27DayOutlookParser.swift in Sources */,
 				A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */,
 				A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */,
-				A128AA111F32449100505390 /* RawViewController.swift in Sources */,
-				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
-				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
+				A15C5E5A23FC0E2400906D3A /* Calendar.swift in Sources */,
+				A176636523F985830090791F /* ParserError.swift in Sources */,
 				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
 				A176635C23F8B2070090791F /* AppDescrView.swift in Sources */,
+				A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */,
 				A176635E23F8C0150090791F /* UIColor.swift in Sources */,
-				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
+				A13AB17C1EEFD599007A730B /* NOAA3DayForecastParser.swift in Sources */,
+				A15C5E6423FD281000906D3A /* DataLoader.swift in Sources */,
+				A1A7E0DB23FA103D00345F13 /* Bundle.swift in Sources */,
 				A128AA0B1F31E42700505390 /* String.swift in Sources */,
 				A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
-				A13AB1701EEFD4D0007A730B /* RawDataRetriever.swift in Sources */,
+				A176636F23F9FE210090791F /* Constants.swift in Sources */,
 				A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */,
 				A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
-				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
+				A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,7 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = HHKU5A364G;
-				INFOPLIST_FILE = Solario/Info.plist;
+				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +669,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -573,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
 				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = HHKU5A364G;
-				INFOPLIST_FILE = Solario/Info.plist;
+				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -582,7 +690,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/ObjC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

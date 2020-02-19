@@ -10,11 +10,9 @@ import Foundation
 
 protocol DependencyProviderProtocol {
 
-    var reportsInteractor: ReportsInteractor { get }
-
-    var rawDataRetriever: RawDataRetrieverProtocol { get }
-
-    var rawDataStorage: RawDataStorageProtocol { get }
-
     var timeService: TimeServiceProtocol { get }
+
+    var appearance: AppearanceProtocol { get }
+
+    var dataInteractor: DataInteractorProtocol { get }
 }

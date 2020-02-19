@@ -15,6 +15,8 @@ struct DataItem {
     let dateInterval: DateInterval
 
     let isForecast: Bool
+
+    let priority: DataItemPriority
 }
 
 extension DataItem {

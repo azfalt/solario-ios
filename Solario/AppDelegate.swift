@@ -19,29 +19,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let rootVC = CalendarViewController()
-        let nc = UINavigationController(rootViewController: rootVC)
-        window?.rootViewController = nc
-        window?.makeKeyAndVisible()
-        
+        configureWindow()
         configureAppearance()
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        configureTimeService()
 
-        timeService.start()
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
 
         return true
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        reportsInteractor.loadReports(completion: {
+        dataInteractor.loadData(completion: {
             completionHandler(.newData)
         })
     }
 
-    // MARK: - Helpers
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        dataInteractor.loadData(completion: nil)
+    }
+
+    // MARK: -
+
+    private func configureWindow() {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        let rootVC = CalendarViewController()
+        let nc = UINavigationController(rootViewController: rootVC)
+        window.rootViewController = nc
+        window.makeKeyAndVisible()
+        self.window = window
+    }
     
     private func configureAppearance() {
-        window?.tintColor = Appearance.tintColor
+        window?.tintColor = appearance.tintColor
+    }
+
+    private func configureTimeService() {
+        timeService.day.addObserver(self) { [unowned self] day in
+            self.dataInteractor.loadData(completion: nil)
+        }
+        timeService.start()
     }
 }

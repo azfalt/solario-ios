@@ -11,10 +11,8 @@ import Foundation
 class TimeService: TimeServiceProtocol {
 
     private static var currentDay: Int {
-        return Calendar.current.component(.day, from: Date())
+        return Constants.calendar.component(.day, from: Date())
     }
-
-    private(set) var day: Observable<Int>
 
     private weak var timer: Timer?
 
@@ -25,6 +23,10 @@ class TimeService: TimeServiceProtocol {
     deinit {
         stop()
     }
+
+    // MARK: - TimeServiceProtocol
+
+    private(set) var day: Observable<Int>
 
     func start() {
         DispatchQueue.main.async {
@@ -40,6 +42,8 @@ class TimeService: TimeServiceProtocol {
             self.timer = nil
         }
     }
+
+    // MARK: -
 
     private func checkForChanges() {
         let currentDay = TimeService.currentDay
