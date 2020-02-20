@@ -71,6 +71,11 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         }
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        redrawCalendarView()
+    }
+
     deinit {
         removeObservers()
     }
