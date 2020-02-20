@@ -27,7 +27,7 @@ struct AppDescrView: UIViewRepresentable {
     private var textView: UITextView {
         let textView = UITextView()
         textView.isEditable = false
-        textView.isSelectable = false
+        textView.isSelectable = true
         textView.backgroundColor = .clear
         textView.attributedText = attributedText
         textView.textAlignment = .center
