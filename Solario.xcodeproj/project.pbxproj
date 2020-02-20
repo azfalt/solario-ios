@@ -31,6 +31,7 @@
 		A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */; };
 		A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */; };
 		A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */; };
+		A15C5E6E23FEA63400906D3A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A15C5E6D23FEA63400906D3A /* Settings.bundle */; };
 		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
 		A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635523EF6AAA0090791F /* InfoViewController.swift */; };
 		A176635823F078020090791F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635723F078020090791F /* InfoView.swift */; };
@@ -84,6 +85,7 @@
 		A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
 		A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactoryProtocol.swift; sourceTree = "<group>"; };
 		A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactory.swift; sourceTree = "<group>"; };
+		A15C5E6D23FEA63400906D3A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		A176635523EF6AAA0090791F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A176635723F078020090791F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
 				A128AA0C1F31E4F100505390 /* Localizable.strings */,
 				A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */,
+				A15C5E6D23FEA63400906D3A /* Settings.bundle */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15C5E6E23FEA63400906D3A /* Settings.bundle in Resources */,
 				A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */,
 				A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */,
 				A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */,
