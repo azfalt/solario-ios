@@ -12,8 +12,8 @@ struct Constants {
 
     static let gfzLastMonthReportURL = URL(string: "http://www-app3.gfz-potsdam.de/kp_index/pqlyymm.tab")!
     static let gfzCurrentMonthReportURL = URL(string: "http://www-app3.gfz-potsdam.de/kp_index/qlyymm.tab")!
-    static let noaa3DayForecastReportURL = URL(string: "http://services.swpc.noaa.gov/text/3-day-forecast.txt")!
-    static let noaa27DayOutlookReportURL = URL(string: "http://services.swpc.noaa.gov/text/27-day-outlook.txt")!
+    static let noaa3DayForecastReportURL = URL(string: "https://services.swpc.noaa.gov/text/3-day-forecast.txt")!
+    static let noaa27DayOutlookReportURL = URL(string: "https://services.swpc.noaa.gov/text/27-day-outlook.txt")!
 
     static let forecast = "_forecast".localized
     static let current = "_current".localized
