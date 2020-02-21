@@ -262,7 +262,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.dataSource = self
-        tableView.register(ReportItemTableViewCell.self, forCellReuseIdentifier: String(describing: ReportItemTableViewCell.self))
+        tableView.register(DataItemTableViewCell.self, forCellReuseIdentifier: String(describing: DataItemTableViewCell.self))
     }
 
     private func configureInfoButton() {
@@ -412,7 +412,7 @@ extension CalendarViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ReportItemTableViewCell.self), for: indexPath) as! ReportItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DataItemTableViewCell.self), for: indexPath) as! DataItemTableViewCell
         if let items = itemsForSelectedDay() {
             let item = items[indexPath.row]
             cell.configure(item: item)

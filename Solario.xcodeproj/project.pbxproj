@@ -13,7 +13,7 @@
 		A128AA0B1F31E42700505390 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
 		A128AA131F3253E300505390 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
-		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
+		A128AA1D1F32551E00505390 /* DataItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */; };
 		A13479B91F654BA500435648 /* DataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* DataInteractor.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
@@ -67,7 +67,7 @@
 		A128AA0A1F31E42700505390 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A128AA121F3253E300505390 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
-		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
+		A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItemTableViewCell.swift; sourceTree = "<group>"; };
 		A13479B81F654BA500435648 /* DataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 			children = (
 				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
 				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
-				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
+				A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */,
 				A176635523EF6AAA0090791F /* InfoViewController.swift */,
 				A176635723F078020090791F /* InfoView.swift */,
 				A176635923F8B1E70090791F /* EdgeButton.swift */,
@@ -499,7 +499,7 @@
 				A176636D23F99D790090791F /* AppearanceProtocol.swift in Sources */,
 				A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */,
 				A176636823F98C6B0090791F /* DataInteractorProtocol.swift in Sources */,
-				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
+				A128AA1D1F32551E00505390 /* DataItemTableViewCell.swift in Sources */,
 				A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */,
 				A1A8A22023FBE03100E95316 /* DataItemPriority.swift in Sources */,
 				A15C5E5F23FD275D00906D3A /* DataProcessorProtocol.swift in Sources */,

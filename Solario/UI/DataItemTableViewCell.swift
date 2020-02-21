@@ -1,5 +1,5 @@
 //
-//  ReportItemTableViewCell.swift
+//  DataItemTableViewCell.swift
 //  Solario
 //
 //  Created by Hermann Wagenleitner on 03/08/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportItemTableViewCell: UITableViewCell, DependencyProtocol {
+class DataItemTableViewCell: UITableViewCell, DependencyProtocol {
 
     init() {
         super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: String(describing: Self.self))
