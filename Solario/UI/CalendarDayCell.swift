@@ -60,16 +60,8 @@ class CalendarDayCell: FSCalendarCell, DependencyProtocol {
         shapeLayer.isHidden = true
 
         let contentSideLength = min(frame.size.width, frame.size.height)
-        selectView.layer.cornerRadius = contentSideLength / 2
-        selectView.layer.borderWidth = contentSideLength * 0.06
-        contentView.addSubview(selectView)
-        selectView.translatesAutoresizingMaskIntoConstraints = false
-        selectView.widthAnchor.constraint(equalToConstant: contentSideLength).isActive = true
-        selectView.heightAnchor.constraint(equalToConstant: contentSideLength).isActive = true
-        selectView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        selectView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
 
-        let labelSideLength = contentSideLength * 0.8
+        let labelSideLength = round(contentSideLength * 0.8)
         titleLabel.clipsToBounds = true
         titleLabel.layer.cornerRadius = labelSideLength / 2;
         titleLabel.adjustsFontForContentSizeCategory = true
@@ -80,6 +72,16 @@ class CalendarDayCell: FSCalendarCell, DependencyProtocol {
         titleLabel.heightAnchor.constraint(equalToConstant: labelSideLength).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+
+        let selectPadding = ((contentSideLength - labelSideLength) / 2).roundedToPixel
+        selectView.layer.cornerRadius = (contentSideLength / 2).roundedToPixel
+        selectView.layer.borderWidth = (contentSideLength * 0.06).roundedToPixel
+        contentView.addSubview(selectView)
+        selectView.translatesAutoresizingMaskIntoConstraints = false
+        selectView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -selectPadding).isActive = true
+        selectView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: selectPadding).isActive = true
+        selectView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -selectPadding).isActive = true
+        selectView.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: selectPadding).isActive = true
     }
 
     private func updateSelectViewState() {
