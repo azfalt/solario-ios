@@ -38,6 +38,7 @@ struct InfoView: View {
                                    height: self.appDescrView.height(width: (geometry.size.width - self.horizontalPadding * 2)),
                                    alignment: .center)
                     }
+                    .padding(.vertical, 50)
                     .frame(minHeight: geometry.size.height)
                 }
                 VStack(alignment: .center) {
