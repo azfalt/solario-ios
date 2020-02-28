@@ -12,13 +12,13 @@ struct InfoView: View {
 
     var dismissAction: (() -> Void)?
 
+    private let appIconView = AppIconView()
+
     private let appDescrView = AppDescrView()
 
-    var appVersionString: String {
+    private var appVersionString: String {
         return String(format: Constants.appVersionWithPlaceholder, Bundle.main.appVersion)
     }
-
-    private let verticalSpacing: CGFloat = 20
 
     private let horizontalPadding: CGFloat = 10
 
@@ -26,21 +26,21 @@ struct InfoView: View {
         GeometryReader { geometry in
             ZStack {
                 ScrollView(.vertical) {
-                    VStack(alignment: .center, spacing: self.verticalSpacing) {
-                        Spacer()
-                        Text(Constants.appName).font(.largeTitle).bold()
-                        Text(self.appVersionString).font(.caption).padding(.top, -self.verticalSpacing)
+                    VStack(alignment: .center, spacing: 20) {
+                        VStack(alignment: .center, spacing: 0) {
+                            self.appIconView.padding(.bottom, 3)
+                            Text(Constants.appName).font(.largeTitle).bold()
+                            Text(self.appVersionString).font(.caption)
+                        }
                         self.appDescrView
                             .padding(.horizontal, self.horizontalPadding)
                             .frame(width: geometry.size.width,
                                    height: self.appDescrView.height(width: (geometry.size.width - self.horizontalPadding * 2)),
                                    alignment: .center)
-                        Spacer()
-                        Spacer()
                     }
                     .frame(minHeight: geometry.size.height)
                 }
-                VStack(alignment: .center, spacing: self.verticalSpacing) {
+                VStack(alignment: .center) {
                     HStack(alignment: .center) {
                         Spacer()
                         EdgeButton() {

@@ -32,6 +32,7 @@
 		A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */; };
 		A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */; };
 		A15C5E6E23FEA63400906D3A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A15C5E6D23FEA63400906D3A /* Settings.bundle */; };
+		A15C5E702409512500906D3A /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6F2409512500906D3A /* AppIconView.swift */; };
 		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
 		A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635523EF6AAA0090791F /* InfoViewController.swift */; };
 		A176635823F078020090791F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635723F078020090791F /* InfoView.swift */; };
@@ -86,6 +87,7 @@
 		A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactoryProtocol.swift; sourceTree = "<group>"; };
 		A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactory.swift; sourceTree = "<group>"; };
 		A15C5E6D23FEA63400906D3A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A15C5E6F2409512500906D3A /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
 		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		A176635523EF6AAA0090791F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A176635723F078020090791F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				A176635523EF6AAA0090791F /* InfoViewController.swift */,
 				A176635723F078020090791F /* InfoView.swift */,
 				A176635923F8B1E70090791F /* EdgeButton.swift */,
+				A15C5E6F2409512500906D3A /* AppIconView.swift */,
 				A176635B23F8B2070090791F /* AppDescrView.swift */,
 			);
 			path = UI;
@@ -526,6 +529,7 @@
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
+				A15C5E702409512500906D3A /* AppIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
