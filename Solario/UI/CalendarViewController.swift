@@ -88,7 +88,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     // MARK: -
 
-    @objc private func redrawCalendarView() {
+    private func redrawCalendarView() {
         DispatchQueue.main.async {
             let page = self.calendarView.currentPage
             self.configureCalendarView()
@@ -158,6 +158,8 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private func configureTitle() {
         title = Constants.appName
+        let font = UIFont.systemFont(ofSize: UIFont.preferredFont(forTextStyle: .title2).pointSize, weight: .bold)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font]
     }
 
     private func configureAppearance() {
@@ -302,7 +304,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private func addObservers() {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(redrawCalendarView),
+                                               selector: #selector(updateSizeCategory),
                                                name: UIContentSizeCategory.didChangeNotification,
                                                object: nil)
         timeService.day.addObserver(self) { [weak self] _ in
@@ -317,6 +319,11 @@ class CalendarViewController: UIViewController, DependencyProtocol {
             }
             self.setActivityIndicatorEnabled(isProcessing)
         }
+    }
+
+    @objc private func updateSizeCategory() {
+        redrawCalendarView()
+        configureTitle()
     }
 
     private func removeObservers() {
