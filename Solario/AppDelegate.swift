@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
     var window: UIWindow?
 
     let dependencyProvider = DependencyProvider()
+
+    private var isBackgroung = true
     
     // MARK: - UIApplicationDelegate
     
@@ -34,8 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
         })
     }
 
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        isBackgroung = true
+    }
+
     func applicationDidBecomeActive(_ application: UIApplication) {
-        dataInteractor.loadData(completion: nil)
+        if isBackgroung {
+            dataInteractor.loadData(completion: nil)
+        }
+        isBackgroung = false
     }
 
     // MARK: -
