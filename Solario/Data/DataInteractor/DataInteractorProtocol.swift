@@ -10,6 +10,8 @@ import Foundation
 
 protocol DataInteractorProtocol {
 
+    typealias LoadCompletion = ((_ success: Bool) -> Void)
+
     var isProcessing: Observable<Bool> { get }
 
     var dateInterval: DateInterval? { get }
@@ -18,5 +20,5 @@ protocol DataInteractorProtocol {
 
     func items(forDate date: Date) -> [DataItem]
 
-    func loadData(completion: (() -> Void)?)
+    func loadData(completion: LoadCompletion?)
 }

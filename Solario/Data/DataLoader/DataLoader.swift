@@ -20,15 +20,17 @@ class DataLoader: DataLoaderProtocol {
 
     // MARK: - DataLoaderProtocol
 
-    func load(reports: [ReportProtocol], completion: @escaping (() -> Void)) {
+    func load(reports: [ReportProtocol], completion: @escaping LoadCompletion) {
         guard reports.count > 0 else {
-            completion()
+            completion(false)
             return
         }
+        var isSuccessful = false
         for report in reports {
-            load(report: report, completion: { [weak self] in
+            load(report: report, completion: { [weak self] success in
+                isSuccessful = isSuccessful || success
                 if self?.loadingURLs.count == 0 {
-                    completion()
+                    completion(isSuccessful)
                 }
             })
         }
@@ -36,18 +38,17 @@ class DataLoader: DataLoaderProtocol {
 
     // MARK: -
 
-    private func load(report: ReportProtocol, completion: @escaping (() -> Void)) {
+    private func load(report: ReportProtocol, completion: @escaping LoadCompletion) {
         loadingURLs.insert(report.url)
         retrieveRawDataFile(url: report.url, completion: { [weak self] rawDataFile in
-            defer {
-                completion()
-            }
             self?.loadingURLs.remove(report.url)
             guard let file = rawDataFile else {
+                completion(false)
                 return
             }
             report.setRawDataFile(file)
             self?.rawStorage.setRawDataFile(file, url: report.url)
+            completion(true)
         })
     }
 
@@ -62,11 +63,14 @@ class DataLoader: DataLoaderProtocol {
     }
 
     private func retrieveRawString(url: URL, completion: @escaping (String?) -> Void) {
-        let task = URLSession.shared.downloadTask(with: url, completionHandler: {
+        let task = URLSession.shared.downloadTask(with: url) {
             (location: URL?, response: URLResponse?, error: Error?) -> Void in
-            guard let location = location else {
-                completion(nil)
-                return
+            guard
+                let response = response as? HTTPURLResponse,
+                200...299 ~= response.statusCode,
+                let location = location else {
+                    completion(nil)
+                    return
             }
             let rawData: String?
             do {
@@ -76,7 +80,7 @@ class DataLoader: DataLoaderProtocol {
                 rawData = nil
             }
             completion(rawData)
-        })
+        }
         task.resume()
     }
 }

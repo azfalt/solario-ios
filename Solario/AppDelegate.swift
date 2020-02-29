@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        dataInteractor.loadData(completion: {
-            completionHandler(.newData)
+        dataInteractor.loadData(completion: { success in
+            completionHandler(success ? .newData : .noData)
         })
     }
 

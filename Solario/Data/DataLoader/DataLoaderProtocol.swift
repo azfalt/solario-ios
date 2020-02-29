@@ -10,5 +10,7 @@ import Foundation
 
 protocol DataLoaderProtocol {
 
-    func load(reports: [ReportProtocol], completion: @escaping (() -> Void))
+    typealias LoadCompletion = ((_ success: Bool) -> Void)
+
+    func load(reports: [ReportProtocol], completion: @escaping LoadCompletion)
 }

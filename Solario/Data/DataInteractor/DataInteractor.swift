@@ -64,16 +64,18 @@ class DataInteractor: DataInteractorProtocol {
         return itemsByDate[date] ?? []
     }
 
-    func loadData(completion: (() -> Void)? = nil) {
+    func loadData(completion: LoadCompletion? = nil) {
         isLoading = true
-        loader.load(reports: reports) { [weak self] in
+        loader.load(reports: reports) { [weak self] success in
             defer {
-                completion?()
+                completion?(success)
             }
             guard let self = self else {
                 return
             }
-            self.prepareData()
+            if (success) {
+                self.prepareData()
+            }
             self.isLoading = false
         }
     }
