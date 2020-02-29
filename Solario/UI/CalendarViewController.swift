@@ -130,7 +130,6 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         configureSelectedDayLabel()
         configureTableView()
         configureInfoButton()
-        updateRefreshButtonState()
         addObservers()
         configureScopeGesture()
         updateCalendarScopeState()
@@ -191,7 +190,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.delegate = self
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
-        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: CalendarViewController.calendarCellId)
+        calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: Self.calendarCellId)
         calendarView.appearance.headerTitleColor = .label
         calendarView.appearance.weekdayTextColor = .label
         calendarView.appearance.headerTitleFont = .preferredFont(forTextStyle: .body)
@@ -268,9 +267,10 @@ class CalendarViewController: UIViewController, DependencyProtocol {
     private func configureInfoButton() {
         let image = UIImage(systemName: "info.circle")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInfo))
+        self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
 
-    @objc private func updateRefreshButtonState() {
+    private func updateActivityIndicatorState() {
         DispatchQueue.main.async {
             if self.dataInteractor.isProcessing.value == true {
                 let indicator = UIActivityIndicatorView(style: .medium)
@@ -278,8 +278,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
                 indicator.startAnimating()
             } else {
-                let image = UIImage(systemName: "arrow.clockwise")
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.reloadData))
+                self.navigationItem.leftBarButtonItem = nil
             }
         }
     }
@@ -299,7 +298,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
             if !isUpdating {
                 self.refreshData()
             }
-            self.updateRefreshButtonState()
+            self.updateActivityIndicatorState()
         }
     }
 
@@ -326,11 +325,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.handleScopeGesture(gesture)
     }
 
-    @objc private func reloadData() {
-        dataInteractor.loadData(completion: nil)
-    }
-
-    @objc private func refreshData() {
+    private func refreshData() {
         DispatchQueue.main.async {
             self.calendarView.reloadData()
             self.tableView.reloadData()
@@ -373,7 +368,7 @@ extension CalendarViewController: FSCalendarDataSource, FSCalendarDelegate {
     }
 
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-        return calendar.dequeueReusableCell(withIdentifier: CalendarViewController.calendarCellId, for: date, at: position)
+        return calendar.dequeueReusableCell(withIdentifier: Self.calendarCellId, for: date, at: position)
     }
 
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at position: FSCalendarMonthPosition) {
