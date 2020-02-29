@@ -56,6 +56,12 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         return df
     }
 
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .secondaryLabel
+        return indicator
+    }()
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -126,6 +132,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         configureTitle()
         configureAppearance()
         updateViewSize()
+        configureNavigationBar()
         configureCalendarView()
         configureSelectedDayLabel()
         configureTableView()
@@ -155,6 +162,16 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private func configureAppearance() {
         view.backgroundColor = .systemBackground
+    }
+
+    private func configureNavigationBar() {
+        guard let nc = navigationController else {
+            return
+        }
+        nc.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        nc.navigationBar.shadowImage = UIImage()
+        nc.navigationBar.isTranslucent = true
+        nc.view.backgroundColor = .clear
     }
 
     private func configureCalendarContainerViewIfNeed() {
@@ -270,15 +287,15 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
 
-    private func updateActivityIndicatorState() {
+    private func setActivityIndicatorEnabled(_ enabled: Bool) {
         DispatchQueue.main.async {
-            if self.dataInteractor.isProcessing.value == true {
-                let indicator = UIActivityIndicatorView(style: .medium)
-                indicator.color = .label
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: indicator)
-                indicator.startAnimating()
+            if enabled {
+                if self.navigationItem.leftBarButtonItem == nil {
+                    self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: self.activityIndicator)
+                }
+                self.activityIndicator.startAnimating()
             } else {
-                self.navigationItem.leftBarButtonItem = nil
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -291,14 +308,14 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         timeService.day.addObserver(self) { [weak self] _ in
             self?.redrawCalendarView()
         }
-        dataInteractor.isProcessing.addObserver(self) { [weak self] isUpdating in
+        dataInteractor.isProcessing.addObserver(self) { [weak self] isProcessing in
             guard let self = self else {
                 return
             }
-            if !isUpdating {
+            if !isProcessing {
                 self.refreshData()
             }
-            self.updateActivityIndicatorState()
+            self.setActivityIndicatorEnabled(isProcessing)
         }
     }
 
