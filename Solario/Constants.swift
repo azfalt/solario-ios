@@ -28,6 +28,11 @@ struct Constants {
     static let gfzURL = URL(string: "_gfz_url".localized)!
     static let ccBy40Title = "_cc_by_40_title".localized
     static let ccBy40URL = URL(string: "_cc_by_40_url".localized)!
+    static let openSource = "_open_source".localized
+
+    static let imagePlaceholder = "[IMAGE]"
+    static let gitHubMarkImage = UIImage(named: "github-mark") ?? UIImage()
+    static let gitHubURL = URL(string: "https://github.com/azfalt/solario-ios")!
 
     static let calendar = Calendar.current
 }

@@ -12,7 +12,7 @@ struct AppDescrView: UIViewRepresentable {
 
     private var attributedText: NSAttributedString {
         let c = Constants.self
-        let text = String(format: c.appDescrWithPlaceholders, c.kp, c.noaaTitle, c.gfzTitle, c.ccBy40Title)
+        let text = String(format: c.appDescrWithPlaceholders, c.kp, c.noaaTitle, c.gfzTitle, c.ccBy40Title, c.imagePlaceholder, c.openSource)
         let font = UIFont.preferredFont(forTextStyle: .body)
         let italicFont = UIFont.italicSystemFont(ofSize: font.pointSize)
         let attrString = NSMutableAttributedString(string: text)
@@ -21,6 +21,8 @@ struct AppDescrView: UIViewRepresentable {
         attrString.set(url: c.noaaURL, forText: c.noaaTitle)
         attrString.set(url: c.gfzURL, forText: c.gfzTitle)
         attrString.set(url: c.ccBy40URL, forText: c.ccBy40Title)
+        attrString.set(url: c.gitHubURL, forText: c.openSource)
+        attrString.set(image: c.gitHubMarkImage, forText: c.imagePlaceholder, capHeight: font.capHeight)
         return attrString
     }
 
