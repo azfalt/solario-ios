@@ -9,6 +9,8 @@ Solario is a free and open-source app for iOS that shows the forecast and the
 
 The principal users affected by geomagnetic storms are the electrical power grid, spacecraft operations, users of radio signals that reflect off of or pass through the ionosphere, and observers of the aurora.
 
+[![Download on the AppStore](https://wagenleitner.me/solario/app-store-badge-us.svg)](https://apps.apple.com/app/solario-geomagnetic-storms/id1266835252)
+
 ## Acknowledgements
 Data provided by [National Oceanic and Atmospheric Administration](https://www.swpc.noaa.gov/products) and [German Research Centre for Geosciences](https://www.gfz-potsdam.de/en/kp-index/) / [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
