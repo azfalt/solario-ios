@@ -3,69 +3,120 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A128AA0B1F31E42700505390 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* Extensions.swift */; };
+		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
+		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
+		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
+		A128AA0B1F31E42700505390 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
 		A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A128AA0C1F31E4F100505390 /* Localizable.strings */; };
-		A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0E1F31F11400505390 /* ReportViewController.swift */; };
-		A128AA111F32449100505390 /* RawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA101F32449100505390 /* RawViewController.swift */; };
 		A128AA131F3253E300505390 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
-		A128AA151F32541200505390 /* LastMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA141F32541200505390 /* LastMonthReport.swift */; };
-		A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA161F32542200505390 /* CurrentMonthReport.swift */; };
-		A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA181F32543500505390 /* ThreeDayForecastReport.swift */; };
-		A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */; };
-		A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */; };
-		A128AA1F1F3255F900505390 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1E1F3255F900505390 /* Tester.swift */; };
-		A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* ReportsInteractor.swift */; };
+		A128AA1D1F32551E00505390 /* DataItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */; };
+		A13479B91F654BA500435648 /* DataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* DataInteractor.swift */; };
 		A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
 		A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
 		A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
-		A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16D1EEFD4BD007A730B /* ParserError.swift */; };
-		A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */; };
-		A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* DataFileParser.swift */; };
-		A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */; };
-		A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */; };
-		A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */; };
-		A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */; };
+		A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */; };
+		A13AB1741EEFD513007A730B /* NOAAParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */; };
+		A13AB17A1EEFD57F007A730B /* NOAA27DayOutlookParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */; };
+		A13AB17C1EEFD599007A730B /* NOAA3DayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */; };
+		A1416D391F0A5CFF0084DF20 /* GFZMonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */; };
+		A15C5E5A23FC0E2400906D3A /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5923FC0E2400906D3A /* Calendar.swift */; };
+		A15C5E5D23FD273C00906D3A /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5C23FD273C00906D3A /* DataProcessor.swift */; };
+		A15C5E5F23FD275D00906D3A /* DataProcessorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */; };
+		A15C5E6223FD27FE00906D3A /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */; };
+		A15C5E6423FD281000906D3A /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6323FD281000906D3A /* DataLoader.swift */; };
+		A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */; };
+		A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */; };
+		A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */; };
+		A15C5E6E23FEA63400906D3A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A15C5E6D23FEA63400906D3A /* Settings.bundle */; };
+		A15C5E702409512500906D3A /* AppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6F2409512500906D3A /* AppIconView.swift */; };
+		A15C5E722409666800906D3A /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E712409666800906D3A /* CGFloat.swift */; };
+		A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1736148236C7C7E0047B314 /* CalendarViewController.swift */; };
+		A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635523EF6AAA0090791F /* InfoViewController.swift */; };
+		A176635823F078020090791F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635723F078020090791F /* InfoView.swift */; };
+		A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635923F8B1E70090791F /* EdgeButton.swift */; };
+		A176635C23F8B2070090791F /* AppDescrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635B23F8B2070090791F /* AppDescrView.swift */; };
+		A176635E23F8C0150090791F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635D23F8C0150090791F /* UIColor.swift */; };
+		A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */; };
+		A176636523F985830090791F /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636423F985830090791F /* ParserError.swift */; };
+		A176636823F98C6B0090791F /* DataInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636723F98C6B0090791F /* DataInteractorProtocol.swift */; };
+		A176636D23F99D790090791F /* AppearanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636C23F99D790090791F /* AppearanceProtocol.swift */; };
+		A176636F23F9FE210090791F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636E23F9FE210090791F /* Constants.swift */; };
 		A1789DFC216161460068AA02 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
+		A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */; };
+		A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */; };
+		A1A7E0DB23FA103D00345F13 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7E0DA23FA103D00345F13 /* Bundle.swift */; };
+		A1A8A22023FBE03100E95316 /* DataItemPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */; };
 		A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C41E6C1891008745B1 /* AppDelegate.swift */; };
-		A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E594C61E6C1891008745B1 /* ReportListViewController.swift */; };
 		A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CB1E6C1891008745B1 /* Assets.xcassets */; };
 		A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */; };
+		A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */; };
+		A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */; };
+		A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */; };
+		A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB223E6E18300D1C6AE /* Observable.swift */; };
+		A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A128AA0A1F31E42700505390 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.debug.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.debug.xcconfig"; sourceTree = "<group>"; };
+		26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Solario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
+		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
+		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
+		A128AA0A1F31E42700505390 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A128AA0C1F31E4F100505390 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		A128AA0E1F31F11400505390 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
-		A128AA101F32449100505390 /* RawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = RawViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A128AA121F3253E300505390 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
-		A128AA141F32541200505390 /* LastMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastMonthReport.swift; sourceTree = "<group>"; };
-		A128AA161F32542200505390 /* CurrentMonthReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMonthReport.swift; sourceTree = "<group>"; };
-		A128AA181F32543500505390 /* ThreeDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastReport.swift; sourceTree = "<group>"; };
-		A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastReport.swift; sourceTree = "<group>"; };
-		A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportItemTableViewCell.swift; sourceTree = "<group>"; };
-		A128AA1E1F3255F900505390 /* Tester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
-		A13479B81F654BA500435648 /* ReportsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; tabWidth = 2; };
-		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItemTableViewCell.swift; sourceTree = "<group>"; };
+		A13479B81F654BA500435648 /* DataInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataInteractor.swift; sourceTree = "<group>"; tabWidth = 4; };
+		A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DataItemDateComponents.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A13AB1691EEFD47F007A730B /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		A13AB16B1EEFD496007A730B /* RawDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataFile.swift; sourceTree = "<group>"; };
-		A13AB16D1EEFD4BD007A730B /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
-		A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataRetreiver.swift; sourceTree = "<group>"; };
-		A13AB1711EEFD4F2007A730B /* DataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFileParser.swift; sourceTree = "<group>"; };
-		A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAADataFileParser.swift; sourceTree = "<group>"; };
-		A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwentySevenDayForecastParser.swift; sourceTree = "<group>"; };
-		A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDayForecastParser.swift; sourceTree = "<group>"; };
-		A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthFactParser.swift; sourceTree = "<group>"; };
+		A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataParserProtocol.swift; sourceTree = "<group>"; };
+		A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAAParserProtocol.swift; sourceTree = "<group>"; };
+		A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAA27DayOutlookParser.swift; sourceTree = "<group>"; };
+		A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAA3DayForecastParser.swift; sourceTree = "<group>"; };
+		A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFZMonthFactParser.swift; sourceTree = "<group>"; };
+		A15C5E5923FC0E2400906D3A /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		A15C5E5C23FD273C00906D3A /* DataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessor.swift; sourceTree = "<group>"; };
+		A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcessorProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6323FD281000906D3A /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactoryProtocol.swift; sourceTree = "<group>"; };
+		A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportFactory.swift; sourceTree = "<group>"; };
+		A15C5E6D23FEA63400906D3A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A15C5E6F2409512500906D3A /* AppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconView.swift; sourceTree = "<group>"; };
+		A15C5E712409666800906D3A /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		A1736148236C7C7E0047B314 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		A176635523EF6AAA0090791F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		A176635723F078020090791F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		A176635923F8B1E70090791F /* EdgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeButton.swift; sourceTree = "<group>"; };
+		A176635B23F8B2070090791F /* AppDescrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDescrView.swift; sourceTree = "<group>"; };
+		A176635D23F8C0150090791F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		A176636423F985830090791F /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
+		A176636723F98C6B0090791F /* DataInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInteractorProtocol.swift; sourceTree = "<group>"; };
+		A176636C23F99D790090791F /* AppearanceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceProtocol.swift; sourceTree = "<group>"; };
+		A176636E23F9FE210090791F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1789DFB216161460068AA02 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridging-Header.h"; sourceTree = "<group>"; };
+		A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStorage.swift; sourceTree = "<group>"; };
+		A1A7E0DA23FA103D00345F13 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItemPriority.swift; sourceTree = "<group>"; };
 		A1E594C11E6C1891008745B1 /* Solario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solario.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
-		A1E594C61E6C1891008745B1 /* ReportListViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ReportListViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A1E594C41E6C1891008745B1 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
 		A1E594CB1E6C1891008745B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1E594CE1E6C1891008745B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1E594D01E6C1891008745B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataStorageProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProviderProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProtocol.swift; sourceTree = "<group>"; };
+		A1EF8CB223E6E18300D1C6AE /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,20 +124,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07199D16174D035A3D084A3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A13AB1801EEFD819007A730B /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
-				A13AB16D1EEFD4BD007A730B /* ParserError.swift */,
-				A13AB16F1EEFD4D0007A730B /* RawDataRetreiver.swift */,
-				A17427AC1F155671009852DD /* DataFileParser */,
+				A176636623F98C510090791F /* DataInteractor */,
 				A13AB1811EEFD895007A730B /* DataItem */,
+				A15C5E6023FD27C900906D3A /* DataLoader */,
+				A15C5E5B23FD272B00906D3A /* DataProcessor */,
+				A176636A23F998D10090791F /* RawData */,
+				A15C5E6523FD3B4C00906D3A /* Report */,
+				A15C5E6823FD3F4400906D3A /* ReportFactory */,
+				A17427AC1F155671009852DD /* RawDataParser */,
+				A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -94,22 +158,136 @@
 		A13AB1811EEFD895007A730B /* DataItem */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */,
+				A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */,
 				A13AB1691EEFD47F007A730B /* DataItem.swift */,
 			);
 			path = DataItem;
 			sourceTree = "<group>";
 		};
-		A17427AC1F155671009852DD /* DataFileParser */ = {
+		A15C5E5B23FD272B00906D3A /* DataProcessor */ = {
 			isa = PBXGroup;
 			children = (
-				A13AB1711EEFD4F2007A730B /* DataFileParser.swift */,
-				A13AB1731EEFD513007A730B /* NOAADataFileParser.swift */,
-				A1416D381F0A5CFF0084DF20 /* MonthFactParser.swift */,
-				A13AB17B1EEFD599007A730B /* ThreeDayForecastParser.swift */,
-				A13AB1791EEFD57F007A730B /* TwentySevenDayForecastParser.swift */,
+				A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */,
+				A15C5E5C23FD273C00906D3A /* DataProcessor.swift */,
 			);
-			path = DataFileParser;
+			path = DataProcessor;
+			sourceTree = "<group>";
+		};
+		A15C5E6023FD27C900906D3A /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */,
+				A15C5E6323FD281000906D3A /* DataLoader.swift */,
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		A15C5E6523FD3B4C00906D3A /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */,
+				A128AA121F3253E300505390 /* Report.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		A15C5E6823FD3F4400906D3A /* ReportFactory */ = {
+			isa = PBXGroup;
+			children = (
+				A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */,
+				A15C5E6B23FD3F7800906D3A /* ReportFactory.swift */,
+			);
+			path = ReportFactory;
+			sourceTree = "<group>";
+		};
+		A17427AC1F155671009852DD /* RawDataParser */ = {
+			isa = PBXGroup;
+			children = (
+				A176636423F985830090791F /* ParserError.swift */,
+				A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */,
+				A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */,
+				A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */,
+				A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */,
+				A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */,
+				A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */,
+			);
+			path = RawDataParser;
+			sourceTree = "<group>";
+		};
+		A176636123F8C05D0090791F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7E0DA23FA103D00345F13 /* Bundle.swift */,
+				A15C5E5923FC0E2400906D3A /* Calendar.swift */,
+				A15C5E712409666800906D3A /* CGFloat.swift */,
+				A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */,
+				A128AA0A1F31E42700505390 /* String.swift */,
+				A176635D23F8C0150090791F /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A176636223F980310090791F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
+				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
+				A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */,
+				A176635523EF6AAA0090791F /* InfoViewController.swift */,
+				A176635723F078020090791F /* InfoView.swift */,
+				A176635923F8B1E70090791F /* EdgeButton.swift */,
+				A15C5E6F2409512500906D3A /* AppIconView.swift */,
+				A176635B23F8B2070090791F /* AppDescrView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A176636323F980D40090791F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
+				A1E594D01E6C1891008745B1 /* Info.plist */,
+				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
+				A128AA0C1F31E4F100505390 /* Localizable.strings */,
+				A186CCCA238FC49300AADA67 /* ObjC-Bridging-Header.h */,
+				A15C5E6D23FEA63400906D3A /* Settings.bundle */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		A176636623F98C510090791F /* DataInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				A176636723F98C6B0090791F /* DataInteractorProtocol.swift */,
+				A13479B81F654BA500435648 /* DataInteractor.swift */,
+			);
+			path = DataInteractor;
+			sourceTree = "<group>";
+		};
+		A176636923F998620090791F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */,
+				A1EF8CB223E6E18300D1C6AE /* Observable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A176636A23F998D10090791F /* RawData */ = {
+			isa = PBXGroup;
+			children = (
+				A13AB16B1EEFD496007A730B /* RawDataFile.swift */,
+			);
+			path = RawData;
+			sourceTree = "<group>";
+		};
+		A176636B23F99D630090791F /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				A176636C23F99D790090791F /* AppearanceProtocol.swift */,
+				A1789DFB216161460068AA02 /* Appearance.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 		A1E594B81E6C1891008745B1 = {
@@ -117,6 +295,8 @@
 			children = (
 				A1E594C31E6C1891008745B1 /* Solario */,
 				A1E594C21E6C1891008745B1 /* Products */,
+				D4F8B0979F64F4CA7D34021B /* Pods */,
+				07199D16174D035A3D084A3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,26 +312,53 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C41E6C1891008745B1 /* AppDelegate.swift */,
-				A1789DFB216161460068AA02 /* Appearance.swift */,
-				A128AA1E1F3255F900505390 /* Tester.swift */,
-				A128AA121F3253E300505390 /* Report.swift */,
-				A128AA141F32541200505390 /* LastMonthReport.swift */,
-				A128AA161F32542200505390 /* CurrentMonthReport.swift */,
-				A128AA181F32543500505390 /* ThreeDayForecastReport.swift */,
-				A128AA1A1F32544900505390 /* TwentySevenDayForecastReport.swift */,
-				A13479B81F654BA500435648 /* ReportsInteractor.swift */,
+				A176636E23F9FE210090791F /* Constants.swift */,
+				A176636B23F99D630090791F /* Appearance */,
 				A13AB1801EEFD819007A730B /* Data */,
-				A1E594C61E6C1891008745B1 /* ReportListViewController.swift */,
-				A128AA0E1F31F11400505390 /* ReportViewController.swift */,
-				A128AA1C1F32551E00505390 /* ReportItemTableViewCell.swift */,
-				A128AA101F32449100505390 /* RawViewController.swift */,
-				A128AA0A1F31E42700505390 /* Extensions.swift */,
-				A1E594CB1E6C1891008745B1 /* Assets.xcassets */,
-				A1E594CD1E6C1891008745B1 /* LaunchScreen.storyboard */,
-				A1E594D01E6C1891008745B1 /* Info.plist */,
-				A128AA0C1F31E4F100505390 /* Localizable.strings */,
+				A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */,
+				A176636123F8C05D0090791F /* Extensions */,
+				A176636923F998620090791F /* Helpers */,
+				A1EF8CB423E7672900D1C6AE /* TimeService */,
+				A176636223F980310090791F /* UI */,
+				A176636323F980D40090791F /* Support Files */,
 			);
 			path = Solario;
+			sourceTree = "<group>";
+		};
+		A1EF8CAA23E5769E00D1C6AE /* RawDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */,
+				A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */,
+			);
+			path = RawDataStorage;
+			sourceTree = "<group>";
+		};
+		A1EF8CAD23E5785F00D1C6AE /* DependencyProvider */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CAE23E5787200D1C6AE /* DependencyProviderProtocol.swift */,
+				A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */,
+			);
+			path = DependencyProvider;
+			sourceTree = "<group>";
+		};
+		A1EF8CB423E7672900D1C6AE /* TimeService */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */,
+				A10F366E23DE32AE00BDB920 /* TimeService.swift */,
+			);
+			path = TimeService;
+			sourceTree = "<group>";
+		};
+		D4F8B0979F64F4CA7D34021B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */,
+				94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,15 +368,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1E594D31E6C1891008745B1 /* Build configuration list for PBXNativeTarget "Solario" */;
 			buildPhases = (
+				4E590064FCAD9A37676B077B /* [CP] Check Pods Manifest.lock */,
 				A1E594BD1E6C1891008745B1 /* Sources */,
 				A1E594BE1E6C1891008745B1 /* Frameworks */,
 				A1E594BF1E6C1891008745B1 /* Resources */,
+				69F2C79BE3B218FB000102F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Solario;
+			packageProductDependencies = (
+			);
 			productName = Solario;
 			productReference = A1E594C11E6C1891008745B1 /* Solario.app */;
 			productType = "com.apple.product-type.application";
@@ -181,8 +392,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Herman Wagenleitner";
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Hermann Wagenleitner";
 				TargetAttributes = {
 					A1E594C01E6C1891008745B1 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -200,10 +411,13 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = A1E594B81E6C1891008745B1;
+			packageReferences = (
+			);
 			productRefGroup = A1E594C21E6C1891008745B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -218,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15C5E6E23FEA63400906D3A /* Settings.bundle in Resources */,
 				A1E594CF1E6C1891008745B1 /* LaunchScreen.storyboard in Resources */,
 				A128AA0D1F31E4F100505390 /* Localizable.strings in Resources */,
 				A1E594CC1E6C1891008745B1 /* Assets.xcassets in Resources */,
@@ -226,35 +441,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E590064FCAD9A37676B077B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Solario-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69F2C79BE3B218FB000102F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A1E594BD1E6C1891008745B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13AB1741EEFD513007A730B /* NOAADataFileParser.swift in Sources */,
-				A1416D391F0A5CFF0084DF20 /* MonthFactParser.swift in Sources */,
+				A15C5E6223FD27FE00906D3A /* DataLoaderProtocol.swift in Sources */,
+				A186CCCC23915A9100AADA67 /* CalendarDayCell.swift in Sources */,
+				A13AB1741EEFD513007A730B /* NOAAParserProtocol.swift in Sources */,
+				A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */,
+				A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */,
+				A1416D391F0A5CFF0084DF20 /* GFZMonthFactParser.swift in Sources */,
+				A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */,
+				A176635823F078020090791F /* InfoView.swift in Sources */,
+				A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
+				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
+				A15C5E5D23FD273C00906D3A /* DataProcessor.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
-				A128AA1D1F32551E00505390 /* ReportItemTableViewCell.swift in Sources */,
-				A13479B91F654BA500435648 /* ReportsInteractor.swift in Sources */,
-				A128AA171F32542200505390 /* CurrentMonthReport.swift in Sources */,
-				A13AB16E1EEFD4BD007A730B /* ParserError.swift in Sources */,
-				A13AB17A1EEFD57F007A730B /* TwentySevenDayForecastParser.swift in Sources */,
+				A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */,
+				A176636D23F99D790090791F /* AppearanceProtocol.swift in Sources */,
+				A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */,
+				A176636823F98C6B0090791F /* DataInteractorProtocol.swift in Sources */,
+				A128AA1D1F32551E00505390 /* DataItemTableViewCell.swift in Sources */,
+				A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */,
+				A1A8A22023FBE03100E95316 /* DataItemPriority.swift in Sources */,
+				A15C5E5F23FD275D00906D3A /* DataProcessorProtocol.swift in Sources */,
+				A1736149236C7C7E0047B314 /* CalendarViewController.swift in Sources */,
+				A13479B91F654BA500435648 /* DataInteractor.swift in Sources */,
+				A13AB17A1EEFD57F007A730B /* NOAA27DayOutlookParser.swift in Sources */,
 				A13AB16C1EEFD496007A730B /* RawDataFile.swift in Sources */,
-				A128AA111F32449100505390 /* RawViewController.swift in Sources */,
-				A128AA151F32541200505390 /* LastMonthReport.swift in Sources */,
-				A128AA0F1F31F11400505390 /* ReportViewController.swift in Sources */,
-				A1E594C71E6C1891008745B1 /* ReportListViewController.swift in Sources */,
-				A13AB17C1EEFD599007A730B /* ThreeDayForecastParser.swift in Sources */,
-				A128AA0B1F31E42700505390 /* Extensions.swift in Sources */,
+				A176636023F8C02D0090791F /* NSMutableAttributedString.swift in Sources */,
+				A15C5E5A23FC0E2400906D3A /* Calendar.swift in Sources */,
+				A176636523F985830090791F /* ParserError.swift in Sources */,
+				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
+				A176635C23F8B2070090791F /* AppDescrView.swift in Sources */,
+				A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */,
+				A176635E23F8C0150090791F /* UIColor.swift in Sources */,
+				A13AB17C1EEFD599007A730B /* NOAA3DayForecastParser.swift in Sources */,
+				A15C5E6423FD281000906D3A /* DataLoader.swift in Sources */,
+				A1A7E0DB23FA103D00345F13 /* Bundle.swift in Sources */,
+				A128AA0B1F31E42700505390 /* String.swift in Sources */,
+				A15C5E722409666800906D3A /* CGFloat.swift in Sources */,
+				A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
-				A13AB1701EEFD4D0007A730B /* RawDataRetreiver.swift in Sources */,
-				A128AA191F32543500505390 /* ThreeDayForecastReport.swift in Sources */,
+				A176636F23F9FE210090791F /* Constants.swift in Sources */,
+				A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */,
+				A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
-				A13AB1721EEFD4F2007A730B /* DataFileParser.swift in Sources */,
-				A128AA1B1F32544900505390 /* TwentySevenDayForecastReport.swift in Sources */,
-				A128AA1F1F3255F900505390 /* Tester.swift in Sources */,
+				A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
+				A15C5E702409512500906D3A /* AppIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,20 +555,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -312,11 +600,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -326,20 +615,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -356,10 +654,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -367,27 +667,43 @@
 		};
 		A1E594D41E6C1891008745B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.10";
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = HHKU5A364G;
-				INFOPLIST_FILE = Solario/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				PRODUCT_NAME = Solario;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		A1E594D51E6C1891008745B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1.0";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.10";
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = HHKU5A364G;
-				INFOPLIST_FILE = Solario/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				PRODUCT_NAME = Solario;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
