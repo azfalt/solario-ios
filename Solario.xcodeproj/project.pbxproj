@@ -680,7 +680,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.10";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.11";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
@@ -701,7 +701,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.10";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.11";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HHKU5A364G;
 				INFOPLIST_FILE = "Solario/Support Files/Info.plist";
