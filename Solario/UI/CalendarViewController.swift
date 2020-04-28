@@ -213,6 +213,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.appearance.headerTitleColor = .label
         calendarView.appearance.weekdayTextColor = .label
         calendarView.appearance.headerTitleFont = .preferredFont(forTextStyle: .body)
+        calendarView.appearance.caseOptions = [.headerUsesUpperCase, .weekdayUsesUpperCase]
     }
 
     private var isMonthScopeAllowed: Bool {
@@ -363,7 +364,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
 
     private func showDetails(for date: Date?) {
         if let date = date {
-            selectedDayLabel.text = selectedDayFormatter.string(from: date)
+            selectedDayLabel.text = selectedDayFormatter.string(from: date).capitalizedFirstLetter
             tableView.reloadData()
             updateNoItemsState()
         }

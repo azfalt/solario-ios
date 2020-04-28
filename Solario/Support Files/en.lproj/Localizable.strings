@@ -1,17 +1,9 @@
-/* 
-  Localizable.strings
-  Solario
-
-  Created by Hermann Wagenleitner on 02/08/2017.
-  Copyright © 2017 Hermann Wagenleitner. All rights reserved.
-*/
-
 _forecast = "Forecast";
 _current = "Current";
 _date_interval_wp = "%@..%@";
 _no_data = "No Data";
 _app_version_wp = "Version %@";
-_app_descr_wp = "Solario shows the forecast and the actual state of Earth’s geomagnetic field using the %@-index. The index quantifies disturbances of the geomagnetic field with a value in the range 0–9 with 1 being calm and 5 or more indicating a geomagnetic storm.\n\nData provided by %@ and %@ / %@\n\nThis app is %@ %@";
+_app_descr_wp = "Solario shows the forecast and the actual state of Earth’s geomagnetic field using the %@-index. The index quantifies disturbances of the geomagnetic field with a value in the range 0–9 with 0 being calm and 5 or more indicating a geomagnetic storm.\n\nData provided by %@ and %@ / %@\n\nThis app is %@ %@";
 _kp = "Kp";
 _noaa_title = "National Oceanic and Atmospheric Administration";
 _noaa_url = "https://www.swpc.noaa.gov/products";

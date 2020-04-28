@@ -13,4 +13,8 @@ extension String {
     var localized: String {
         return Bundle.main.localizedString(forKey: self, value: nil, table: nil)
     }
+
+    var capitalizedFirstLetter: String {
+        return prefix(1).capitalized + dropFirst()
+    }
 }

@@ -1,0 +1,14 @@
+_forecast = "Прогноз";
+_current = "Сейчас";
+_date_interval_wp = "%@..%@";
+_no_data = "Нет данных";
+_app_version_wp = "Версия %@";
+_app_descr_wp = "Solario показывает прогноз и текущее состояние геомагнитного поля Земли, используя %@-индекс, который обозначает возмущения магнитного поля в диапазоне от 0 до 9, где 0 это штиль, а 5 и более — магнитная буря.\n\nДанные предоставлены %@ и %@ / %@\n\nThis app is %@ %@";
+_kp = "Kp";
+_noaa_title = "Национальным управлением океанических и атмосферных исследований";
+_noaa_url = "https://www.swpc.noaa.gov/products";
+_gfz_title = "Потсдамским центром имени Гельмгольца";
+_gfz_url = "https://www.gfz-potsdam.de/en/kp-index/";
+_cc_by_40_title = "CC BY 4.0";
+_cc_by_40_url = "https://creativecommons.org/licenses/by/4.0/deed.ru";
+_open_source = "open-source";
