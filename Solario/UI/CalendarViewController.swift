@@ -308,7 +308,11 @@ class CalendarViewController: UIViewController, DependencyProtocol {
                                                name: UIContentSizeCategory.didChangeNotification,
                                                object: nil)
         timeService.day.addObserver(self) { [weak self] _ in
-            self?.redrawCalendarView()
+            guard let self = self else {
+                return
+            }
+            self.redrawCalendarView()
+            self.selectCurrentDate()
         }
         dataInteractor.isProcessing.addObserver(self) { [weak self] isProcessing in
             guard let self = self else {

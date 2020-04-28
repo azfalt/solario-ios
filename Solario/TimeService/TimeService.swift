@@ -17,7 +17,7 @@ class TimeService: TimeServiceProtocol {
     private weak var timer: Timer?
 
     init() {
-        day = Observable(value: TimeService.currentDay)
+        day = Observable(value: Self.currentDay)
     }
 
     deinit {
@@ -46,7 +46,7 @@ class TimeService: TimeServiceProtocol {
     // MARK: -
 
     private func checkForChanges() {
-        let currentDay = TimeService.currentDay
+        let currentDay = Self.currentDay
         if currentDay != day.value {
             day.value = currentDay
         }
