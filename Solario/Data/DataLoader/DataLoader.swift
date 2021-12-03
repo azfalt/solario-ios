@@ -63,7 +63,8 @@ class DataLoader: DataLoaderProtocol {
     }
 
     private func retrieveRawString(url: URL, completion: @escaping (String?) -> Void) {
-        let task = URLSession.shared.downloadTask(with: url) {
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData)
+        let task = URLSession.shared.downloadTask(with: request) {
             (location: URL?, response: URLResponse?, error: Error?) -> Void in
             guard
                 let response = response as? HTTPURLResponse,

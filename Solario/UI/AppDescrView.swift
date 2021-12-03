@@ -22,7 +22,7 @@ struct AppDescrView: UIViewRepresentable {
         attrString.set(url: c.gfzURL, forText: c.gfzTitle)
         attrString.set(url: c.ccBy40URL, forText: c.ccBy40Title)
         attrString.set(url: c.gitHubURL, forText: c.openSource)
-        attrString.set(image: c.gitHubMarkImage, forText: c.imagePlaceholder, capHeight: font.capHeight)
+        attrString.set(image: c.gitHubMarkImage, forText: c.imagePlaceholder, color: .label, capHeight: font.capHeight)
         return attrString
     }
 

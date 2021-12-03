@@ -20,9 +20,9 @@ extension NSMutableAttributedString {
         addAttribute(.font, value: font, range: range)
     }
 
-    func set(image: UIImage, forText text: String, capHeight: CGFloat? = nil) {
+    func set(image: UIImage, forText text: String, color: UIColor, capHeight: CGFloat? = nil) {
         let range = mutableString.range(of: text)
-        let attachment = NSTextAttachment(image: image)
+        let attachment = NSTextAttachment(image: image.withTintColor(color))
         if let capHeight = capHeight {
             let imageY = ((capHeight - image.size.height) / 2).roundedToPixel
             attachment.bounds = CGRect(x: 0, y: imageY, width: image.size.width, height: image.size.height)
