@@ -6,6 +6,8 @@
 //  Copyright © 2020 Hermann Wagenleitner. All rights reserved.
 //
 
+import UIKit
+
 struct Constants {
 
     static let appName = "Solario"
