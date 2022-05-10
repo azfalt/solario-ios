@@ -6,6 +6,8 @@
 //  Copyright © 2018 Hermann Wagenleitner. All rights reserved.
 //
 
+import UIKit
+
 struct Appearance: AppearanceProtocol {
 
     let tintColor = UIColor(red: 0.46, green: 0.32, blue: 0.96, alpha: 1)

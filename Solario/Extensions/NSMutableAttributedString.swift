@@ -6,7 +6,7 @@
 //  Copyright © 2020 Hermann Wagenleitner. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension NSMutableAttributedString {
 
