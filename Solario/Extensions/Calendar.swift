@@ -17,4 +17,9 @@ extension Calendar {
         let startOfDay = self.startOfDay(for: date)
         return self.date(byAdding: components, to: startOfDay)!
     }
+    
+    func begin(for date: Date) -> Date {
+        let components = dateComponents([.year, .month, .day], from: date)
+        return self.date(from: components)!
+    }
 }

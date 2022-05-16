@@ -10,13 +10,14 @@ import Foundation
 
 class RawDataStorage: RawDataStorageProtocol {
 
-    private let defaults = UserDefaults.standard
+    private let defaults: UserDefaults
 
     private let key = "storage"
 
     private var texts = [String: String]()
 
-    init() {
+    init(userDefaults: UserDefaults) {
+        defaults = userDefaults
         tryLoadFromDefaults()
     }
 

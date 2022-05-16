@@ -27,5 +27,5 @@ class DependencyProvider: DependencyProviderProtocol {
 
     private lazy var dataProcessor: DataProcessorProtocol = DataProcessor()
 
-    private lazy var rawDataStorage: RawDataStorageProtocol = RawDataStorage()
+    private lazy var rawDataStorage: RawDataStorageProtocol = RawDataStorage(userDefaults: UserDefaults.standard)
 }

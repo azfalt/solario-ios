@@ -6,6 +6,8 @@
 //  Copyright © 2020 Hermann Wagenleitner. All rights reserved.
 //
 
+import UIKit
+
 protocol AppearanceProtocol {
 
     var tintColor: UIColor { get }

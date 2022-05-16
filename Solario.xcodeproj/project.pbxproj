@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1788D0552763F2E200001237 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1788D0542763F2E200001237 /* WidgetKit.framework */; };
+		1788D0572763F2E200001237 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1788D0562763F2E200001237 /* SwiftUI.framework */; };
+		1788D05A2763F2E200001237 /* SolarioWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0592763F2E200001237 /* SolarioWidget.swift */; };
+		1788D05C2763F2E400001237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1788D05B2763F2E400001237 /* Assets.xcassets */; };
+		1788D0602763F2E400001237 /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1788D0532763F2E200001237 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1788D0652763FEF900001237 /* DataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13479B81F654BA500435648 /* DataInteractor.swift */; };
+		1788D0662763FF9E00001237 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636E23F9FE210090791F /* Constants.swift */; };
+		1788D0672763FFB300001237 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1789DFB216161460068AA02 /* Appearance.swift */; };
+		1788D0682763FFB900001237 /* AppearanceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636C23F99D790090791F /* AppearanceProtocol.swift */; };
+		1788D0692763FFC200001237 /* DataInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636723F98C6B0090791F /* DataInteractorProtocol.swift */; };
+		1788D06A2763FFC600001237 /* DataItemPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A21F23FBE03100E95316 /* DataItemPriority.swift */; };
+		1788D06B2763FFC900001237 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1691EEFD47F007A730B /* DataItem.swift */; };
+		1788D06C2763FFCC00001237 /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6123FD27FE00906D3A /* DataLoaderProtocol.swift */; };
+		1788D06D2763FFCF00001237 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6323FD281000906D3A /* DataLoader.swift */; };
+		1788D06E2763FFD200001237 /* DataProcessorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5E23FD275D00906D3A /* DataProcessorProtocol.swift */; };
+		1788D06F2763FFD600001237 /* DataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5C23FD273C00906D3A /* DataProcessor.swift */; };
+		1788D0702763FFD900001237 /* RawDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB16B1EEFD496007A730B /* RawDataFile.swift */; };
+		1788D0712763FFDD00001237 /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6623FD3EC300906D3A /* ReportProtocol.swift */; };
+		1788D0722763FFE000001237 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA121F3253E300505390 /* Report.swift */; };
+		1788D0732763FFE700001237 /* ReportFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E6923FD3F5D00906D3A /* ReportFactoryProtocol.swift */; };
+		1788D0742764006F00001237 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176636423F985830090791F /* ParserError.swift */; };
+		1788D0752764007200001237 /* RawDataParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1711EEFD4F2007A730B /* RawDataParserProtocol.swift */; };
+		1788D0762764007500001237 /* GFZMonthFactParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1416D381F0A5CFF0084DF20 /* GFZMonthFactParser.swift */; };
+		1788D0772764007700001237 /* NOAAParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1731EEFD513007A730B /* NOAAParserProtocol.swift */; };
+		1788D0782764007A00001237 /* NOAA3DayForecastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB17B1EEFD599007A730B /* NOAA3DayForecastParser.swift */; };
+		1788D0792764007C00001237 /* NOAA27DayOutlookParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1791EEFD57F007A730B /* NOAA27DayOutlookParser.swift */; };
+		1788D07A2764007F00001237 /* DataItemDateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13AB1671EEFD467007A730B /* DataItemDateComponents.swift */; };
+		1788D07B2764008600001237 /* RawDataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CAB23E576C200D1C6AE /* RawDataStorageProtocol.swift */; };
+		1788D07C2764008800001237 /* RawDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1922BFD23C5E17F00510F17 /* RawDataStorage.swift */; };
+		1788D07D2764011E00001237 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C5E5923FC0E2400906D3A /* Calendar.swift */; };
+		1788D07E2764014100001237 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
+		1788D07F2764015000001237 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB223E6E18300D1C6AE /* Observable.swift */; };
+		1788D080276401AC00001237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1D5CE8A245893EE00D7F380 /* Localizable.strings */; };
+		1788D0812764030E00001237 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635D23F8C0150090791F /* UIColor.swift */; };
 		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
 		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
@@ -58,10 +92,56 @@
 		A1EF8CB123E578A100D1C6AE /* DependencyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */; };
 		A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB223E6E18300D1C6AE /* Observable.swift */; };
 		A1EF8CB623E7673D00D1C6AE /* TimeServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */; };
+		C61075472829346C00332390 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075462829346C00332390 /* Locale.swift */; };
+		C61075482829346C00332390 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075462829346C00332390 /* Locale.swift */; };
+		C610754B282934ED00332390 /* BarChartModelsFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610754A282934ED00332390 /* BarChartModelsFactoryProtocol.swift */; };
+		C610754C282934ED00332390 /* BarChartModelsFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610754A282934ED00332390 /* BarChartModelsFactoryProtocol.swift */; };
+		C610754E2829351D00332390 /* BarChartModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610754D2829351D00332390 /* BarChartModelsFactory.swift */; };
+		C610754F2829351D00332390 /* BarChartModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610754D2829351D00332390 /* BarChartModelsFactory.swift */; };
+		C61075512829356F00332390 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075502829356F00332390 /* BarChartView.swift */; };
+		C61075522829356F00332390 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075502829356F00332390 /* BarChartView.swift */; };
+		C61075542829359900332390 /* BarChartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075532829359900332390 /* BarChartItemModel.swift */; };
+		C61075552829359900332390 /* BarChartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075532829359900332390 /* BarChartItemModel.swift */; };
+		C61075572829361D00332390 /* WidgetReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075562829361D00332390 /* WidgetReportFactory.swift */; };
+		C61075582829361D00332390 /* WidgetReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075562829361D00332390 /* WidgetReportFactory.swift */; };
+		C610755A2829363700332390 /* SnapshotDummyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075592829363700332390 /* SnapshotDummyInteractor.swift */; };
+		C610755B2829363700332390 /* SnapshotDummyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61075592829363700332390 /* SnapshotDummyInteractor.swift */; };
+		C610755D2829364E00332390 /* PlaceholderDummyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610755C2829364E00332390 /* PlaceholderDummyInteractor.swift */; };
+		C610755E2829364E00332390 /* PlaceholderDummyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C610755C2829364E00332390 /* PlaceholderDummyInteractor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1788D05E2763F2E400001237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1E594B91E6C1891008745B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1788D0522763F2E200001237;
+			remoteInfo = WidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1788D0612763F2E400001237 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1788D0602763F2E400001237 /* WidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.debug.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.debug.xcconfig"; sourceTree = "<group>"; };
+		1788D0532763F2E200001237 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1788D0542763F2E200001237 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		1788D0562763F2E200001237 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1788D0592763F2E200001237 /* SolarioWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarioWidget.swift; sourceTree = "<group>"; };
+		1788D05B2763F2E400001237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1788D05D2763F2E400001237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Solario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
@@ -118,9 +198,26 @@
 		A1EF8CB023E578A100D1C6AE /* DependencyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProtocol.swift; sourceTree = "<group>"; };
 		A1EF8CB223E6E18300D1C6AE /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		A1EF8CB523E7673D00D1C6AE /* TimeServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeServiceProtocol.swift; sourceTree = "<group>"; };
+		C61075462829346C00332390 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
+		C610754A282934ED00332390 /* BarChartModelsFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartModelsFactoryProtocol.swift; sourceTree = "<group>"; };
+		C610754D2829351D00332390 /* BarChartModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartModelsFactory.swift; sourceTree = "<group>"; };
+		C61075502829356F00332390 /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		C61075532829359900332390 /* BarChartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartItemModel.swift; sourceTree = "<group>"; };
+		C61075562829361D00332390 /* WidgetReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetReportFactory.swift; sourceTree = "<group>"; };
+		C61075592829363700332390 /* SnapshotDummyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotDummyInteractor.swift; sourceTree = "<group>"; };
+		C610755C2829364E00332390 /* PlaceholderDummyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderDummyInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1788D0502763F2E200001237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1788D0572763F2E200001237 /* SwiftUI.framework in Frameworks */,
+				1788D0552763F2E200001237 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1E594BE1E6C1891008745B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,8 +233,23 @@
 			isa = PBXGroup;
 			children = (
 				26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */,
+				1788D0542763F2E200001237 /* WidgetKit.framework */,
+				1788D0562763F2E200001237 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1788D0582763F2E200001237 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				1788D0592763F2E200001237 /* SolarioWidget.swift */,
+				C61075562829361D00332390 /* WidgetReportFactory.swift */,
+				C61075592829363700332390 /* SnapshotDummyInteractor.swift */,
+				C610755C2829364E00332390 /* PlaceholderDummyInteractor.swift */,
+				1788D05B2763F2E400001237 /* Assets.xcassets */,
+				1788D05D2763F2E400001237 /* Info.plist */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		A13AB1801EEFD819007A730B /* Data */ = {
@@ -221,6 +333,7 @@
 				A1A7E0DA23FA103D00345F13 /* Bundle.swift */,
 				A15C5E5923FC0E2400906D3A /* Calendar.swift */,
 				A15C5E712409666800906D3A /* CGFloat.swift */,
+				C61075462829346C00332390 /* Locale.swift */,
 				A176635F23F8C02D0090791F /* NSMutableAttributedString.swift */,
 				A128AA0A1F31E42700505390 /* String.swift */,
 				A176635D23F8C0150090791F /* UIColor.swift */,
@@ -231,6 +344,7 @@
 		A176636223F980310090791F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C6107549282934C400332390 /* BarChart */,
 				A1736148236C7C7E0047B314 /* CalendarViewController.swift */,
 				A186CCCB23915A9100AADA67 /* CalendarDayCell.swift */,
 				A128AA1C1F32551E00505390 /* DataItemTableViewCell.swift */,
@@ -295,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C31E6C1891008745B1 /* Solario */,
+				1788D0582763F2E200001237 /* Widget */,
 				A1E594C21E6C1891008745B1 /* Products */,
 				D4F8B0979F64F4CA7D34021B /* Pods */,
 				07199D16174D035A3D084A3F /* Frameworks */,
@@ -305,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				A1E594C11E6C1891008745B1 /* Solario.app */,
+				1788D0532763F2E200001237 /* WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +469,17 @@
 			path = TimeService;
 			sourceTree = "<group>";
 		};
+		C6107549282934C400332390 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				C610754A282934ED00332390 /* BarChartModelsFactoryProtocol.swift */,
+				C610754D2829351D00332390 /* BarChartModelsFactory.swift */,
+				C61075502829356F00332390 /* BarChartView.swift */,
+				C61075532829359900332390 /* BarChartItemModel.swift */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
 		D4F8B0979F64F4CA7D34021B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +492,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1788D0522763F2E200001237 /* WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1788D0642763F2E400001237 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildPhases = (
+				1788D04F2763F2E200001237 /* Sources */,
+				1788D0502763F2E200001237 /* Frameworks */,
+				1788D0512763F2E200001237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetExtension;
+			productName = WidgetExtension;
+			productReference = 1788D0532763F2E200001237 /* WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A1E594C01E6C1891008745B1 /* Solario */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1E594D31E6C1891008745B1 /* Build configuration list for PBXNativeTarget "Solario" */;
@@ -374,10 +518,12 @@
 				A1E594BE1E6C1891008745B1 /* Frameworks */,
 				A1E594BF1E6C1891008745B1 /* Resources */,
 				69F2C79BE3B218FB000102F4 /* [CP] Embed Pods Frameworks */,
+				1788D0612763F2E400001237 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1788D05F2763F2E400001237 /* PBXTargetDependency */,
 			);
 			name = Solario;
 			packageProductDependencies = (
@@ -392,10 +538,13 @@
 		A1E594B91E6C1891008745B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1020;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Hermann Wagenleitner";
 				TargetAttributes = {
+					1788D0522763F2E200001237 = {
+						CreatedOnToolsVersion = 13.1;
+					};
 					A1E594C01E6C1891008745B1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -409,10 +558,9 @@
 			};
 			buildConfigurationList = A1E594BC1E6C1891008745B1 /* Build configuration list for PBXProject "Solario" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				ru,
@@ -425,11 +573,21 @@
 			projectRoot = "";
 			targets = (
 				A1E594C01E6C1891008745B1 /* Solario */,
+				1788D0522763F2E200001237 /* WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1788D0512763F2E200001237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1788D05C2763F2E400001237 /* Assets.xcassets in Resources */,
+				1788D080276401AC00001237 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1E594BF1E6C1891008745B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +644,50 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1788D04F2763F2E200001237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1788D06D2763FFCF00001237 /* DataLoader.swift in Sources */,
+				1788D0772764007700001237 /* NOAAParserProtocol.swift in Sources */,
+				1788D0752764007200001237 /* RawDataParserProtocol.swift in Sources */,
+				1788D07E2764014100001237 /* String.swift in Sources */,
+				1788D0812764030E00001237 /* UIColor.swift in Sources */,
+				C61075482829346C00332390 /* Locale.swift in Sources */,
+				1788D07C2764008800001237 /* RawDataStorage.swift in Sources */,
+				1788D06E2763FFD200001237 /* DataProcessorProtocol.swift in Sources */,
+				1788D07A2764007F00001237 /* DataItemDateComponents.swift in Sources */,
+				1788D06C2763FFCC00001237 /* DataLoaderProtocol.swift in Sources */,
+				1788D0682763FFB900001237 /* AppearanceProtocol.swift in Sources */,
+				1788D06A2763FFC600001237 /* DataItemPriority.swift in Sources */,
+				1788D07D2764011E00001237 /* Calendar.swift in Sources */,
+				1788D0712763FFDD00001237 /* ReportProtocol.swift in Sources */,
+				1788D06B2763FFC900001237 /* DataItem.swift in Sources */,
+				C610755B2829363700332390 /* SnapshotDummyInteractor.swift in Sources */,
+				C61075552829359900332390 /* BarChartItemModel.swift in Sources */,
+				1788D0792764007C00001237 /* NOAA27DayOutlookParser.swift in Sources */,
+				1788D0652763FEF900001237 /* DataInteractor.swift in Sources */,
+				1788D0762764007500001237 /* GFZMonthFactParser.swift in Sources */,
+				1788D0692763FFC200001237 /* DataInteractorProtocol.swift in Sources */,
+				1788D06F2763FFD600001237 /* DataProcessor.swift in Sources */,
+				1788D0742764006F00001237 /* ParserError.swift in Sources */,
+				1788D0702763FFD900001237 /* RawDataFile.swift in Sources */,
+				1788D0722763FFE000001237 /* Report.swift in Sources */,
+				C61075582829361D00332390 /* WidgetReportFactory.swift in Sources */,
+				C610754C282934ED00332390 /* BarChartModelsFactoryProtocol.swift in Sources */,
+				1788D07B2764008600001237 /* RawDataStorageProtocol.swift in Sources */,
+				C610754F2829351D00332390 /* BarChartModelsFactory.swift in Sources */,
+				1788D0732763FFE700001237 /* ReportFactoryProtocol.swift in Sources */,
+				1788D05A2763F2E200001237 /* SolarioWidget.swift in Sources */,
+				1788D07F2764015000001237 /* Observable.swift in Sources */,
+				1788D0662763FF9E00001237 /* Constants.swift in Sources */,
+				1788D0782764007A00001237 /* NOAA3DayForecastParser.swift in Sources */,
+				1788D0672763FFB300001237 /* Appearance.swift in Sources */,
+				C610755E2829364E00332390 /* PlaceholderDummyInteractor.swift in Sources */,
+				C61075522829356F00332390 /* BarChartView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A1E594BD1E6C1891008745B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,10 +699,12 @@
 				A15C5E6A23FD3F5D00906D3A /* ReportFactoryProtocol.swift in Sources */,
 				A1416D391F0A5CFF0084DF20 /* GFZMonthFactParser.swift in Sources */,
 				A15C5E6723FD3EC300906D3A /* ReportProtocol.swift in Sources */,
+				C61075512829356F00332390 /* BarChartView.swift in Sources */,
 				A176635823F078020090791F /* InfoView.swift in Sources */,
 				A176635623EF6AAA0090791F /* InfoViewController.swift in Sources */,
 				A13AB1681EEFD467007A730B /* DataItemDateComponents.swift in Sources */,
 				A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */,
+				C610754B282934ED00332390 /* BarChartModelsFactoryProtocol.swift in Sources */,
 				A15C5E5D23FD273C00906D3A /* DataProcessor.swift in Sources */,
 				A128AA131F3253E300505390 /* Report.swift in Sources */,
 				A1EF8CAC23E576C200D1C6AE /* RawDataStorageProtocol.swift in Sources */,
@@ -520,6 +724,8 @@
 				A176636523F985830090791F /* ParserError.swift in Sources */,
 				A1922BFE23C5E17F00510F17 /* RawDataStorage.swift in Sources */,
 				A176635C23F8B2070090791F /* AppDescrView.swift in Sources */,
+				C61075542829359900332390 /* BarChartItemModel.swift in Sources */,
+				C610755A2829363700332390 /* SnapshotDummyInteractor.swift in Sources */,
 				A15C5E6C23FD3F7800906D3A /* ReportFactory.swift in Sources */,
 				A176635E23F8C0150090791F /* UIColor.swift in Sources */,
 				A13AB17C1EEFD599007A730B /* NOAA3DayForecastParser.swift in Sources */,
@@ -530,16 +736,28 @@
 				A1EF8CAF23E5787200D1C6AE /* DependencyProviderProtocol.swift in Sources */,
 				A13AB16A1EEFD47F007A730B /* DataItem.swift in Sources */,
 				A176636F23F9FE210090791F /* Constants.swift in Sources */,
+				C610754E2829351D00332390 /* BarChartModelsFactory.swift in Sources */,
+				C61075572829361D00332390 /* WidgetReportFactory.swift in Sources */,
 				A1EF8CB323E6E18300D1C6AE /* Observable.swift in Sources */,
 				A176635A23F8B1E70090791F /* EdgeButton.swift in Sources */,
+				C610755D2829364E00332390 /* PlaceholderDummyInteractor.swift in Sources */,
 				A1789DFC216161460068AA02 /* Appearance.swift in Sources */,
 				A13AB1721EEFD4F2007A730B /* RawDataParserProtocol.swift in Sources */,
+				C61075472829346C00332390 /* Locale.swift in Sources */,
 				A1E594C51E6C1891008745B1 /* AppDelegate.swift in Sources */,
 				A15C5E702409512500906D3A /* AppIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1788D05F2763F2E400001237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1788D0522763F2E200001237 /* WidgetExtension */;
+			targetProxy = 1788D05E2763F2E400001237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A1D5CE8A245893EE00D7F380 /* Localizable.strings */ = {
@@ -562,6 +780,77 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1788D0622763F2E400001237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HHKU5A364G;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Hermann Wagenleitner. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1788D0632763F2E400001237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HHKU5A364G;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2021 Hermann Wagenleitner. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A1E594D11E6C1891008745B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -587,6 +876,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -647,6 +937,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -680,6 +971,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 003B9AECA670BC170E74D814 /* Pods-Solario.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.11";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HHKU5A364G;
@@ -689,7 +981,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
@@ -701,6 +993,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 2.4.11";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HHKU5A364G;
@@ -710,7 +1003,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.azfalt.solario;
 				PRODUCT_NAME = Solario;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Support Files/ObjC-Bridging-Header.h";
@@ -721,6 +1014,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1788D0642763F2E400001237 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1788D0622763F2E400001237 /* Debug */,
+				1788D0632763F2E400001237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A1E594BC1E6C1891008745B1 /* Build configuration list for PBXProject "Solario" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
