@@ -59,6 +59,8 @@ class NOAA3DayForecastParser: RawDataParserProtocol, NOAAParserProtocol {
         var items2: [DataItem] = []
         var items3: [DataItem] = []
 
+        let regex = try! NSRegularExpression(pattern: "[0-9]+\\.[0-9]+")
+
         for (index, key) in eighthKeys.enumerated() {
 
             guard let line = firstLineBegins(with: key) else {
@@ -67,14 +69,20 @@ class NOAA3DayForecastParser: RawDataParserProtocol, NOAAParserProtocol {
 
             let eighth = index + 1
 
-            if let dataItem1 = dataItem(date: date1, eighth: eighth, line: line, offset: 15, priority: priority) {
-                items1.append(dataItem1)
+            let results = regex.matches(in: line, range: NSRange(line.startIndex..., in: line))
+
+            let values: [Float?] = results.map {
+                Float(line[Range($0.range, in: line)!])
             }
-            if let dataItem2 = dataItem(date: date2, eighth: eighth, line: line, offset: 26, priority: priority) {
-                items2.append(dataItem2)
+
+            if let dataItem = dataItem(date: date1, eighth: eighth, values: values, position: 0, priority: priority) {
+                items1.append(dataItem)
             }
-            if let dataItem3 = dataItem(date: date3, eighth: eighth, line: line, offset: 37, priority: priority) {
-                items3.append(dataItem3)
+            if let dataItem = dataItem(date: date2, eighth: eighth, values: values, position: 1, priority: priority) {
+                items2.append(dataItem)
+            }
+            if let dataItem = dataItem(date: date3, eighth: eighth, values: values, position: 2, priority: priority) {
+                items3.append(dataItem)
             }
         }
 
@@ -83,10 +91,12 @@ class NOAA3DayForecastParser: RawDataParserProtocol, NOAAParserProtocol {
 
     // MARK: -
 
-    private func dataItem(date: Date, eighth: Int, line: String, offset: Int, priority: DataItemPriority) -> DataItem? {
-        let valueChar = line[line.index(line.startIndex, offsetBy: offset)]
-        let value = (String(valueChar) as NSString).floatValue
-        if let dateInterval = dateInterval(from: date, eighth: eighth) {
+    private func dataItem(date: Date, eighth: Int, values: [Float?], position: Int, priority: DataItemPriority) -> DataItem? {
+        if
+            values.count > position,
+            let value = values[position],
+            let dateInterval = dateInterval(from: date, eighth: eighth)
+        {
             return DataItem(value: value, dateInterval: dateInterval, isForecast: true, priority: priority)
         }
         return nil
