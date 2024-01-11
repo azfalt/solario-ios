@@ -210,6 +210,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
         calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: Self.calendarCellId)
+        calendarView.appearance.headerDateFormat = "LLLL yyyy"
         calendarView.appearance.headerTitleColor = .label
         calendarView.appearance.weekdayTextColor = .label
         calendarView.appearance.headerTitleFont = .preferredFont(forTextStyle: .body)
