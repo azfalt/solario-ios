@@ -20,20 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DependencyProtocol {
     // MARK: - UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
         configureWindow()
         configureAppearance()
         configureTimeService()
-
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
-
         return true
-    }
-
-    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        dataInteractor.loadData(completion: { success in
-            completionHandler(success ? .newData : .noData)
-        })
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
