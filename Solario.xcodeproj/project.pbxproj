@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,7 +41,7 @@
 		1788D07F2764015000001237 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF8CB223E6E18300D1C6AE /* Observable.swift */; };
 		1788D080276401AC00001237 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1D5CE8A245893EE00D7F380 /* Localizable.strings */; };
 		1788D0812764030E00001237 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A176635D23F8C0150090791F /* UIColor.swift */; };
-		1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */; };
+		76AB8C86B0905ED239110548 /* libPods-Solario.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282FFC058A11CF8F8AED57A3 /* libPods-Solario.a */; };
 		A10F366F23DE32AE00BDB920 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F366E23DE32AE00BDB920 /* TimeService.swift */; };
 		A10F367123E4C3BC00BDB920 /* DependencyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */; };
 		A128AA0B1F31E42700505390 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128AA0A1F31E42700505390 /* String.swift */; };
@@ -142,7 +142,7 @@
 		1788D0592763F2E200001237 /* SolarioWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarioWidget.swift; sourceTree = "<group>"; };
 		1788D05B2763F2E400001237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1788D05D2763F2E400001237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Solario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		282FFC058A11CF8F8AED57A3 /* libPods-Solario.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Solario.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E50256E77EC20F4EB7C4CA /* Pods-Solario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Solario.release.xcconfig"; path = "Target Support Files/Pods-Solario/Pods-Solario.release.xcconfig"; sourceTree = "<group>"; };
 		A10F366E23DE32AE00BDB920 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
 		A10F367023E4C3BC00BDB920 /* DependencyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyProvider.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BF80B69D56B2BFAD06BA2C9 /* Pods_Solario.framework in Frameworks */,
+				76AB8C86B0905ED239110548 /* libPods-Solario.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,9 +232,9 @@
 		07199D16174D035A3D084A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26E52C68FE58B8C492C6ED0F /* Pods_Solario.framework */,
 				1788D0542763F2E200001237 /* WidgetKit.framework */,
 				1788D0562763F2E200001237 /* SwiftUI.framework */,
+				282FFC058A11CF8F8AED57A3 /* libPods-Solario.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -517,7 +517,6 @@
 				A1E594BD1E6C1891008745B1 /* Sources */,
 				A1E594BE1E6C1891008745B1 /* Frameworks */,
 				A1E594BF1E6C1891008745B1 /* Resources */,
-				69F2C79BE3B218FB000102F4 /* [CP] Embed Pods Frameworks */,
 				1788D0612763F2E400001237 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -526,8 +525,6 @@
 				1788D05F2763F2E400001237 /* PBXTargetDependency */,
 			);
 			name = Solario;
-			packageProductDependencies = (
-			);
 			productName = Solario;
 			productReference = A1E594C11E6C1891008745B1 /* Solario.app */;
 			productType = "com.apple.product-type.application";
@@ -566,8 +563,6 @@
 				ru,
 			);
 			mainGroup = A1E594B81E6C1891008745B1;
-			packageReferences = (
-			);
 			productRefGroup = A1E594C21E6C1891008745B1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -622,23 +617,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69F2C79BE3B218FB000102F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Solario/Pods-Solario-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
