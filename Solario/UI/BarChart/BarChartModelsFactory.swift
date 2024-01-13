@@ -14,6 +14,10 @@ class BarChartModelsFactory: BarChartModelsFactoryProtocol {
 
     func models(with items: [DataItem], allowSeparator: Bool) -> [BarChartItemModel] {
 
+        guard items.count > 0 else {
+            return []
+        }
+
         var models: [BarChartItemModel] = []
         let dayFormatter = self.dayFormatter
         let hourFormatter = self.hourFormatter
