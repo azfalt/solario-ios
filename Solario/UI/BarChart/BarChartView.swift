@@ -69,7 +69,7 @@ struct BarChartView: View {
                         .font(timeFont)
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)
-                        .frame(width: 25, height: 8, alignment: .center)
+                        .frame(width: 25, height: 10, alignment: .center)
                 }
             }
         }
