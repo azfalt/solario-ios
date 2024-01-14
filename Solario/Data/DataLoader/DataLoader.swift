@@ -14,6 +14,8 @@ class DataLoader: DataLoaderProtocol {
 
     private var loadingURLs: Set<URL> = []
 
+    private let loadingURLsLock = NSLock()
+
     required init(rawStorage: RawDataStorageProtocol) {
         self.rawStorage = rawStorage
     }
@@ -38,10 +40,20 @@ class DataLoader: DataLoaderProtocol {
 
     // MARK: -
 
+    private func set(url: URL, loading: Bool) {
+        loadingURLsLock.lock()
+        if loading {
+            loadingURLs.insert(url)
+        } else {
+            loadingURLs.remove(url)
+        }
+        loadingURLsLock.unlock()
+    }
+
     private func load(report: ReportProtocol, completion: @escaping LoadCompletion) {
-        loadingURLs.insert(report.url)
+        set(url: report.url, loading: true)
         retrieveRawDataFile(url: report.url, completion: { [weak self] rawDataFile in
-            self?.loadingURLs.remove(report.url)
+            self?.set(url: report.url, loading: false)
             guard let file = rawDataFile else {
                 completion(false)
                 return

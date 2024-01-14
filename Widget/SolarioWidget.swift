@@ -119,13 +119,34 @@ struct SimpleEntry: TimelineEntry {
 }
 
 
+struct WidgetPadding: ViewModifier {
+
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if #available(iOS 17, *) {
+            content.padding(0)
+        } else {
+            content.padding()
+        }
+    }
+}
+
+
 struct WidgetEntryView : View {
 
     var entry: Provider.Entry
 
+    func widgetBackground() -> some View {
+        if #available(iOS 17.0, *) {
+            return AnyView(self.containerBackground(Color(.systemBackground), for: .widget))
+        } else {
+            return AnyView(self.background(Color(.systemBackground)))
+        }
+    }
+
     var body: some View {
         BarChartView(items: entry.items)
-            .padding()
+            .modifier(WidgetPadding())
     }
 }
 
@@ -138,6 +159,7 @@ struct SolarioWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             WidgetEntryView(entry: entry)
+                .widgetBackground()
         }
         .configurationDisplayName("_forecast".localized)
         .description("Kp-index")

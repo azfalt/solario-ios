@@ -38,10 +38,9 @@ struct AppDescrView: UIViewRepresentable {
     }
 
     func height(width: CGFloat) -> CGFloat {
-        let view = textView
-        view.frame = CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude)
-        view.sizeToFit()
-        return view.frame.height + 1
+        let fittingSize = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let requiredSize = textView.sizeThatFits(fittingSize)
+        return requiredSize.height
     }
 
     // MARK: - UIViewRepresentable

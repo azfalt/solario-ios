@@ -210,6 +210,7 @@ class CalendarViewController: UIViewController, DependencyProtocol {
         calendarView.dataSource = self
         calendarView.allowsMultipleSelection = false
         calendarView.register(CalendarDayCell.self, forCellReuseIdentifier: Self.calendarCellId)
+        calendarView.appearance.headerDateFormat = "LLLL yyyy"
         calendarView.appearance.headerTitleColor = .label
         calendarView.appearance.weekdayTextColor = .label
         calendarView.appearance.headerTitleFont = .preferredFont(forTextStyle: .body)
@@ -437,9 +438,14 @@ extension CalendarViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DataItemTableViewCell.self), for: indexPath) as! DataItemTableViewCell
-        if let items = itemsForSelectedDay() {
+        if 
+            let items = itemsForSelectedDay(),
+            indexPath.row < items.count
+        {
             let item = items[indexPath.row]
             cell.configure(item: item)
+        } else {
+            cell.configure(item: nil)
         }
         return cell
     }
